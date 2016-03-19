@@ -1,0 +1,31 @@
+application:
+  name: "Site name"
+  short_name: "Site name"
+  # create one with SecureRandom.hex(64)
+  secret_key: ""
+  url:
+    host: ""
+    port: 443
+    protocol: "https"
+
+mail:
+  from: ''
+  delivery_method: :smtp
+  smtp_settings:
+    address: ""
+    user_name: ""
+    password: ""
+    domain: ""
+    authentication: ""
+
+exception_notification:
+  email_prefix: ""
+  sender_address: ""
+  exception_recipients: ""
+
+mapview:
+  default_latitude:
+  default_longitude:
+  mapbox:
+    project_id:
+    key:

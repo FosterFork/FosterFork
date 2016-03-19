@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module KampanYolo
+module FosterFork
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -16,9 +16,19 @@ module KampanYolo
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    config.time_zone = "UTC"
+
+    # See https://github.com/rails/rails/issues/13164
+    # i18n.rb:284:in `enforce_available_locales!': :en is not a valid locale (I18n::InvalidLocale)
+    config.i18n.enforce_available_locales = false
+
+    if Settings.locales&.any?
+      config.i18n.available_locales = I18n.available_locales & Settings.locales.map(&:to_sym) rescue []
+    end
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    #config.i18n.default_locale = config.i18n.available_locales.first
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

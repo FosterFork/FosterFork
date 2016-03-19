@@ -1,0 +1,17 @@
+locales: [ 'de', 'en' ]
+
+application:
+  name: Test
+
+mail:
+  from: test@test.fake
+
+tracking:
+
+mapview:
+  default_latitude: 0
+  default_longitude: 0
+
+  mapbox:
+    project_id: 0
+    key: 0

@@ -1,0 +1,32 @@
+!!!DOCTYPE html
+%html
+  %head
+    %title= html_title
+    =stylesheet_link_tag "application", media: "all", "data-turbolinks-track": true
+
+    -if Settings.application.theme
+      =stylesheet_link_tag "themes/#{Settings.application.theme}", media: "all", "data-turbolinks-track": true
+
+    =javascript_include_tag "application", "data-turbolinks-track": true
+    =csrf_meta_tags
+
+    =render 'shared/tracking/google_analytics'
+    =render 'shared/tracking/piwik'
+
+  %body{class: "#{controller_name} #{action_name}"}
+    -if flash.any?
+      .container
+        .flash
+          -flash.each do |msg_type, message|
+            %div{ class: "alert #{bootstrap_class_for(msg_type)} fade in", role: "alert" }
+              %button.close{ data: { dismiss: 'alert' }} ×
+              =message
+
+    =render 'shared/header'
+
+    -unless user_signed_in?
+      =render 'shared/signin_modal'
+
+    =yield
+
+  =render 'shared/footer'

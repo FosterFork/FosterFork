@@ -1,0 +1,32 @@
+#signInModal.modal.fade{ "aria-labelledby": "signInModalLabel", role: "dialog", tabindex: "-1" }
+  .modal-dialog{ role: "document" }
+    .modal-content
+      .modal-header
+        %button.close{ "aria-label": t('cancel'), "data-dismiss": "modal", type: "button" }
+          %span{ "aria-hidden": "true" } ×
+        %h4#signInModalLabel.modal-title
+          =t('devise.sessions.new.sign_in')
+
+        = simple_form_for :user, { url: session_path(:user) } do |f|
+          .modal-body
+            .form-group
+              =f.input :email, hint: ''
+              =f.input :password, hint: ''
+              =f.input :remember_me, :as => :boolean, wrapper: :checkbox
+
+            .form-group
+              = link_to t('devise.passwords.new.forgot_your_password'), new_password_path(:user), class: "btn btn-default", role: 'button'
+
+            .form-group
+              %hr
+              %p= t('new_user_account_text')
+              =link_to t('devise.registrations.new.sign_up'), new_user_registration_path, class: "btn btn-default", role: 'button'
+
+            .form-group
+              =render 'devise/shared/oauth_providers'
+
+          .modal-footer
+            %button.btn.btn-default.pull-left{ "data-dismiss": "modal", type: "button" }
+              =t('cancel')
+
+            =f.submit t('devise.sessions.new.sign_in'), class: "btn btn-primary"

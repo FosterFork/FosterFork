@@ -1,0 +1,150 @@
+.container
+  .row
+    .col-md-3
+      .tabpanel
+        %ul.nav.nav-pills.nav-stacked{ role: "tablist" }
+          %li{ role: "presentation", class: "active" }
+            %a{ href: '#overview', "aria-controls": "overview", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-check.fa-fw
+              =t('project.overview')
+
+          %li{ role: "presentation" }
+            %a{ href: '#settings', "aria-controls": "settings", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-cog.fa-fw
+              =t('project.settings_and_texts')
+
+          %li{ role: "presentation" }
+            %a{ href: '#messages', "aria-controls": "messages", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-envelope-o.fa-fw
+              =t('project.messages')
+              %span.badge.pull-right
+                =@project.messages.length
+
+          -if @project.participations.any?
+            %li{ role: "presentation" }
+              %a{ href: '#participants', "aria-controls": "participants", role: "tab", "data-toggle": "tab" }
+                %i.fa.fa-users.fa-fw
+                =t('project.participants')
+                %span.badge.pull-right
+                  =@project.participations.length
+
+          %li{ role: "presentation" }
+            %a{ href: '#delete', "aria-controls": "delete", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-trash.fa-fw
+              =t('project.delete')
+
+        %hr
+        .container
+          =link_to @project, { class: "btn btn-default", role: 'button' } do
+            %i.fa.fa-hand-o-left
+            =t('project.back_to_project')
+
+    .col-md-8
+      .tab-content
+        .tab-pane.active{ role: "tabpanel", id: "overview" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('project.edit')
+
+            .panel-body
+              %p
+                -if @project.public
+                  %i.fa.fa-check.fa-fw
+                  =t('project.public')
+                -else
+                  %i.fa.fa-lock.fa-fw
+                  =t('project.secret')
+
+              %p
+                -if @project.participation_wanted
+                  %i.fa.fa-check.fa-fw
+                  =t('project.participation_wanted')
+                -else
+                  %i.fa.fa-minus.fa-fw
+                  =t('project.participation_not_wanted')
+
+              -if not @project.public
+                %p= t('project.link_to_secret')
+                .well
+                  %code= project_url(@project, secret: @project.secret)
+
+                %p= t('project.new_secret_text')
+                =button_to project_new_secret_path(@project), method: :post, data: { confirm: t('are_you_sure') }, class: "btn btn-warning btn-sm" do
+                  %i.fa.fa-lock.fa-fw
+                  =t('project.new_secret')
+
+        .tab-pane{ role: "tabpanel", id: "settings" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('project.settings_and_texts')
+
+            =simple_form_for @project do |f|
+              .panel-body
+                .form-group
+                  =render 'form', f: f
+
+              .panel-footer
+                .form-actions.clearfix
+                  =f.submit t('save'), class: "btn btn-primary"
+
+        .tab-pane{ role: "tabpanel", id: "messages" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('message.new')
+            =simple_form_for [ @project, Message.new ] do |f|
+              .panel-body
+                =f.input :title
+                =f.input :content, input_html: { rows: 15 }
+                -if @project.participations.any?
+                  %p= t('message.create_text', count: @project.participations.length)
+
+              .panel-footer
+                =f.submit t('message.create'), class: "btn btn-primary"
+
+          -@project.messages.each do |bp|
+            .panel.panel-default
+              .panel-heading
+                .pull-right
+                  =button_to [@project, bp], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
+                    %i.fa.fa-trash.fa-fw
+                %h3.panel-title= bp.title
+
+              .panel-body
+                %p= bp.content
+
+        -if @project.participations.any?
+          .tab-pane{ role: "tabpanel", id: "participants" }
+            .panel.panel-default
+              .panel-heading
+                %h3.panel-title= t('project.participants')
+              .panel-body
+                -if @project.participations.any?
+                  %table.table.table-striped
+                    %tr
+                      %th= t('project.participant_name')
+                      %th= t('project.participating_since')
+                      %th= t('project.actions')
+
+                    -@project.participations.each do |p|
+                      %tr
+                        %td
+                          %i.fa.fa-user.fa-fw
+                          =p.user.name
+                        %td
+                          =l p.created_at, format: :short
+                        %td
+                          =button_to [@project, p], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
+                            %i.fa.fa-trash.fa-fw
+                            =t('project.remove_participation')
+
+        .tab-pane{ role: "tabpanel", id: "delete" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('project.delete')
+
+            .panel-body
+              %p= t('project.delete_text')
+              =button_to @project, method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-danger" do
+                %i.fa.fa-trash.fa-fw
+                =t('project.delete')
+

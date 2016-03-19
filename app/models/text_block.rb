@@ -1,0 +1,22 @@
+class TextBlock < ActiveRecord::Base
+
+  validates_presence_of :name
+  validates_presence_of :locale
+  validates :name, format: { :with => /\A[a-z0-9_\-]+\z/ }
+
+  def self.block_for(name, locale = I18n.locale)
+    search = [ locale, nil, '', 'de', 'en' ].uniq
+    r = TextBlock.where(name: name, public: true, locale: search)
+                 .order("updated_at DESC").first
+    return r if r
+
+    # Provide a dummy TextBlock if the lookup failed, so we can rely on
+    # getting something useful back from this method.
+
+    TextBlock.new({ name: name,
+                    locale: locale,
+                    public: true,
+                    title: "Dummy title for '#{name}'",
+                    body: "Dummy body for '#{name}'" })
+  end
+end

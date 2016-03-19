@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
-  # your application in memory, allowing both threaded web servers
+  # your application in messagery, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
@@ -23,6 +23,8 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
+  config.assets.precompile += ['active_admin.css']
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -76,4 +78,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActionMailer::Base.smtp_settings = Settings.mail.smtp_settings unless Settings.mail.smtp_settings.nil?
+  ActionMailer::Base.delivery_method = Settings.mail.delivery_method unless Settings.mail.delivery_method.nil?
+
+  if Settings.exception_notification
+    Rails.application.config.middleware.use ExceptionNotification::Rack, Settings.exception_notification
+  end
 end

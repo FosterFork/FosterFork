@@ -1,0 +1,6 @@
+-if available_omniauth_providers.any?
+  %p= t('authenticate_with_oauth')
+  .oauth-logos
+    - available_omniauth_providers.each do |name, settings|
+      =link_to user_omniauth_authorize_path(settings[:provider]) do
+        %i{ class: "fa fa-5x fa-#{settings[:fa_icon]} fa-fw oauth-provider-logo" }

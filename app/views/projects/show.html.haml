@@ -1,0 +1,111 @@
+.container.main
+
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-body
+          %h2= @project.title
+
+          .row
+            .col-md-4
+              .project-detail
+                %p
+                  %i.fa.fa-user.fa-fw
+                  =@project.owner.name
+                %p
+                  %i.fa.fa-pencil.fa-fw
+                  =l @project.last_update
+
+            .col-md-4
+              .project-detail
+                %p
+                  %i.fa.fa-calendar.fa-fw
+                  =l @project.closest_date
+
+                -if @project.recurrence&.to_sym != :none
+                  %p
+                    %i.fa.fa-refresh.fa-fw
+                    =t(@project.recurrence, scope: 'recurrence_types')
+
+            -if @project.participations.any?
+              .col-md-4
+                .project-detail
+                  %i.fa.fa-heart.fa-fw
+                  =@project.participations.length
+                  =t('project.participants')
+
+  .row
+    .col-md-9
+      .panel.panel-default
+        .panel-heading
+          %i.fa.fa-map-o
+          =t('map')
+        .panel-body.map
+          #map
+
+      .panel.panel-default
+        .panel-heading
+          =t('simple_form.labels.project.abstract')
+        .panel-body
+          %p
+            =@project.abstract
+
+      .panel.panel-default
+        .panel-heading
+          =t('simple_form.labels.project.description')
+        .panel-body
+          =layout_render_markdown(@project.description).html_safe
+
+    .col-md-3
+      #leftColumn
+
+        =render 'shared/share_panel'
+
+        -if @project.participation_wanted and @project.owner != current_user
+          .panel.panel-default
+            .panel-body
+              -if current_user
+                -if @current_user_participation
+                  %p= t('participation.leave_text')
+                  =button_to [@project, @current_user_participation], method: :delete, class: "btn btn-default" do
+                    %i.fa.fa-ban
+                    =t('participation.leave')
+                -else
+                  %p= t('participation.join_text')
+                  =button_to [@project, Participation.new, secret: params[:secret]], method: :post, class: "btn btn-success" do
+                    %i.fa.fa-heart
+                    =t('participation.join')
+              -else
+                %p= t('participation.join_text')
+                %button.btn.btn-success.navbar-btn{ "data-toggle": "modal", "data-target": "#signInModal", type: "button" }
+                  %i.fa.fa-sign-in
+                  =t('devise.sessions.new.sign_in')
+
+        -if @project.owner != current_user
+          .panel.panel-default
+            .panel-body
+              %p= t('abuse_report.report_text')
+              =link_to new_project_abuse_report_path(@project), { class: "btn btn-warning", role: 'button' } do
+                %i.fa.fa-exclamation-circle
+                =t('abuse_report.report')
+
+        -else
+          .panel.panel-default
+            .panel-heading
+              %i.fa.fa-fw.fa-exclamation-circle
+              =t('administration')
+            .panel-body
+              %p= t('project.admin_text')
+              =link_to edit_project_path(@project), { class: "btn btn-warning", role: 'button' } do
+                %i.fa.fa-pencil-square-o
+                =t('project.edit')
+
+  .row
+    .col-md-9
+      =render @project.messages
+
+:javascript
+  var mapview = L.map('map').setView([#{CGI.escape @project.latitude.to_s}, #{CGI.escape @project.longitude.to_s}], 15);
+  createMapLayer('#{Settings.mapview.mapbox.project_id}', '#{Settings.mapview.mapbox.key}').addTo(mapview);
+
+  L.marker([ "#{CGI.escape @project.latitude.to_s}", "#{CGI.escape @project.longitude.to_s}" ]).addTo(mapview)

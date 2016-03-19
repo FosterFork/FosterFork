@@ -1,23 +1,203 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  cancel: "Cancel"
+  close: "Close"
+  save: "Save"
+  go_to_map: "Go to map"
+  go_to_project: "Go to project"
+  map: "Map"
+  learn_more: "Learn more"
+  show_on_map: "Show on map"
+  terms_of_service: "terms of service"
+  new_user_account_text: >
+    If you don't have a user account yet, you may create one by clicking on the button below.
+  authenticate_with_oauth: >
+    You may as well sign in using one of the following services in case you have an account there.
+    Simply click on the individual logo, we'll redirect you.
+  results_found: "Found %{count} projects matching your query of '%{q}'."
+  show_all: "Show all"
+  are_you_sure: "Are you sure?"
+  administration: "Administration"
+
+  nav:
+    search: "Search"
+    projects: "Projects"
+    profile: "Profile and Settings"
+    sign_out: "Sign out"
+    go: "Go!"
+
+  footer:
+    information: "Information"
+    about: "About this site"
+    contact: "Contact us"
+    follow_us: "Follow us"
+    legal: "Legal information"
+    imprint: "Imprint"
+    terms: "Terms of service"
+
+  profile:
+    settings: "Settings"
+    password: "Password"
+    participations: "Participations"
+    delete_account_text: >
+      Here you may delete your account. This will wipe all information from our database, including all projects
+      and messages you created. This operation cannot be undone.
+    oauth_text: "This account is authenticated through %{provider}."
+
+  participation:
+    join: "Participate!"
+    joined: "You are now participating this project!"
+    leave: "Leave this project"
+    left: "You left this project and will no longer reveive updates about it."
+    join_text: >
+      This project is looking for participants! By clicking on the green button below, you may join the project and stay
+      informed about future updates via email. You can of course leave the project at any time.
+    leave_text: >
+      You are currently participating in this project. In case you want to change that, you can do so here.
+
+  share:
+    title: "Share"
+    facebook: "share on Facebook"
+    twitter: "share on Twitter"
+    google-plus: "share on Google+"
+    xing: "share on XING"
+    linkedin: "share on LinkedIn"
+    mail: "send via email"
+
+  will_paginate:
+    previous_label: "« previous"
+    next_label: "next »"
+
+  abuse_report:
+    report: "Submit an abuse report"
+    report_text: >
+      If you are concerned about this project or reckon a case of abuse, please let us know.
+      The administrators of this platform will have a look soon.
+    thank_you: "Thank you for submitting your abuse report. We'll have a look."
+
+  project:
+    not_found: "The project you were looking for does not exist."
+    add: "Add new project"
+    name: "Project name"
+    edit: "Edit project"
+    admin_text: >
+      You are the initiator of this project. On the admin page, you can change details of your project
+      and reach out to its participants via email.
+
+    overview: "Overview"
+    settings_and_texts: "Settings and texts"
+    participants: "Participants"
+    messages: "Messages"
+
+    participant_name: "Name"
+    participating_since: "Participating since"
+    actions: "Actions"
+    remove_participation: "remove"
+
+    participation_wanted: "Participation function is enabled"
+    participation_not_wanted: "Participation function is disabled"
+    public: "This project is public"
+    secret: "This project is secret"
+    new_secret_text: >
+      Here you have the posibility to change the secret access key which is necessary to invite other people to this project.
+      Please note that the current link will be invalid.
+    new_secret: "Generate new key"
+    new_secret_generated: "A new secret has been generated for this project."
+
+    delete: "Delete project"
+    delete_text: >
+      If you want to delete your project, you may do so here. This action can not be undone, and will remove all
+      data concerning this project from the database.
+    deleted: "Project has been deleted."
+
+    link_to_secret: "The link to invite people personally to this secret project is below:"
+    back_to_project: "Back to project"
+
+  message:
+    new: "Write new message"
+    create_text: "By creating this message, %{count} participants will be notfied about it."
+    create: "Create"
+    created: "Message has been created, mails will be sent out momentarily."
+    deleted: "Message has been deleted"
+
+  recurrence_types:
+    none: "None"
+    daily: "Daily"
+    weekly: "Weekly"
+    biweekly: "Bi-weekly"
+    monthly: "Monthly"
+
+  datetime:
+    formats:
+      ruby: "%Y-%m-%d %H:%M"
+      js: "yyyy-mm-dd hh:ii"
+
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+
+    labels:
+      project:
+        participation_wanted: "Activate participation function"
+        abstract: "Abstract"
+        description: "Description"
+
+      message:
+        title: "Title"
+        content: "Text"
+
+    hints:
+      user:
+        name: "Your name, as it will be shown on the website if you start your own project."
+        email: >
+          The email address is mandatory for logging in and for other people to contact you.
+          It will never be given out to other users of the platform in the clear.
+        phone: "If you give us your phone number, we can reach out to you in case of questions."
+        zip: "The zip code of your home address. This information allows us to inform you about projects near you."
+        country: "The country you live in."
+        current_password: "Your current password"
+        password: >
+          The password has to be at least 8 characters long. For security reasons,
+          it should contain letters, digits and special characters.
+        password_confirmation: "The same password again, just in case of typos."
+        newsletter: "Do you want to subscribe to the newsletter? This setting can be changed at any time."
+        terms: "Check this box to state you have read and accepted the %{url}."
+
+      project:
+        title: "A headline for your project, should be short and catchy."
+        abstract: "Some more words about your project. We will show this text as a teaser in overview pages. Keep this within 400 words."
+        description: "A comprehensive description about the project. Can be as long as you want and may contain %{markdown} formatting syntax."
+        date: >
+          The date when the project takes place. For recurring events, chose the first date the event takes place.
+          Leave empty if not applicable.
+        recurrence: "Is this a recurring event?"
+        address: >
+          An address where the project is about to take place. We'll use that to determine the location of the map marker.
+          It will also be shown on the project page."
+        public: "Check this box in order to make this project publicly exposed."
+        participation_wanted: "Do you want to enable the participation feature for this project?"
+
+      abuse_report:
+        reason: "Is there anything specific you wanna point us to? (Optional information)"
+
+    placeholders:
+      user:
+        email: "Enter your E-mail"
+        password: "Enter your password"
+
+  mailer:
+    message:
+      subject: "new message about '%{project_title}': %{message_title}"
+      hello: "Hello"
+      intro: >
+        There is a new message about the project %{project} which you are participating in on %{platform}.
+
+      author_writes: "%{author} writes:"
+
+      visit_project_text: "If you want to know more about the current state of this project, please click here."
+      visit_project: "Visit project page"
+
+      leave_project_text: "You don't want to participate in this project any more? Then please click here."
+      leave_project: "Leave project"

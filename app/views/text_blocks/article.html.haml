@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title= @title
+
+        .panel-body
+          =@content.html_safe

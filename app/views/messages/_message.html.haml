@@ -1,0 +1,16 @@
+%a{ name: "message-#{message.id}"}
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title
+      %i.fa.fa-envelope-o
+      = message.title
+
+  %ul.list-group
+    %li.list-group-item
+      = message.content
+
+    %li.list-group-item
+      %span.small
+        =message.user.name
+        ,
+        =l message.created_at, format: :short

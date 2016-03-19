@@ -1,0 +1,37 @@
+%footer.footer
+  .container
+    .row
+      .col-md-4
+        %h6= t('footer.information')
+        %ul
+          %li
+            %i.fa.fa-fw.fa-info
+            =link_to t('footer.about'), about_path
+          %li
+            %i.fa.fa-fw.fa-envelope-o
+            =link_to t('footer.contact'), contact_path
+
+      .col-md-4
+        %h6= t('footer.legal')
+        %ul
+          %li
+            =link_to t('footer.imprint'), imprint_path
+          %li
+            =link_to t('footer.terms'), terms_path
+
+      .col-md-4
+        %h6= t('footer.follow_us')
+        %ul
+          -Settings.social_media&.each do |sm|
+            %li
+              %i{ class: "fa fa-fw #{sm[:fa_icon]} social-media-icon" }
+              =link_to sm[:url] do
+                %span= sm[:text]
+
+    .row.fosterfork
+      .col-md-12
+        .center
+          %p.small
+            A
+            %a{ href: "https://github.com/FosterFork/FosterFork"} FosterFork
+            website

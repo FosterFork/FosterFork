@@ -1,0 +1,19 @@
+.container.main
+
+  -if current_user.projects.any?
+    .row
+      .col-md-12
+        %h2 own projects
+
+    .row
+      .col-md-12
+        =render current_user.projects
+
+  -if current_user.participating_projects.any?
+    .row
+      .col-md-12
+        %h2 participating projects
+
+    .row
+      .col-md-12
+        =render current_user.participating_projects

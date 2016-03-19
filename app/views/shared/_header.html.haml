@@ -1,0 +1,62 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      =link_to Settings.application.name, root_path, { class: "navbar-brand" }
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          =link_to map_path do
+            %i.fa.fa-map-o
+
+        = form_tag(projects_path, method: :get, role: "search", class: "navbar-form navbar-left") do
+          .form-group
+            %input.form-control{ name: 'q', type: "text", placeholder: t('nav.search') + ' …' }
+            %button.btn.btn-default{ type: "submit" }
+              =t('nav.go')
+
+      %ul.nav.navbar-nav.navbar-right
+
+        -if user_signed_in?
+          %li
+            =button_to t('project.add'), new_project_path, method: :get, class: "btn btn-success navbar-btn", type: "button"
+
+          %li.dropdown
+            %a.dropdown-toggle{ "aria-expanded": "false", "aria-haspopup": "true", "role": "button", "data-toggle": "dropdown", href: "#" }
+              %i.fa.fa-user{ "aria-hidden": "true" }
+              =current_user.name
+              %span.caret
+            %ul.dropdown-menu
+              - if current_user.is_admin?
+                %li
+                  =link_to admin_root_path do
+                    %i.fa.fa-fw.fa-exclamation-circle
+                    Admin interface
+
+                %li.divider{ role: "separator" }
+
+              %li
+                =link_to profile_projects_path do
+                  %i.fa.fa-fw.fa-file-text-o
+                  =t('nav.projects')
+                =link_to new_project_path do
+                  %i.fa.fa-fw.fa-plus
+                  =t('project.add')
+
+              %li.divider{ role: "separator" }
+              %li
+                =link_to edit_user_registration_path do
+                  %i.fa.fa-fw.fa-cog
+                  =t('nav.profile')
+                =link_to destroy_user_session_path, method: :delete do
+                  %i.fa.fa-fw.fa-sign-out
+                  =t('nav.sign_out')
+        -else
+          %li
+            %button.btn.btn-success.navbar-btn{ "data-toggle": "modal", "data-target": "#signInModal", type: "button" }
+              %i.fa.fa-plus
+              =t('project.add')
+
+          %li
+            =link_to "#", { "data-toggle": "modal", "data-target": "#signInModal" } do
+              %i.fa.fa-sign-in{ "aria-hidden": "true" }
+              =t('devise.sessions.new.sign_in')

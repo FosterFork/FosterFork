@@ -1,0 +1,54 @@
+.row
+  .col-md-12
+    %h4
+      =@project.title
+.row
+  .col-md-1
+    .project-detail
+      %i.fa.fa-fw.fa-user
+  .col-md-10
+    =@project.owner.name
+
+.row
+  .col-md-1
+    .project-detail
+      %i.fa.fa-fw.fa-calendar
+  .col-md-10
+    =l @project.closest_date, format: :short
+
+-if @project.recurrence and @project.recurrence.to_sym != :none
+  .row
+    .col-md-1
+      .project-detail
+        %i.fa.fa-refresh.fa-fw
+    .col-md-10
+      =t(@project.recurrence, scope: 'recurrence_types')
+
+-if @project.participation_wanted
+  .row
+    .col-md-1
+      .project-detail
+        %i.fa.fa-fw.fa-heart
+    .col-md-10
+      =@project.participations.count
+      =t('participants')
+
+.row
+  .col-md-1
+    .project-detail
+      %i.fa.fa-fw.fa-map-marker
+  .col-md-10
+    =@project.address
+    %br
+    =@project.zip
+    =@project.city
+
+.row
+  .col-md-12
+    %p
+      =@project.abstract
+
+.row
+  .col-md-12
+    .right
+      =link_to t('learn_more'), @project, { class: "btn btn-default", role: 'button' }

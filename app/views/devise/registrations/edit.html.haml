@@ -1,0 +1,113 @@
+.container
+  .row
+    .col-md-3
+      .tabpanel
+        %ul.nav.nav-pills.nav-stacked{ role: "tablist" }
+          %li{ role: "presentation", class: "#{@selected_tab == :settings ? "active" : ""}" }
+            %a{ href: '#settings', "aria-controls": "settings", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-cog.fa-fw
+              =t('profile.settings')
+
+          -if resource.provider.blank?
+            %li{ role: "presentation", class: "#{@selected_tab == :password ? "active" : ""}" }
+              %a{ href: '#password', "aria-controls": "password", role: "tab", "data-toggle": "tab" }
+                %i.fa.fa-lock.fa-fw
+                =t('profile.password')
+
+          -if current_user.participations.any?
+            %li{ role: "presentation" }
+              %a{ href: '#participations', "aria-controls": "participations", role: "tab", "data-toggle": "tab" }
+                %i.fa.fa-heart.fa-fw
+                =t('profile.participations')
+                %span.badge.pull-right
+                  =current_user.participations.length
+
+          %li{ role: "presentation", class: "#{@selected_tab == :delete ? "active" : ""}" }
+            %a{ href: '#delete', "aria-controls": "delete", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-trash.fa-fw
+              =t('devise.registrations.edit.cancel_my_account')
+
+    .col-md-8
+      .tab-content
+        .tab-pane{ role: "tabpanel", id: "settings", class: "#{@selected_tab == :settings ? "active" : ""}" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('profile.settings')
+
+            =simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+              .panel-body
+                .form-group
+                  =f.input :name
+                  =f.input :email
+                  =f.input :phone
+                  .row
+                    .col-md-6
+                      =f.input :zip
+                    .col-md-6
+                      =f.input :country, as: :select, collection: selectable_countries
+
+                .form-group
+                  =f.input :newsletter, as: :boolean, :wrapper => :checkbox
+
+              .panel-footer
+                .form-actions.clearfix
+                  =f.submit t('save'), class: "btn btn-primary"
+
+        -if resource.provider.blank?
+          .tab-pane{ role: "tabpanel", id: "password", class: "#{@selected_tab == :password ? "active" : ""}" }
+            .panel.panel-default
+              .panel-heading
+                %h3.panel-title= t('profile.password')
+
+              =simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+                .panel-body
+                  .form-group
+                    =f.input :current_password
+                    =f.input :password, placeholder: ''
+                    =f.input :password_confirmation
+
+                .panel-footer
+                  .form-actions.clearfix
+                    =f.submit t('save'), class: "btn btn-primary"
+
+        -if current_user.participations.any?
+          .tab-pane{ role: "tabpanel", id: "participations" }
+            .panel.panel-default
+              .panel-heading
+                %h3.panel-title= t('profile.participations')
+              .panel-body
+                %table.table.table-striped
+                  %tr
+                    %th= t('project.name')
+                    %th= t('project.participating_since')
+
+                  -current_user.participations.each do |p|
+                    %tr
+                      %td
+                        %i.fa.fa-user.fa-fw
+                        =link_to p.project.title, p.project
+                      %td
+                        =l p.created_at, format: :short
+
+        .tab-pane{ role: "tabpanel", id: "delete", class: "#{@selected_tab == :delete ? "active" : ""}" }
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title= t('devise.registrations.edit.cancel_my_account')
+            .panel-body
+              %p= t('profile.delete_account_text')
+              =simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :delete }) do |f|
+                -if resource.provider.blank?
+                  .form-group
+                    =f.input :current_password
+
+                .form-actions
+                  =f.submit t('devise.registrations.edit.cancel_my_account'), class: "btn btn-primary btn-danger"
+
+      -if resource.provider
+        .well
+          .row
+            .col-md-1
+              %i{class: "fa fa-4x fa-#{get_omniauth_setting_for(resource.provider, :fa_icon)}"}
+            .col-md-11
+              %p= t('profile.oauth_text', provider: get_omniauth_setting_for(resource.provider, :pretty_name))
+

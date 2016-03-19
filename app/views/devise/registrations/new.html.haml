@@ -1,0 +1,39 @@
+.container
+  .row
+    .col-md-3
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title= t('devise.registrations.new.sign_up')
+        =simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+          .panel-body
+            .form-group
+              =f.input :name
+              =f.input :email, placeholder: ''
+              =f.input :phone
+
+              .row
+                .col-md-6
+                  =f.input :zip
+                .col-md-6
+                  =f.input :country, as: :select, collection: selectable_countries
+
+            -if resource.password_required?
+              .form-group
+                .row
+                  .col-md-6
+                    =f.input :password, placeholder: ''
+                  .col-md-6
+                    =f.input :password_confirmation
+            .form-group
+              =f.input :newsletter, as: :boolean, wrapper: :checkbox
+              =f.input :terms, as: :boolean, wrapper: :checkbox,
+                       hint: t('simple_form.hints.user.terms', url: link_to(t('terms_of_service'), terms_path)).html_safe
+
+            -if Settings.recaptcha
+              .form-group
+                =recaptcha_tags Settings.recaptcha.tag_options || {}
+
+          .panel-footer
+            .form-actions.clearfix
+              =f.submit t('devise.registrations.new.sign_up'), class: "btn btn-primary"
