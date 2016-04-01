@@ -120,6 +120,10 @@ de:
     created: "Nachricht wurde angelegt, Emails werden in Kürze verschickt."
     deleted: "Nachricht wurde gelöscht."
 
+  comment:
+    create: "Kommentieren"
+    created: "Kommentar wurde erstellt"
+
   recurrence_types:
     none: "Keine"
     daily: "Täglich"
@@ -159,6 +163,10 @@ de:
       message:
         title: "Titelzeile"
         content: "Text"
+        comments_allowed: "Kommentare zulassen?"
+
+      comment:
+        content: "Ihr Kommentar"
 
     hints:
       user:
@@ -193,6 +201,9 @@ de:
 
       abuse_report:
         reason: "Gibt es etwas Spezielles, auf das Sie uns hinweisen möchten? (Optionale Angabe)"
+
+      message:
+        comments_allowed: "Wollen Sie Kommentare auf diese Nachricht zulassen?"
 
     placeholders:
       user:

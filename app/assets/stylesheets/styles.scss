@@ -168,3 +168,12 @@ body.text_blocks {
     }
   }
 }
+
+.comment-container {
+  padding-left: 50px;
+
+  &.new-comment {
+    height: 0px;
+    visibility: hidden;
+  }
+}

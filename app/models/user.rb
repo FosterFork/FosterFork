@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :opened_abuse_reports, class_name: :AbuseReport, foreign_key: :reporter_id
   has_many :resolved_abuse_reports, class_name: :AbuseReport, foreign_key: :resolver_id
   has_many :messages, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attr_accessor :current_password
   attr_accessor :terms

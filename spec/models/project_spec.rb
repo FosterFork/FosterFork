@@ -135,19 +135,19 @@ RSpec.describe Project, type: :model do
     expect(p.last_update).to eq(p.updated_at)
 
     ma = FactoryGirl.create(:message)
-    ma.created_at = Time.now + 1.hour
+    ma.updated_at = Time.now + 1.hour
 
     mb = FactoryGirl.create(:message)
-    mb.created_at = Time.now + 2.hours
+    mb.updated_at = Time.now + 2.hours
 
     mc = FactoryGirl.create(:message)
-    mc.created_at = Time.now + 3.hours
+    mc.updated_at = Time.now + 3.hours
 
     p.messages << ma
     p.messages << mb
     p.messages << mc
 
-    expect(p.last_update).to eq(mc.created_at)
+    expect(p.last_update).to eq(mc.updated_at)
   end
 
   it "can create a new secret" do

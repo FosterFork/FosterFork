@@ -1,16 +1,23 @@
-%a{ name: "message-#{message.id}"}
-.panel.panel-info
-  .panel-heading
-    %h3.panel-title
-      %i.fa.fa-envelope-o
-      = message.title
+.message-container
+  %a{ name: "message-#{message.id}"}
+  .panel.panel-info
+    .panel-heading
+      %h3.panel-title
+        %i.fa.fa-envelope-o
+        = message.title
 
-  %ul.list-group
-    %li.list-group-item
-      = message.content
+    %ul.list-group
+      %li.list-group-item
+        = message.content
 
-    %li.list-group-item
-      %span.small
-        =message.user.name
-        ,
-        =l message.created_at, format: :short
+      %li.list-group-item
+        %span.small
+          ="#{message.user.name}, #{l(message.created_at, format: :short)}"
+        .pull-right
+          =button_to t('comment.create'), "#", method: :get, class: "btn btn-default btn-xs new-comment-button", type: "button", data: { message_id: message.id }
+
+  -if message.can_be_comment_on_by? current_user
+    =render 'comments/new', message: message
+
+  -if message.comments_allowed?
+    =render message.comments

@@ -68,7 +68,7 @@ class Project < ActiveRecord::Base
 
   def last_update
     l = [ self.updated_at ]
-    l.concat(self.messages.map(&:created_at))
+    l.concat(self.messages.map(&:updated_at))
     l.sort { |a,b| a.to_i <=> b.to_i }.last
   end
 

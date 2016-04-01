@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326130121) do
+ActiveRecord::Schema.define(version: 20160401075512) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -37,13 +37,25 @@ ActiveRecord::Schema.define(version: 20160326130121) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["message_id"], name: "index_comments_on_message_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "messages", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "comments_allowed", default: true, null: false
   end
 
   add_index "messages", ["project_id"], name: "index_messages_on_project_id"
@@ -52,10 +64,9 @@ ActiveRecord::Schema.define(version: 20160326130121) do
   create_table "participations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "email",      default: true, null: false
     t.string   "secret"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "participations", ["project_id"], name: "index_participations_on_project_id"

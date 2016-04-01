@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
   end
 
   def permitted_params
-    params[:message].permit([ :title, :content ])
+    params[:message].permit([ :title, :content, :comments_allowed ])
   end
 
 end

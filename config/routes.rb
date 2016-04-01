@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :abuse_reports,  only: [ :create, :new ]
-    resources :messages,       only: [ :create, :destroy ]
+    resources :messages,       only: [ :create, :destroy ] do
+      resources :comments,     only: [ :create, :destroy ]
+    end
+
     resources :participations, only: [ :create, :destroy ] do
       get :leave
     end

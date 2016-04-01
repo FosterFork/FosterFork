@@ -1,0 +1,13 @@
+%div{ class: "comment-container new-comment", id: "message_comment_#{message.id}" }
+  .panel.panel-success
+    .panel-heading
+      %h3.panel-title
+        %i.fa.fa-comment-o
+        = current_user.name
+
+    =simple_form_for [ message.project, message, Comment.new ] do |f|
+      .panel-body
+        =f.input :content, input_html: { rows: 3 }
+
+      .panel-footer
+        =f.submit t('comment.create'), class: "btn btn-primary"

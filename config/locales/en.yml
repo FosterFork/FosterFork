@@ -119,6 +119,10 @@ en:
     created: "Message has been created, mails will be sent out momentarily."
     deleted: "Message has been deleted"
 
+  comment:
+    create: "Comment"
+    created: "Comment was added"
+
   recurrence_types:
     none: "None"
     daily: "Daily"
@@ -147,6 +151,10 @@ en:
       message:
         title: "Title"
         content: "Text"
+        comments_allowed: "Allow comments?"
+
+      comment:
+        content: "Your comment"
 
     hints:
       user:
@@ -181,6 +189,9 @@ en:
 
       abuse_report:
         reason: "Is there anything specific you wanna point us to? (Optional information)"
+
+      message:
+        comments_allowed: "Would you like to allow comments to this message?"
 
     placeholders:
       user:

@@ -115,10 +115,27 @@ namespace :FosterFork do
     end
   end
 
+  desc 'add fake comments for testing'
+  task add_fake_comments: :environment do |_t, _args|
+    ApplicationMailer.delivery_method = :test
+
+    ActiveRecord::Base.transaction do
+      500.times do
+        c = Comment.create!(message: Message.all.shuffle.first,
+                            user: User.all.shuffle.first,
+                            content: Faker::Hipster.paragraph(3))
+        c.update_attribute(:updated_at, Faker::Time.backward(100))
+      end
+
+      puts "Created 500 new comments"
+    end
+  end
+
   desc 'add fake data for testing'
   task add_fake_data: [ :add_fake_users,
                         :add_fake_projects,
                         :add_fake_abuse_reports,
                         :add_fake_participations,
-                        :add_fake_messages ]
+                        :add_fake_messages,
+                        :add_fake_comments ]
 end

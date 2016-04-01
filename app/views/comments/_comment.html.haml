@@ -1,0 +1,16 @@
+.comment-container
+  %a{ name: "comment-#{comment.id}"}
+  .panel.panel-success
+    .panel-heading
+      -if comment.can_be_deleted_by? current_user
+        .pull-right
+          =button_to [comment.message.project, comment.message, comment], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
+            %i.fa.fa-trash.fa-fw
+
+      %h3.panel-title
+        %i.fa.fa-comment-o
+        ="#{comment.user.name}, #{l(comment.created_at, format: :short)}"
+
+    %ul.list-group
+      %li.list-group-item
+        = comment.content
