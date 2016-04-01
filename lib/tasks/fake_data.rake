@@ -11,7 +11,8 @@ namespace :FosterFork do
                          phone: Faker::PhoneNumber.phone_number,
                          zip: Faker::Address.zip_code,
                          country: Settings.application.allowed_countries.shuffle.first,
-                         password: password)
+                         password: password,
+                         terms: "1")
         puts "Created user: #{u.name} <#{u.email}>, password: #{password}"
       end
     end
@@ -98,13 +99,16 @@ namespace :FosterFork do
 
   desc 'add fake messages for testing'
   task add_fake_messages: :environment do |_t, _args|
+    ApplicationMailer.delivery_method = :test
+
     ActiveRecord::Base.transaction do
       300.times do
         p = Project.all.shuffle.first
-        Message.create!(project: p,
-                         user: p.owner,
-                         title: Faker::Lorem.sentence.chomp('.').truncate(60),
-                         content: Faker::Hipster.paragraph(3))
+        m = Message.create!(project: p,
+                            user: p.owner,
+                            title: Faker::Lorem.sentence.chomp('.').truncate(60),
+                            content: Faker::Hipster.paragraph(3))
+        m.update_attribute(:updated_at, Faker::Time.backward(100))
       end
 
       puts "Created 300 new messages"
