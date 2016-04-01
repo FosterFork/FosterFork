@@ -23,7 +23,7 @@ module FosterFork
     config.i18n.enforce_available_locales = false
 
     if Settings.locales&.any?
-      config.i18n.available_locales = I18n.available_locales & Settings.locales.map(&:to_sym) rescue []
+      config.i18n.available_locales = I18n.available_locales & Settings.locales.keys.map(&:to_sym) rescue []
     end
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

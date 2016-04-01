@@ -8,6 +8,21 @@
           =link_to map_path do
             %i.fa.fa-map-o
 
+          -if I18n.available_locales.length > 1
+            %li.dropdown
+              %a.dropdown-toggle{ "aria-expanded": "false", "aria-haspopup": "true", "role": "button", "data-toggle": "dropdown", href: "#" }
+                %i.fa.fa-language{ "aria-hidden": "true" }
+                %span.caret
+              %ul.dropdown-menu
+                -Settings.locales.each_pair do |l, text|
+                  %li
+                    =link_to url_for(locale: l) do
+                      -if I18n.locale == l
+                        %i.fa.fa-fw.fa-check-square-o
+                      -else
+                        %i.fa.fa-fw.fa-square-o
+                      =text
+
         = form_tag(projects_path, method: :get, role: "search", class: "navbar-form navbar-left") do
           .form-group
             %input.form-control{ name: 'q', type: "text", placeholder: t('nav.search') + ' …' }
