@@ -88,18 +88,7 @@
                   =f.submit t('save'), class: "btn btn-primary"
 
         .tab-pane{ role: "tabpanel", id: "messages" }
-          .panel.panel-default
-            .panel-heading
-              %h3.panel-title= t('message.new')
-            =simple_form_for [ @project, Message.new ] do |f|
-              .panel-body
-                =f.input :title
-                =f.input :content, input_html: { rows: 15 }
-                -if @project.participations.any?
-                  %p= t('message.create_text', count: @project.participations.length)
-
-              .panel-footer
-                =f.submit t('message.create'), class: "btn btn-primary"
+          =render 'messages/new', project: @project
 
           -@project.messages.each do |bp|
             .panel.panel-default
