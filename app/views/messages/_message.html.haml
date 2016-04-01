@@ -3,6 +3,11 @@
   .panel.panel-info
     .panel-heading
       %h3.panel-title
+        -if message.can_be_deleted_by? current_user
+          .pull-right
+            =button_to [message.project, message], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
+              %i.fa.fa-trash.fa-fw
+
         %i.fa.fa-envelope-o
         = message.title
 
@@ -13,8 +18,11 @@
       %li.list-group-item
         %span.small
           ="#{message.user.name}, #{l(message.created_at, format: :short)}"
-        .pull-right
-          =button_to t('comment.create'), "#", method: :get, class: "btn btn-default btn-xs new-comment-button", type: "button", data: { message_id: message.id }
+        -if message.can_be_comment_on_by? current_user
+          .pull-right
+            =button_to "#", method: :get, class: "btn btn-default btn-xs new-comment-button", type: "button", data: { message_id: message.id } do
+              %i.fa.fa-comment-o.fa-fw
+              =t('comment.create')
 
   -if message.can_be_comment_on_by? current_user
     =render 'comments/new', message: message

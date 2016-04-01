@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :participations
   has_many :abuse_reports, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :comments, through: :messages
 
   RECURRENCE_TYPES = [ :none, :daily, :weekly, :biweekly, :monthly ]
 

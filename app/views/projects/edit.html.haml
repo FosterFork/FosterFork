@@ -89,17 +89,7 @@
 
         .tab-pane{ role: "tabpanel", id: "messages" }
           =render 'messages/new', project: @project
-
-          -@project.messages.each do |bp|
-            .panel.panel-default
-              .panel-heading
-                .pull-right
-                  =button_to [@project, bp], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
-                    %i.fa.fa-trash.fa-fw
-                %h3.panel-title= bp.title
-
-              .panel-body
-                %p= bp.content
+          =render @project.messages
 
         -if @project.participations.any?
           .tab-pane{ role: "tabpanel", id: "participants" }
