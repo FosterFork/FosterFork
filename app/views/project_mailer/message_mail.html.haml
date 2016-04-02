@@ -1,7 +1,7 @@
 %h1= "#{I18n.t('mailer.message.hello')} #{@user.name},"
 
 .body
-  %p= I18n.t('mailer.message.intro', project: @project.title, platform: Settings.application.name)
+  %p= I18n.t('mailer.message.intro', project: @project.title, platform: Settings.platform_name)
 
   .message-author
     =I18n.t('mailer.message.author_writes', author: @message.user.name)

@@ -1,6 +1,6 @@
 <%= I18n.t('mailer.message.hello') %> <%= @user.name %>,
 
-<%= I18n.t('mailer.message.intro', project: @project.title, platform: Settings.application.name) %>
+<%= I18n.t('mailer.message.intro', project: @project.title, platform: Settings.platform_name) %>
 
 
 <%= I18n.t('mailer.message.author_writes', author: @message.user.name) %>

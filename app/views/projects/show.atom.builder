@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title @project.title
-  feed.description "#{Settings.application.name} - #{@project.abstract}"
+  feed.description "#{Settings.platform_name} - #{@project.abstract}"
   feed.updated @project.last_update
   feed.icon "/favicon.ico"
   #feed.logo ...

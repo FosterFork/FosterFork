@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def html_title
-    t = Settings.application.name
+    t = Settings.platform_name
 
     if @page_title
       t += " | #{@page_title}"
@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def selectable_countries
-    Settings.application.allowed_countries&.map do |c|
+    Settings.available_countries&.map do |c|
       [ I18n.t(c.upcase.to_sym, scope: :countries), c ]
     end || []
   end

@@ -10,7 +10,7 @@ namespace :FosterFork do
                          newsletter: Faker::Boolean.boolean,
                          phone: Faker::PhoneNumber.phone_number,
                          zip: Faker::Address.zip_code,
-                         country: Settings.application.allowed_countries.shuffle.first,
+                         country: Settings.available_countries.shuffle.first,
                          password: password,
                          terms: "1")
         puts "Created user: #{u.name} <#{u.email}>, password: #{password}"
@@ -50,7 +50,7 @@ namespace :FosterFork do
                             address: Faker::Address.street_address,
                             city: Faker::Address.city,
                             zip: Faker::Address.zip_code,
-                            country: Settings.application.allowed_countries.shuffle.first,
+                            country: Settings.available_countries.shuffle.first,
                             date: Faker::Time.forward(100),
                             public: Faker::Boolean.boolean(0.8),
                             approved: Faker::Boolean.boolean(0.8),
