@@ -10,4 +10,5 @@ Please checkout out the [Wiki page](https://github.com/FosterFork/FosterFork/wik
 
 # License
 
-All code in this repository is released under the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) unless explicitly stated differently. Please refer to the `LICENSE` file for more detailed information,
+All code in this repository is released under the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html)
+unless explicitly stated differently. Please refer to the `LICENSE` file for more detailed information.
