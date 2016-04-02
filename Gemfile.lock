@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 988b34e77d1f69efa5fef97e0397b64b8656d11d
+  revision: 2f7703600953b05e629e101a2b4d5a4c8844740c
   specs:
     activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
@@ -145,7 +145,7 @@ GEM
     formtastic_i18n (0.6.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    geocoder (1.3.1)
+    geocoder (1.3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -369,9 +369,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.0.1)
+    unicorn (5.1.0)
       kgio (~> 2.6)
-      rack
       raindrops (~> 0.7)
     warden (1.2.6)
       rack (>= 1.0)
