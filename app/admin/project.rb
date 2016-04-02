@@ -86,5 +86,4 @@ ActiveAdmin.register Project do
     end
   end
 
-
 end

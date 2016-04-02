@@ -86,6 +86,49 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        panel "Latest messages" do
+          table_for Message.limit(10) do
+            column :id do |message|
+              link_to message.id, [:admin, message]
+            end
+
+            column :project
+
+            column :user do |message|
+              link_to message.user.name, [:admin, message.user]
+            end
+
+            column :title
+            column :created_at
+          end
+        end
+      end
+
+      column do
+        panel "Latest comments" do
+          table_for Comment.limit(10) do
+            column :id do |comment|
+              link_to comment.id, [:admin, comment]
+            end
+
+            column :message
+
+            column :user do |message|
+              link_to message.user.name, [:admin, message.user]
+            end
+
+            column :content do |comment|
+              comment.content.truncate(30)
+            end
+
+            column :created_at
+          end
+        end
+      end
+    end
+
+    columns do
+      column do
         panel "Unresolved Abuse Reports" do
           table_for AbuseReport.where(resolver: nil).order('id DESC').limit(10) do
             column :id do |abuse_report|
@@ -103,23 +146,6 @@ ActiveAdmin.register_page "Dashboard" do
             column :reason do |abuse_report|
               abuse_report.reason.truncate(100) rescue ""
             end
-          end
-        end
-      end
-
-      column do
-        panel "Latest messages" do
-          table_for Message.limit(10) do
-            column :id do |message|
-              link_to message.id, [:admin, message]
-            end
-
-            column :user do |message|
-              link_to message.user.name, [:admin, message.user]
-            end
-
-            column :title
-            column :created_at
           end
         end
       end
