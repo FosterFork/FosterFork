@@ -1,16 +1,13 @@
 module LayoutHelper
+require 'kramdown'
 
   def layout_render_markdown(input, caller_options = {})
     options = {
-                filter_html: true,
-                safe_links_only: true,
-                no_styles: true,
-                hard_wrap: true,
-                no_intraemphasis: true,
-              }.merge(caller_options)
+      auto_ids: false,
+    }.merge(caller_options)
 
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
-    markdown.render(input)
+    doc = Kramdown::Document.new(input)
+    doc.to_html
   end
 
   def layout_render_textblock(block)

@@ -190,6 +190,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    kramdown (1.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     leaflet-markercluster-rails (0.7.0)
@@ -299,7 +300,6 @@ GEM
       json (~> 1.4)
     recaptcha (1.2.0)
       json
-    redcarpet (3.3.4)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     ri_cal (0.8.8)
@@ -411,6 +411,7 @@ DEPENDENCIES
   i18n-country-translations
   jbuilder (~> 2.0)
   jquery-rails
+  kramdown
   leaflet-markercluster-rails
   leaflet-rails
   letter_opener
@@ -427,7 +428,6 @@ DEPENDENCIES
   rails-i18n
   ransack
   recaptcha
-  redcarpet
   ri_cal
   rspec-rails
   sass-rails (~> 5.0)
