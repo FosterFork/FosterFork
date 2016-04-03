@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_create :set_locale
 
   has_many :projects, foreign_key: :owner_id, dependent: :destroy
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :participating_projects, through: :participations, source: :project
   has_many :opened_abuse_reports, class_name: :AbuseReport, foreign_key: :reporter_id
   has_many :resolved_abuse_reports, class_name: :AbuseReport, foreign_key: :resolver_id
