@@ -1,7 +1,8 @@
-locales: [ 'de', 'en' ]
+platform_name: Test
 
-application:
-  name: Test
+locales: { 'de': 'Deutsch', 'en': 'English' }
+
+secret_key: "this_doesnt_matter_for_test_environments"
 
 mail:
   from: test@test.fake

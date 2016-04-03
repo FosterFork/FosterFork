@@ -1,12 +1,10 @@
 class TextBlock < ActiveRecord::Base
 
   validates_presence_of :name
-  validates_presence_of :locale
   validates :name, format: { :with => /\A[a-z0-9_\-]+\z/ }
 
   def self.block_for(name, locale = I18n.locale)
-    search = [ locale, nil, '', 'de', 'en' ].uniq
-    r = TextBlock.where(name: name, public: true, locale: search)
+    r = TextBlock.where(name: name, public: true, locale: [ locale, nil, '' ])
                  .order("updated_at DESC").first
     return r if r
 

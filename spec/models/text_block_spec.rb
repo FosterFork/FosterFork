@@ -7,10 +7,10 @@ describe TextBlock, type: :model  do
     expect(t).to be_valid
   end
 
-  it "should not be possible to create one without locale" do
+  it "should be possible to create one without locale" do
     params = { :name => "foooo" }
     t = TextBlock.create(params)
-    expect(t).not_to be_valid
+    expect(t).to be_valid
   end
 
   it "should not be possible to create one without name" do

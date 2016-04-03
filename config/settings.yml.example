@@ -1,5 +1,4 @@
-platform:
-  name: "FosterFork"
+platform_name: "FosterFork"
 
 # create one with SecureRandom.hex(64)
 secret_key: ""
