@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     def from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
-        user.password = Devise.friendly_token + Devise.friendly_token
+        user.password = Devise.friendly_token(50)
         user.name = auth.info.name || auth.info.nickname
       end
     end
