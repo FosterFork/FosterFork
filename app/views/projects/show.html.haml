@@ -59,7 +59,19 @@
     .col-md-3
       #leftColumn
 
-        =render 'shared/share_panel'
+        -if @sharing_options.any?
+          .panel.panel-default
+            .panel-heading
+              %i.fa.fa-share-alt
+              =t('share.title')
+            .panel-body
+              .share-panel
+                %ul
+                  -@sharing_options.each do |o|
+                    %li
+                      =link_to o['url'] do
+                        %i{ class: "fa #{o['fa_icon']} fa-3x" }
+                        %span= o['text']
 
         -if @project.participation_wanted and @project.owner != current_user
           .panel.panel-default

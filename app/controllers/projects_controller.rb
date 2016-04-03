@@ -49,6 +49,7 @@ class ProjectsController < ApplicationController
   def show
     @page_title = @project.title
     @current_user_participation = current_user&.participation_in(@project)
+    @sharing_options = Settings.sharing[I18n.locale] || [] rescue []
 
     respond_to do |format|
       format.html
