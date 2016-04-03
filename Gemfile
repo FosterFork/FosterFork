@@ -30,6 +30,7 @@ gem 'geocoder'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sucker_punch'
 gem 'ri_cal'
+gem 'faker'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -52,7 +53,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
   gem 'byebug'
-  gem 'faker'
   gem 'pry-rails'
 end
 
