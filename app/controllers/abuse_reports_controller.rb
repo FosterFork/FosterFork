@@ -6,7 +6,7 @@ class AbuseReportsController < ApplicationController
   end
 
   def create
-    if Settings.recaptcha and not verify_recaptcha
+    if Settings.recaptcha and not user_signed_in? and not verify_recaptcha
       @abuse_report = AbuseReport.new(permitted_params)
       @abuse_report.project = @project
       return render :new

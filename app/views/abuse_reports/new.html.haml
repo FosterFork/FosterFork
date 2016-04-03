@@ -11,7 +11,7 @@
             .form-group
               =f.input :reason
 
-            -if Settings.recaptcha
+            -if Settings.recaptcha and not user_signed_in?
               .form-group
                 =recaptcha_tags Settings.recaptcha.tag_options || {}
 
