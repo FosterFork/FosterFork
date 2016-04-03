@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def selectable_countries
-    Settings.available_countries&.map do |c|
+    Settings.countries&.map do |c|
       [ I18n.t(c.upcase.to_sym, scope: :countries), c ]
     end || []
   end
