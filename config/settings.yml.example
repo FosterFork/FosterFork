@@ -1,31 +1,64 @@
-application:
-  name: "Site name"
-  short_name: "Site name"
-  # create one with SecureRandom.hex(64)
-  secret_key: ""
-  url:
-    host: ""
-    port: 443
-    protocol: "https"
+platform:
+  name: "FosterFork"
+
+# create one with SecureRandom.hex(64)
+secret_key: ""
+
+#ui:
+#  theme:
+
+locales: { de: "Deutsch", en: 'English' }
+
+#countries: [ 'de' ]
 
 mail:
-  from: ''
-  delivery_method: :smtp
-  smtp_settings:
-    address: ""
-    user_name: ""
-    password: ""
-    domain: ""
-    authentication: ""
+  from: 'me@localhost'
+  subject_prefix:
 
-exception_notification:
-  email_prefix: ""
-  sender_address: ""
-  exception_recipients: ""
+  host: 
+  port: 
+  protocol: "https"
 
 mapview:
   default_latitude:
   default_longitude:
+  default_zoom: 11
   mapbox:
     project_id:
     key:
+
+#geocoder:
+
+#recaptcha:
+#  site_key:
+#  secret_key:
+
+#oauth:
+#  twitter:
+#    api_key:
+#    api_secret:
+#
+#  facebook:
+#    app_id:
+#    app_secret:
+#
+#  google:
+#    client_id:
+#    client_key:
+#
+#  linkedin:
+#    client_id:
+#    client_secret:
+#
+#  github:
+#    client_id:
+#    client_secret:
+
+#tracking:
+#  google_analytics:
+#    tracking_id:
+#
+#  piwik:
+#    url:
+#    site_id:
+#
