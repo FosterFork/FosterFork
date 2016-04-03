@@ -2,6 +2,7 @@ class AbuseReportsController < ApplicationController
   before_action :find_project_friendly
 
   def new
+    @page_title = t('abuse_report.report')
     @abuse_report = AbuseReport.new(project: @project)
   end
 

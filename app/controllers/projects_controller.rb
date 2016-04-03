@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_owner!,   only: [ :edit, :update, :destroy, :new_secret ]
 
   def index
-    @page_title = "Home"
+    @page_title = t('nav.projects')
     @q = params[:q] unless params[:q].nil? or params[:q].empty?
 
     unless @q or (params[:page] and params[:page].to_i > 1)
@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @page_title = t('project.add')
     @project = Project.new
     @project.date = Time.now
   end
@@ -46,6 +47,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @page_title = @project.title
     @current_user_participation = current_user&.participation_in(@project)
 
     respond_to do |format|
@@ -59,6 +61,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @page_title = t('project.edit')
   end
 
   def update

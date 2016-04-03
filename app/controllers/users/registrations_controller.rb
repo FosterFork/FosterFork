@@ -2,7 +2,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
 
   def edit
+    @page_title = t('nav.profile')
     @selected_tab = :settings
+    super
+  end
+
+  def new
+    @page_title = t('devise.registrations.new.sign_up')
     super
   end
 
