@@ -14,7 +14,7 @@ class TextBlock < ActiveRecord::Base
     TextBlock.new({ name: name,
                     locale: locale,
                     public: true,
-                    title: "Dummy title for '#{name}'",
-                    body: "Dummy body for '#{name}'" })
+                    title: "Dummy title for text block '#{name}'",
+                    body: "Dummy body for text block '#{name}'." })
   end
 end
