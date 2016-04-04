@@ -9,13 +9,6 @@ module ControllerHelpers
     end
   end
 
-  def for_each_locale
-    I18n.available_locales.each do |locale|
-      I18n.default_locale = locale
-      yield
-    end
-  end
-
 end
 
 RSpec.configure do |config|

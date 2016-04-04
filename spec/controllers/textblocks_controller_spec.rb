@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'support/controller_helpers'
+require 'support/locale_helpers'
 
 describe TextBlocksController, type: :controller do
   render_views
