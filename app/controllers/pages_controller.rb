@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def map
-    projects = Project.where(public: true)
+    projects = Project.publicly_visible
     selected = params[:select].to_i rescue nil
     @map_data = projects.map do |i|
       {
