@@ -81,7 +81,28 @@ ActiveAdmin.register Project do
         column :created_at
       end
     end
+  end
 
+  form do |f|
+    f.inputs "Details" do
+      f.input :owner
+      f.input :date
+      f.input :recurrence
+    end
+
+    f.inputs "Flags" do
+      f.input :public
+      f.input :approved
+      f.input :active
+      f.input :participation_wanted
+    end
+
+    f.inputs "Address" do
+      f.input :address
+      f.input :city
+      f.input :zip
+      f.input :country, as: :select, collection: selectable_countries
+    end
   end
 
   sidebar :flags, only: :show do
