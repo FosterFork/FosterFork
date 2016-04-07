@@ -1,5 +1,19 @@
 ActiveAdmin.register Project do
 
+  member_action :approve_project, method: :post do
+    project = Project.friendly.find(params[:id])
+    project.approved = true
+    project.save!
+    redirect_to [:admin, project], notice: "Project was approved."
+  end
+
+  member_action :disapprove_project, method: :post do
+    project = Project.friendly.find(params[:id])
+    project.approved = false
+    project.save!
+    redirect_to [:admin, project], notice: "Project was disapproved."
+  end
+
   index do
     selectable_column
     id_column
@@ -83,6 +97,14 @@ ActiveAdmin.register Project do
     attributes_table do
       row :created_at
       row :updated_at
+    end
+  end
+
+  sidebar "Actions", only: :show do
+    if project.approved?
+      button_to "Disapprove Project", disapprove_project_admin_project_path(project)
+    else
+      button_to "Approve Project", approve_project_admin_project_path(project)
     end
   end
 
