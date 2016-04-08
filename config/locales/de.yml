@@ -157,8 +157,12 @@ de:
         public: "Öffentlich"
         participation_wanted: "Mitmachfunktion aktivieren"
 
-      registration:
-        name: "Name"
+      user:
+        phone: "Telefonnummer"
+        zip: "PLZ"
+        city: "Stadt"
+        country: "Land"
+        terms: "Nutzungsbedingungen"
 
       message:
         title: "Titelzeile"
