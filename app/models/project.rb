@@ -37,6 +37,12 @@ class Project < ActiveRecord::Base
   validates_presence_of :zip
   validates_length_of :zip,         minimum: 4,  maximum: 10
 
+  default_scope { includes(:owner, :participations) }
+
+  scope :with_associations, -> do
+    includes(:owner, :participations, messages: [ :user, { comments: :user }])
+  end
+
   scope :publicly_visible, -> do
     where(public: true, approved: true, active: true).
     where("recurrence != 'none' OR date > ?", Time.now - 5.hours)

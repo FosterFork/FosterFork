@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
 
   def find_project_friendly
     begin
-      @project = Project.friendly.find(params[:id] || params[:project_id])
+      @project = Project.with_associations.friendly.find(params[:id] || params[:project_id])
     rescue ActiveRecord::RecordNotFound
       redirect_to projects_path, flash: { error: t('project.not_found') }
       return
