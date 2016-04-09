@@ -20,7 +20,7 @@
               .project-detail
                 %p
                   %i.fa.fa-calendar.fa-fw
-                  =l @project.closest_date
+                  =l @project.next_date
 
                 -if @project.recurrence&.to_sym != :none
                   %p

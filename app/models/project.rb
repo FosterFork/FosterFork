@@ -52,7 +52,7 @@ class Project < ActiveRecord::Base
     "#{self.address} #{self.zip} #{self.city} #{self.country}"
   end
 
-  def closest_date
+  def next_date
     return self.date if self.date > Time.now
 
     interval =  case self.recurrence.to_sym

@@ -66,22 +66,22 @@ RSpec.describe Project, type: :model do
     expect(Project.publicly_visible).to include(p6)
   end
 
-  it "calculates the closest date correctly" do
+  it "calculates the next date correctly" do
     p = Project.new(@attrs)
     now = Time.now
     p.date = now - 5.hours
 
     p.recurrence = "daily"
-    expect(p.closest_date.to_i).to be_equal((now + 19.hours).to_i)
+    expect(p.next_date.to_i).to be_equal((now + 19.hours).to_i)
 
     p.recurrence = "weekly"
-    expect(p.closest_date.to_i).to be_equal((now + 6.days + 19.hours).to_i)
+    expect(p.next_date.to_i).to be_equal((now + 6.days + 19.hours).to_i)
 
     p.recurrence = "biweekly"
-    expect(p.closest_date.to_i).to be_equal((now + 13.days + 19.hours).to_i)
+    expect(p.next_date.to_i).to be_equal((now + 13.days + 19.hours).to_i)
 
     p.recurrence = "monthly"
-    expect(p.closest_date.to_i).to be_equal((now + 1.month - 1.day + 19.hours).to_i)
+    expect(p.next_date.to_i).to be_equal((now + 1.month - 1.day + 19.hours).to_i)
   end
 
   it "is only visible by appropriate users" do
