@@ -136,6 +136,31 @@ de:
       ruby: "%d.%m.%Y %H:%M"
       js: "dd.mm.yyyy hh:ii"
 
+  sharing:
+    facebook:
+      link_text: "Auf Facebook teilen"
+
+    twitter:
+      link_text: "Auf Twitter teilen"
+      tweet_text: "Ich habe das Projekt %{project} bei %{platform_name} entdeckt!"
+
+    google_plus:
+      link_text: "Auf Google+ teilen"
+
+    linkedin:
+      link_text: "Auf LinkedIn teilen"
+      share_text: "Ich habe das Projekt %{project} bei %{platform_name} entdeckt!"
+
+    xing:
+      link_text: "Auf Xing teilen"
+
+    email:
+      link_text: "Per Email verschicken"
+      subject: "Das Projekt %{project} bei %{platform_name}"
+      body: |
+        Ich habe das Projekt %{project} bei %{platform_name} entdeckt!
+        %{url}
+
   simple_form:
     "yes": 'Ja'
     "no": 'Nein'

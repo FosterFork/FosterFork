@@ -59,7 +59,7 @@
     .col-md-3
       #leftColumn
 
-        -if @sharing_options.any?
+        -if Settings.sharing&.any?
           .panel.panel-default
             .panel-heading
               %i.fa.fa-share-alt
@@ -67,11 +67,11 @@
             .panel-body
               .share-panel
                 %ul
-                  -@sharing_options.each do |o|
+                  -Settings.sharing.each_pair do |k,v|
                     %li
-                      =link_to o['url'] do
-                        %i{ class: "fa #{o['fa_icon']} fa-3x" }
-                        %span= o['text']
+                      =sharing_link_to(k.to_sym, v, @project) do
+                        %i{ class: "fa fa-3x #{sharing_icon_for(k.to_sym)}" }
+                        %span= t('link_text', scope: "sharing.#{k}")
 
         -if @project.participation_wanted and @project.owner != current_user
           .panel.panel-default

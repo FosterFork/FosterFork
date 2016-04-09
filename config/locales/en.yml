@@ -135,6 +135,31 @@ en:
       ruby: "%Y-%m-%d %H:%M"
       js: "yyyy-mm-dd hh:ii"
 
+  sharing:
+    facebook:
+      link_text: "Share on Facebook"
+
+    twitter:
+      link_text: "Share on Twitter"
+      tweet_text: "I just discovered the project %{project} on %{platform_name}!"
+
+    google_plus:
+      link_text: "Share on Google+"
+
+    linkedin:
+      link_text: "Share on LinkedIn"
+      share_text: "I just discovered the project %{project} on %{platform_name}!"
+
+    xing:
+      link_text: "Share on Xing"
+
+    email:
+      link_text: "Send an email"
+      subject: "The project %{project} on %{platform_name}"
+      body: |
+        I just discovered the project %{project} on %{platform_name}!
+        %{url}
+
   simple_form:
     "yes": 'Yes'
     "no": 'No'
