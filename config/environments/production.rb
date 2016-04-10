@@ -79,9 +79,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  ActionMailer::Base.smtp_settings = Settings.mail.smtp_settings unless Settings.mail.smtp_settings.nil?
-  ActionMailer::Base.delivery_method = Settings.mail.delivery_method unless Settings.mail.delivery_method.nil?
-
   if Settings.exception_notification
     Rails.application.config.middleware.use ExceptionNotification::Rack, Settings.exception_notification
   end

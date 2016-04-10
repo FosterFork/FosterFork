@@ -5,7 +5,12 @@ locales: { 'de': 'Deutsch', 'en': 'English' }
 secret_key: "this_doesnt_matter_for_test_environments"
 
 mail:
-  from: test@test.fake
+  from: 'me@localhost'
+
+  default_url_options:
+    host: "test.host"
+    port: 80
+    protocol: "http"
 
 tracking:
 

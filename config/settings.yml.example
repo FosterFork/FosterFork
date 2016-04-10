@@ -11,12 +11,22 @@ locales: { de: "Deutsch", en: 'English' }
 #countries: [ 'de' ]
 
 mail:
+#  subject_prefix: ''
   from: 'me@localhost'
-  subject_prefix:
 
-  host: 
-  port: 
-  protocol: "https"
+# delivery_method = :smtp
+#  smtp_settings:
+#    address: "localhost"
+#    port: 25
+#    domain: "local.domain"
+#    user_name:
+#    password:
+#    authentication:
+
+#  default_url_options:
+#    host: "my.local.host"
+#    port: 443
+#    protocol: "https"
 
 mapview:
   default_latitude:
