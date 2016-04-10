@@ -1,0 +1,23 @@
+%h1= "#{I18n.t('mailer.message.hello')} #{@user.name},"
+
+.body
+  %p= I18n.t('mailer.comment.intro', project: @project.title, platform: Settings.platform_name, message_title: @comment.message.title)
+
+  .message-author
+    =I18n.t('mailer.message.author_writes', author: @comment.user.name)
+
+  .message-content
+    %span= @comment.content
+
+.footer
+  %span.small
+    %p
+      =I18n.t('mailer.message.visit_project_text')
+      %br
+      =link_to I18n.t('mailer.message.visit_project'), project_url(@project.id)
+
+    %p
+      =I18n.t('mailer.message.leave_project_text')
+      %br
+      =link_to I18n.t('mailer.message.leave_project'),
+               project_participation_leave_url(participation_id: @participation.id, project_id: @project.id, secret: @participation.secret)

@@ -237,3 +237,9 @@ en:
 
       leave_project_text: "You don't want to participate in this project any more? Then please click here."
       leave_project: "Leave project"
+
+    comment:
+      subject: "New comment from %{author} about '%{project_title}': %{message_title}"
+      intro: >
+        There is a new comment regarding the message %{message_title} in the project %{project}
+        which you are participating in on %{platform}.

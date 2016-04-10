@@ -133,4 +133,13 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def send_comment_mail(comment)
+    job = SendProjectCommentsJob.new
+    if Rails.env.production?
+      job.perform_async(self, comment)
+    else
+      job.perform(self, comment)
+    end
+  end
+
 end

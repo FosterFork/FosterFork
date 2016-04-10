@@ -1,0 +1,16 @@
+<%= I18n.t('mailer.message.hello') %> <%= @user.name %>,
+
+<%= I18n.t('mailer.comment.intro', project: @project.title, platform: Settings.platform_name, message_title: @comment.message.title) %>
+
+
+<%= I18n.t('mailer.message.author_writes', author: @comment.user.name) %>
+
+---
+<%= @comment.content %>
+---
+
+<%= I18n.t('mailer.message.visit_project_text') %>
+<%= project_url(@project.id) %>
+
+<%= I18n.t('mailer.message.leave_project_text') %>
+<%= project_participation_leave_url(participation_id: @participation.id, project_id: @project.id, secret: @participation.secret) %>

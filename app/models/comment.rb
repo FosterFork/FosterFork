@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   private
 
   def send_email
-#    self.project.send_message_mail(self)
+    self.message.project.send_comment_mail(self)
   end
 
 end
