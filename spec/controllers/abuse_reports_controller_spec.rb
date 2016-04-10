@@ -6,7 +6,8 @@ describe AbuseReportsController, type: :controller do
   render_views
 
   before(:each) do
-    @project = FactoryGirl.create(:project)
+    participation = FactoryGirl.create(:participation)
+    @project = participation.project
   end
 
   describe "#new" do

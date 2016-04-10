@@ -8,6 +8,9 @@ describe ProjectsController, type: :controller do
   describe "#index" do
     it "renders the #index view" do
       for_each_locale do
+        # create a participation, and thereby (implictly) a user and a project
+        FactoryGirl.create(:participation)
+
         get :index
         expect(response).to render_template :index
       end
