@@ -12,4 +12,5 @@ end
 RSpec.configure do |config|
   config.include LocaleHelpers,   type: :controller
   config.include LocaleHelpers,   type: :feature
+  config.include LocaleHelpers,   type: :mailer
 end
