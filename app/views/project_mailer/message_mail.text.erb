@@ -10,7 +10,7 @@
 ---
 
 <%= I18n.t('mailer.message.visit_project_text') %>
-<%= project_url(@project.id) %>
+<%= project_url(@project) %>
 
 <%= I18n.t('mailer.message.leave_project_text') %>
 <%= project_participation_leave_url(participation_id: @participation.id, project_id: @project.id, secret: @participation.secret) %>
