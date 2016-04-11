@@ -27,4 +27,10 @@ class ProjectMailer < ApplicationMailer
     mail(to: @user.email, subject: subject)
   end
 
+  def new_project_near_you_mail(project, user)
+    @project, @user = project, user
+    subject = I18n.t('mailer.new_project_near_you.subject', project_title: @project.title)
+    mail(to: @user.email, subject: subject)
+  end
+
 end

@@ -1,0 +1,17 @@
+%h1= "#{I18n.t('mailer.message.hello')} #{@user.name},"
+
+.body
+  %p= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform: Settings.platform_name)
+
+  .message-author
+    =I18n.t('mailer.new_project_near_you.abstract', owner: @project.owner.name)
+
+  .message-content
+    %span= @project.abstract
+
+.footer
+  %span.small
+    %p
+      =I18n.t('mailer.message.visit_project_text')
+      %br
+      =link_to I18n.t('mailer.message.visit_project'), project_url(@project.id)

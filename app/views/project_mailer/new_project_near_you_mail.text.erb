@@ -1,0 +1,13 @@
+<%= I18n.t('mailer.message.hello') %> <%= @user.name %>,
+
+<%= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform: Settings.platform_name) %>
+
+
+<%= I18n.t('mailer.new_project_near_you.abstract', owner: @project.owner.name) %>
+
+---
+<%= @project.abstract %>
+---
+
+<%= I18n.t('mailer.message.visit_project_text') %>
+<%= project_url(@project.id) %>

@@ -258,3 +258,8 @@ de:
       subject: "Neuer Kommentar von %{author} zu '%{project_title}': %{message_title}"
       intro: >
         Es gibt einen neuen Kommentar zur Nachricht %{message_title} im Projekt %{project}, bei dem Sie auf %{platform} teilnehmen.
+
+    new_project_near_you:
+      subject: "Neues Projekt in Ihrer Nähe: %{project_title}"
+      intro: "Wir wollten Sie darüber informieren, dass ein neues Projekt in Ihrer Nähe gestartet wurde!"
+      abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"

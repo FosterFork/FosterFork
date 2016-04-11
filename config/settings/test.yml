@@ -12,6 +12,8 @@ mail:
     port: 80
     protocol: "http"
 
+user_proximity: 10
+
 tracking:
 
 mapview:

@@ -243,3 +243,8 @@ en:
       intro: >
         There is a new comment regarding the message %{message_title} in the project %{project}
         which you are participating in on %{platform}.
+
+    new_project_near_you:
+      subject: "New project near you: %{project_title}"
+      intro: "We want to inform you about a new project that has been started just now!"
+      abstract: "The initiator %{owner} of this project describes the project as follows:"

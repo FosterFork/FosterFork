@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
 
   geocoded_by :full_street_address
   after_validation :geocode
+  after_validation :inform_nearby_users
   before_create :generate_secret!
 
   extend FriendlyId
@@ -50,6 +51,17 @@ class Project < ActiveRecord::Base
 
   def full_street_address
     "#{self.address} #{self.zip} #{self.city} #{self.country}"
+  end
+
+  def inform_nearby_users
+    if self.approved? and self.approved_changed?
+      job = SendProjectNearYouJob.new
+      if Rails.env.production?
+        job.perform_async(self)
+      else
+        job.perform(self)
+      end
+    end
   end
 
   def next_date

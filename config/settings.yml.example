@@ -38,6 +38,8 @@ mapview:
 
 #geocoder:
 
+#user_proximity: 10
+
 #recaptcha:
 #  site_key:
 #  secret_key:
