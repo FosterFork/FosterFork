@@ -36,6 +36,15 @@ class User < ActiveRecord::Base
     self.participations.where(project: project).first
   end
 
+  def should_get_new_mail_about?(project)
+    return false if self == project.owner
+    return false if self.participation_in(project)
+    return false unless project.participation_wanted
+    return false unless project.accessible_by?(self, nil)
+    return false unless self.newsletter
+    true
+  end
+
   def password_required?
     # OAuth authenticated user don't need a password
     super && provider.blank?

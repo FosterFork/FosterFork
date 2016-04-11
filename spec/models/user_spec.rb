@@ -66,4 +66,17 @@ RSpec.describe User, type: :model do
     expect(u.longitude).not_to be(nil)
   end
 
+  it "should only be informed about certain new projects" do
+    u = User.create!(@attrs)
+    p = FactoryGirl.create(:project)
+
+    expect(u.should_get_new_mail_about?(p)).to be(false)
+
+    u.update_attribute(:newsletter, true)
+    expect(u.should_get_new_mail_about?(p)).to be(true)
+
+    p.update_attribute(:participation_wanted, false)
+    expect(u.should_get_new_mail_about?(p)).to be(false)
+  end
+
 end
