@@ -46,6 +46,11 @@
 
     %hr
     .right
+      -if user_signed_in? and project.owner == current_user
+        =link_to edit_project_path(project), { class: "btn btn-warning", role: 'button' } do
+          %i.fa.fa-pencil-square-o
+          =t('project.edit')
+
       =link_to project, { class: "btn btn-default", role: 'button' } do
         %i.fa.fa-hand-o-right
         =t('go_to_project')
