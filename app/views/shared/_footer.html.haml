@@ -5,27 +5,31 @@
         %h6= t('footer.information')
         %ul
           %li
-            %i.fa.fa-fw.fa-info
-            =link_to t('footer.about'), about_path
+            =link_to about_path do
+              %i.fa.fa-fw.fa-info.fa-1x
+              %span= t('footer.about')
           %li
-            %i.fa.fa-fw.fa-envelope-o
-            =link_to t('footer.contact'), contact_path
+            =link_to contact_path do
+              %i.fa.fa-fw.fa-envelope-o
+              %span= t('footer.contact')
 
       .col-md-4
         %h6= t('footer.legal')
         %ul
           %li
-            =link_to t('footer.imprint'), imprint_path
+            =link_to imprint_path do
+              %span= t('footer.imprint')
           %li
-            =link_to t('footer.terms'), terms_path
+            =link_to terms_path do
+              %span= t('footer.terms')
 
       .col-md-4
         %h6= t('footer.follow_us')
         %ul
           -Settings.social_media&.each do |sm|
             %li
-              %i{ class: "fa fa-fw #{sm[:fa_icon]} social-media-icon" }
               =link_to sm[:url] do
+                %i{ class: "fa fa-fw #{sm[:fa_icon]} social-media-icon" }
                 %span= sm[:text]
 
     .row.fosterfork
@@ -34,5 +38,4 @@
           %p.small
             =link_to "https://github.com/FosterFork/FosterFork", target: :new do
               %i.fa.fa-tree
-              %i.fa.fa-spinner.fa-spin
               %i.fa.fa-code-fork
