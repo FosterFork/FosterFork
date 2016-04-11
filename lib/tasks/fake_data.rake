@@ -1,10 +1,37 @@
+module FakeGeo
+  class << self
+
+    def geo_deviation
+      scale = 0.2
+      r = rand(1000) / (1000.0 / scale)
+      r -= scale / 2
+      r
+    end
+
+    def set_stub
+      Geocoder.configure(lookup: :test)
+      Geocoder::Lookup::Test.set_default_stub(
+        [
+          {
+            'latitude'     => Settings.mapview.default_latitude  + geo_deviation,
+            'longitude'    => Settings.mapview.default_longitude + geo_deviation,
+          }
+        ]
+      )
+    end
+
+  end
+end
+
 namespace :FosterFork do
 
   desc 'add fake users for testing'
   task add_fake_users: :environment do |_t, _args|
     ActiveRecord::Base.transaction do
       100.times do
+        FakeGeo::set_stub
         password = Faker::Internet.password
+
         u = User.create!(name: Faker::Name.name,
                          email: Faker::Internet.email,
                          newsletter: Faker::Boolean.boolean,
@@ -21,26 +48,9 @@ namespace :FosterFork do
   desc 'add fake projects for testing'
   task add_fake_projects: :environment do |_t, _args|
 
-    def geo_deviation
-      scale = 0.2
-      r = rand(1000) / (1000.0 / scale)
-      r -= scale / 2
-      r
-    end
-
-    Geocoder.configure(lookup: :test)
-
     ActiveRecord::Base.transaction do
       100.times do
-
-        Geocoder::Lookup::Test.set_default_stub(
-          [
-            {
-              'latitude'     => Settings.mapview.default_latitude  + geo_deviation,
-              'longitude'    => Settings.mapview.default_longitude + geo_deviation,
-            }
-          ]
-        )
+        FakeGeo::set_stub
 
         p = Project.create!(owner: User.all.shuffle.first,
                             recurrence: Project::RECURRENCE_TYPES.shuffle.first,
