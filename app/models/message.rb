@@ -19,7 +19,7 @@ class Message < ActiveRecord::Base
     false
   end
 
-  def can_be_comment_on_by?(user)
+  def can_be_commented_on_by?(user)
     return false if user.nil?
     return false unless self.comments_allowed
     return true if user == self.project.owner

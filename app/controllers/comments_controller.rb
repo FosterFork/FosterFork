@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_message
 
   def create
-    unless @message.can_be_comment_on_by? current_user
+    unless @message.can_be_commented_on_by? current_user
       return redirect_to @message.project
     end
 

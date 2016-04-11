@@ -18,13 +18,13 @@
       %li.list-group-item
         %span.small
           ="#{message.user.name}, #{l(message.created_at, format: :short)}"
-        -if message.can_be_comment_on_by? current_user
+        -if message.can_be_commented_on_by? current_user
           .pull-right
             =button_to "#", method: :get, class: "btn btn-default btn-xs new-comment-button", type: "button", data: { message_id: message.id } do
               %i.fa.fa-comment-o.fa-fw
               =t('comment.create')
 
-  -if message.can_be_comment_on_by? current_user
+  -if message.can_be_commented_on_by? current_user
     =render 'comments/new', message: message
 
   -if message.comments_allowed?
