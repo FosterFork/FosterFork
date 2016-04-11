@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :participations
   has_many :abuse_reports, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   RECURRENCE_TYPES = [ :none, :daily, :weekly, :biweekly, :monthly ]
 
@@ -41,7 +42,7 @@ class Project < ActiveRecord::Base
   default_scope { includes(:owner, :participations) }
 
   scope :with_associations, -> do
-    includes(:owner, :participations, messages: [ :user, { comments: :user }])
+    includes(:owner, :participations, :images, messages: [ :user, { comments: :user }])
   end
 
   scope :publicly_visible, -> do

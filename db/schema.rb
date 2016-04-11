@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411070548) do
+ActiveRecord::Schema.define(version: 20160411155530) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20160411070548) do
 
   add_index "comments", ["message_id"], name: "index_comments_on_message_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "alt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "images", ["project_id"], name: "index_images_on_project_id"
 
   create_table "messages", force: :cascade do |t|
     t.integer  "project_id"

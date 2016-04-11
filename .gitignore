@@ -24,4 +24,6 @@ config/environments/*.local.yml
 
 app/assets/stylesheets/themes/*
 
+public/system
+
 *.tags*

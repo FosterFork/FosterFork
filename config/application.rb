@@ -26,6 +26,10 @@ module FosterFork
       config.i18n.available_locales = I18n.available_locales & Settings.locales.keys.map(&:to_sym) rescue []
     end
 
+    if Settings.paperclip_options?
+      config.paperclip_defaults = Settings.paperclip_options
+    end
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     #config.i18n.default_locale = config.i18n.available_locales.first
