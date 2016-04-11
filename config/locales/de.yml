@@ -42,6 +42,8 @@ de:
       Hier können Sie Ihr Konto löschen. Dies entfernt alle Ihre Daten aus der Datenbank, inklusive von Ihnen
       angelegte Projekte und Nachrichten. Diese Aktion kann nicht rückgängig gemacht werden.
     oauth_text: "Dieses Konto ist durch %{provider} authentifiziert."
+    own_projects: "Von Ihnen gestartete Projekte"
+    participating_projects: "Projekte, an denen Sie teilnehmen"
 
   participation:
     join: "Mitmachen!"
