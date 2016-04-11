@@ -33,7 +33,9 @@
 
         -if user_signed_in?
           %li
-            =button_to t('project.add'), new_project_path, method: :get, class: "btn btn-success navbar-btn", type: "button"
+            %button.btn.btn-success.navbar-btn{ onclick: "window.location='#{new_project_path}'", type: "button" }
+              %i.fa.fa-plus
+              =t('project.add')
 
           %li.dropdown
             %a.dropdown-toggle{ "aria-expanded": "false", "aria-haspopup": "true", "role": "button", "data-toggle": "dropdown", href: "#" }
