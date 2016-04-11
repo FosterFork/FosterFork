@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401075512) do
+ActiveRecord::Schema.define(version: 20160411070548) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -114,12 +114,12 @@ ActiveRecord::Schema.define(version: 20160401075512) do
     t.string   "phone"
     t.string   "zip"
     t.string   "country"
-    t.boolean  "newsletter",             default: false, null: false
-    t.boolean  "is_admin",               default: false, null: false
+    t.boolean  "newsletter",                                       default: false, null: false
+    t.boolean  "is_admin",                                         default: false, null: false
     t.string   "locale"
     t.string   "email_format"
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                            default: "",    null: false
+    t.string   "encrypted_password",                               default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -128,8 +128,10 @@ ActiveRecord::Schema.define(version: 20160401075512) do
     t.datetime "confirmation_sent_at"
     t.string   "uid"
     t.string   "provider"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
+    t.decimal  "latitude",               precision: 15, scale: 10
+    t.decimal  "longitude",              precision: 15, scale: 10
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

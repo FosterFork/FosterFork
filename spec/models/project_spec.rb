@@ -42,7 +42,6 @@ RSpec.describe Project, type: :model do
   end
 
   it "is only publicy visible with correct flags" do
-
     p1 = Project.create!(@attrs.merge(public: false))
     expect(Project.publicly_visible).not_to include(p1)
 

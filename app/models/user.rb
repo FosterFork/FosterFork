@@ -21,8 +21,16 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_format_of :email, with: /\A.+@.+\z/
 
+  geocoded_by :zip_and_country
+  after_validation :geocode, unless: ->(user) { user.zip_and_country.nil? }
+
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def zip_and_country
+    return nil if self.zip.blank? or self.country.blank?
+    "#{self.zip} #{self.country}"
+  end
 
   def participation_in(project)
     self.participations.where(project: project).first

@@ -40,4 +40,30 @@ RSpec.describe User, type: :model do
     expect(user.participation_in(project2)).to be(nil)
   end
 
+  it "is not assigned geo coordinates after creation without zip or country" do
+    u = User.create!(@attrs)
+    expect(u.latitude).to be(nil)
+    expect(u.longitude).to be(nil)
+
+    @attrs[:zip] = "12345"
+    u.save!
+    expect(u.latitude).to be(nil)
+    expect(u.longitude).to be(nil)
+
+    @attrs[:zip] = nil
+    @attrs[:country] = "cz"
+    u.save!
+    expect(u.latitude).to be(nil)
+    expect(u.longitude).to be(nil)
+  end
+
+  it "is assigned geo coordinates after creation with zip or country" do
+    @attrs[:zip] = "12345"
+    @attrs[:country] = "cz"
+
+    u = User.create!(@attrs)
+    expect(u.latitude).not_to be(nil)
+    expect(u.longitude).not_to be(nil)
+  end
+
 end
