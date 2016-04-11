@@ -38,14 +38,16 @@
     .col-md-9
       .panel.panel-default
         .panel-heading
-          %i.fa.fa-map-o
-          =t('map')
+          %h3.panel-title
+            %i.fa.fa-map-o
+            =t('map')
         .panel-body.map
           #map
 
       .panel.panel-default
         .panel-heading
-          =t('simple_form.labels.project.abstract')
+          %h3.panel-title
+            =t('simple_form.labels.project.abstract')
         .panel-body
           %p
             =@project.abstract
@@ -55,7 +57,8 @@
 
       .panel.panel-default
         .panel-heading
-          =t('simple_form.labels.project.description')
+          %h3.panel-title
+            =t('simple_form.labels.project.description')
         .panel-body
           =layout_render_markdown(@project.description).html_safe
 
@@ -65,8 +68,9 @@
         -if Settings.sharing&.any?
           .panel.panel-default
             .panel-heading
-              %i.fa.fa-share-alt
-              =t('share.title')
+              %h3.panel-title
+                %i.fa.fa-share-alt
+                =t('share.title')
             .panel-body
               .share-panel
                 %ul
@@ -107,8 +111,9 @@
         -else
           .panel.panel-default
             .panel-heading
-              %i.fa.fa-fw.fa-exclamation-circle
-              =t('administration')
+              %h3.panel-title
+                %i.fa.fa-fw.fa-exclamation-circle
+                =t('administration')
             .panel-body
               %p= t('project.admin_text')
               =link_to edit_project_path(@project), { class: "btn btn-warning", role: 'button' } do
