@@ -29,6 +29,13 @@
                   =@project.participations.length
 
           %li{ role: "presentation" }
+            %a{ href: '#images', "aria-controls": "images", role: "tab", "data-toggle": "tab" }
+              %i.fa.fa-picture-o.fa-fw
+              =t('project.images')
+              %span.badge.pull-right
+                =@project.images.length
+
+          %li{ role: "presentation" }
             %a{ href: '#delete', "aria-controls": "delete", role: "tab", "data-toggle": "tab" }
               %i.fa.fa-trash.fa-fw
               =t('project.delete')
@@ -115,6 +122,10 @@
                           =button_to [@project, p], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-xs btn-danger" do
                             %i.fa.fa-trash.fa-fw
                             =t('project.remove_participation')
+
+        .tab-pane{ role: "tabpanel", id: "images" }
+          =render 'images/new', project: @project
+          =render @project.images
 
         .tab-pane{ role: "tabpanel", id: "delete" }
           .panel.panel-default

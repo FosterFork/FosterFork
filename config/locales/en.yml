@@ -89,6 +89,7 @@ en:
     settings_and_texts: "Settings and texts"
     participants: "Participants"
     messages: "Messages"
+    images: "Images"
 
     participant_name: "Name"
     participating_since: "Participating since"
@@ -124,6 +125,13 @@ en:
   comment:
     create: "Comment"
     created: "Comment was added"
+    deleted: "Comment was deleted"
+
+  image:
+    upload_new: "Upload new image"
+    created: "Image has been uploaded"
+    deleted: "Image has been deleted"
+    delete: "Delete image"
 
   recurrence_types:
     none: "None"
@@ -183,6 +191,10 @@ en:
       comment:
         content: "Your comment"
 
+      image:
+        alt: "Description"
+        image: "Image file"
+
     hints:
       user:
         name: "Your name, as it will be shown on the website if you start your own project."
@@ -219,6 +231,10 @@ en:
 
       message:
         comments_allowed: "Would you like to allow comments to this message?"
+
+      image:
+        alt: "Please provide some description to display as caption on the project page."
+        image: "Select an image file from your computer. We recommend landscape ratio and a resolution of at least 800x600 pixels."
 
     placeholders:
       user:

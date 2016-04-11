@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title= image.alt
+  .panel-body
+    =image_tag image.image.url(:normal), alt: image.alt
+  .panel-footer
+    .form-actions.clearfix
+      =button_to [image.project, image], method: :delete, data: { confirm: t('are_you_sure') }, class: "btn btn-danger" do
+        %i.fa.fa-trash.fa-fw
+        =t('image.delete')

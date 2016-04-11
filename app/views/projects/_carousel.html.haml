@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    %i.fa.fa-picture-o
+      =t('project.images')
+
+  .panel-body
+    .carousel.slide#carousel{ "data-ride": "carousel" }
+      %ol.carousel-indicators
+        -project.images.count.times do |i|
+          %li{ "data-target": "#carousel", "data-slide-to": "#{i}", class: "#{i == 0 ? 'active' : ''}" }
+
+      .carousel-inner{ role: "listbox" }
+        -project.images.each_with_index do |image, i|
+          %div{ class: "item #{i == 0 ? 'active' : ''}" }
+            =image_tag image.image.url(:normal), alt: image.alt, class: "centered-image"
+            .carousel-caption
+              %span= image.alt
+
+        =link_to "#carousel", role: "button", class: "left carousel-control", "data-slide": "prev" do
+          %i.fa.fa-chevron-left.fa-2x.glyphicon.glyphicon-chevron-left
+          %span.sr-only= t('will_paginate.previous_label')
+
+        =link_to "#carousel", role: "button", class: "right carousel-control", "data-slide": "next" do
+          %i.fa.fa-chevron-right.fa-2x.glyphicon.glyphicon-chevron-right
+          %span.sr-only= t('will_paginate.next_label')

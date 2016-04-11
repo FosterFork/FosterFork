@@ -50,6 +50,9 @@
           %p
             =@project.abstract
 
+      -if @project.images.any?
+        =render 'carousel', project: @project
+
       .panel.panel-default
         .panel-heading
           =t('simple_form.labels.project.description')
@@ -129,3 +132,5 @@
     container.css('visibility', 'visible')
              .css('height', 'auto');
   });
+
+  $('.carousel').carousel();

@@ -90,6 +90,7 @@ de:
     settings_and_texts: "Einstellungen und Texte"
     participants: "Teilnehmer:innen"
     messages: "Nachrichten"
+    images: "Bilder"
 
     participant_name: "Name"
     participating_since: "Teilnehmend seit"
@@ -125,6 +126,13 @@ de:
   comment:
     create: "Kommentieren"
     created: "Kommentar wurde erstellt"
+    deleted: "Kommentar wurde gelöscht"
+
+  image:
+    upload_new: "Neues Bild hochladen"
+    created: "Bild wurde hochgeladen"
+    deleted: "Bild wurde gelöscht"
+    delete: "Bild löschen"
 
   recurrence_types:
     none: "Keine"
@@ -199,6 +207,10 @@ de:
       comment:
         content: "Ihr Kommentar"
 
+      image:
+        alt: "Beschreibung"
+        image: "Bilddatei"
+
     hints:
       user:
         name: "Ihr Name, so wie er auf der Webseite erscheinen soll, wenn Sie eine eigene Projekte einstellen oder an solchen teilnehmen."
@@ -235,6 +247,10 @@ de:
 
       message:
         comments_allowed: "Wollen Sie Kommentare auf diese Nachricht zulassen?"
+
+      image:
+        alt: "Bitte geben Sie eine Beschreibung ein, die zu diesem Bild angezeigt werden soll."
+        image: "Wählen Sie ein Bild von Ihrem Computer aus. Wir empfehlen ein eines im Querformat mit einer Auflösung von mindestens 800x600 Pixeln."
 
     placeholders:
       user:
