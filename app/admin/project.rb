@@ -74,6 +74,22 @@ ActiveAdmin.register Project do
         column :created_at
       end
     end
+
+    panel "Images" do
+      table_for project.images do
+        column :id do |image|
+          link_to image.id, [:admin, image]
+        end
+
+        column :image do |image|
+          link_to [:admin, image] do
+            image_tag image.image.url(:normal), width: 200
+          end
+        end
+
+        column :alt
+      end
+    end
   end
 
   form do |f|
