@@ -243,7 +243,7 @@ en:
 
   mailer:
     message:
-      subject: "new message about '%{project_title}': %{message_title}"
+      subject: "New message about '%{project_title}': %{message_title}"
       hello: "Hello"
       intro: >
         There is a new message about the project %{project} which you are participating in on %{platform}.
