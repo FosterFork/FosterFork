@@ -1,0 +1,11 @@
+language: ruby
+gemfile:
+- Gemfile
+rvm:
+- 2.3.0
+before_script:
+- cp config/database.yml.example config/database.yml
+script:
+- bundle exec rspec spec
+sudo: false
+cache: bundler
