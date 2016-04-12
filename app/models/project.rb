@@ -57,11 +57,7 @@ class Project < ActiveRecord::Base
   def inform_nearby_users
     if self.approved? and self.approved_changed?
       job = SendProjectNearYouJob.new
-      if Rails.env.production?
-        job.perform_async(self)
-      else
-        job.perform(self)
-      end
+      job.async.perform(self)
     end
   end
 
@@ -139,20 +135,12 @@ class Project < ActiveRecord::Base
 
   def send_message_mail(message)
     job = SendProjectMessagesJob.new
-    if Rails.env.production?
-      job.perform_async(self, message)
-    else
-      job.perform(self, message)
-    end
+    job.async.perform(self, message)
   end
 
   def send_comment_mail(comment)
     job = SendProjectCommentsJob.new
-    if Rails.env.production?
-      job.perform_async(self, comment)
-    else
-      job.perform(self, comment)
-    end
+    job.async.perform(self, comment)
   end
 
 end
