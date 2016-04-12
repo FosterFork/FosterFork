@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FosterFork/FosterFork.svg?branch=master)](https://travis-ci.org/FosterFork/FosterFork)
+
 # About
 
 FosterFork is a web application written in Ruby on Rails. It helps people foster projects and displays them in a map view.
