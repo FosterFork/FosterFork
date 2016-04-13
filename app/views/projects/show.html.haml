@@ -62,8 +62,10 @@
         .panel-body
           =layout_render_markdown(@project.description).html_safe
 
+      =render @project.messages
+
     .col-md-3
-      #leftColumn
+      #rightColumn
 
         -if Settings.sharing&.any?
           .panel.panel-default
@@ -119,10 +121,6 @@
               =link_to edit_project_path(@project), { class: "btn btn-warning", role: 'button' } do
                 %i.fa.fa-pencil-square-o
                 =t('project.edit')
-
-  .row
-    .col-md-9
-      =render @project.messages
 
 :javascript
   var mapview = L.map('map').setView([#{CGI.escape @project.latitude.to_s}, #{CGI.escape @project.longitude.to_s}], 15);
