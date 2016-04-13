@@ -67,6 +67,7 @@ ActiveAdmin.register_page "Dashboard" do
 
             column :owner
             column :public
+            column :participation_wanted
           end
         end
       end
