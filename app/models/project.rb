@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 
   geocoded_by :full_street_address
   after_validation :geocode
-  after_validation :inform_nearby_users
+  after_validation :after_validation_trigger
   before_create :generate_secret!
 
   extend FriendlyId
@@ -54,8 +54,10 @@ class Project < ActiveRecord::Base
     "#{self.address} #{self.zip} #{self.city} #{self.country}"
   end
 
-  def inform_nearby_users
+  def after_validation_trigger
     if self.approved? and self.approved_changed?
+      ProjectMailer.approved_mail(self).deliver_now!
+
       job = SendProjectNearYouJob.new
       job.async.perform(self)
     end

@@ -242,6 +242,14 @@ en:
         password: "Enter your password"
 
   mailer:
+    approve:
+      subject: "Your project '%{project_title}' has been approved!"
+      visit_project_text: "The project is available under the following address: "
+      visit_project: "Visit project page"
+
+      edit_project_text: "To edit the project, please click here: "
+      visit_project: "Edit project"
+
     message:
       subject: "New message about '%{project_title}': %{message_title}"
       hello: "Hello"

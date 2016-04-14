@@ -1,5 +1,11 @@
 class ProjectMailer < ApplicationMailer
 
+  def approved_mail(project)
+    @project = project
+    subject = I18n.t('mailer.approved.subject', project_title: @project.title)
+    mail(to: @project.owner.email, subject: subject)
+  end
+
   def message_mail(message, participation)
     @participation = participation
     @project = participation.project

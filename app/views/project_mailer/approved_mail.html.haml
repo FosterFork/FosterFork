@@ -1,0 +1,11 @@
+%h1= "#{I18n.t('mailer.message.hello')} #{@project.owner.name},"
+
+.body
+  %p= I18n.t('mailer.approved.subject', project_title: @project.title)
+
+  %p
+    = I18n.t('mailer.approved.visit_project_text')
+    = link_to I18n.t('mailer.approved.visit_project'), project_url(@project)
+    %br
+    = I18n.t('mailer.approved.edit_project_text')
+    = link_to I18n.t('mailer.approved.edit_project'), edit_project_url(@project)

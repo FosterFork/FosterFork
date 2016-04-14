@@ -1,0 +1,9 @@
+<%= I18n.t('mailer.message.hello') %> <%= @project.owner.name %>,
+
+<%= I18n.t('mailer.approved.subject', project_title: @project.title) %>
+
+<%= I18n.t('mailer.approved.visit_project_text') %>
+<%= project_url(@project) %>
+
+<%= I18n.t('mailer.approved.edit_project_text', edit_project_url: edit_project_url(@project)) %>
+<%= edit_project_url(@project) %>

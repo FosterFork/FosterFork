@@ -258,6 +258,14 @@ de:
         password: "Geben Sie Ihr Passwort ein"
 
   mailer:
+    approved:
+      subject: "Ihr Projekt '%{project_title}' wurde freigeschaltet!"
+      visit_project_text: "Das Projekt ist unter folgender URL verfügbar: "
+      visit_project: "Projektseite besuchen"
+
+      edit_project_text: "Um das Projekt zu bearbeiten, klicken Sie bitter hier: "
+      visit_project: "Projekt bearbeiten"
+
     message:
       subject: "Neue Nachricht zu '%{project_title}': %{message_title}"
       hello: "Hallo"
