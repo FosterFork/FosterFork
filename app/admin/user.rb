@@ -91,11 +91,31 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs "Admin Details" do
-      f.input :email
+    f.inputs "User Details" do
+      f.input :name
+      f.input :phone
+      f.input :zip
+      f.input :country, as: :select, collection: selectable_countries
+      f.input :locale
+    end
+
+    f.inputs "Flags" do
+      f.input :is_admin
+      f.input :newsletter
+    end
+
+    f.inputs "Location" do
+      f.input :latitude
+      f.input :longitude
+    end
+
+    f.inputs "Password and OAuth" do
       f.input :password
       f.input :password_confirmation
+      f.input :uid
+      f.input :provider
     end
+
     f.actions
   end
 
