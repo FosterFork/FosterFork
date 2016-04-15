@@ -47,6 +47,9 @@
                       =f.input :country, as: :select, collection: selectable_countries
 
                 .form-group
+                  =f.input :locale, as: :select, collection: selectable_locales, include_blank: false
+
+                .form-group
                   =f.input :newsletter, as: :boolean, :wrapper => :checkbox
 
               .panel-footer

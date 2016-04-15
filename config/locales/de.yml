@@ -197,6 +197,7 @@ de:
         zip: "PLZ"
         city: "Stadt"
         country: "Land"
+        locale: "Sprache"
         terms: "Nutzungsbedingungen"
 
       message:

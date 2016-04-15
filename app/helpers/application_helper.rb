@@ -46,4 +46,8 @@ module ApplicationHelper
     "unknown"
   end
 
+  def selectable_locales
+    Settings.locales.to_hash.invert
+  end
+
 end

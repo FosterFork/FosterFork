@@ -178,6 +178,9 @@ en:
       mark: '*'
 
     labels:
+      user:
+        locale: "Language"
+
       project:
         participation_wanted: "Activate participation function"
         abstract: "Abstract"
