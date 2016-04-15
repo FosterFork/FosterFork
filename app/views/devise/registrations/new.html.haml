@@ -27,6 +27,7 @@
                     =f.input :password_confirmation
             .form-group
               =f.input :newsletter, as: :boolean, wrapper: :checkbox
+              =f.input :mail_on_nearby_project, as: :boolean, wrapper: :checkbox
               =f.input :terms, as: :boolean, wrapper: :checkbox,
                        hint: t('simple_form.hints.user.terms', url: link_to(t('terms_of_service'), terms_path)).html_safe
 

@@ -212,7 +212,8 @@ en:
           The password has to be at least 8 characters long. For security reasons,
           it should contain letters, digits and special characters.
         password_confirmation: "The same password again, just in case of typos."
-        newsletter: "Do you want to subscribe to the newsletter? This setting can be changed at any time."
+        newsletter: "Do you want to subscribe to the newsletter?"
+        mail_on_nearby_project: "Do you want to be notified on new projects that are emerging near you?"
         terms: "Check this box to state you have read and accepted the %{url}."
 
       project:

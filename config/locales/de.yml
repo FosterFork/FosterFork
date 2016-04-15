@@ -198,6 +198,7 @@ de:
         city: "Stadt"
         country: "Land"
         locale: "Sprache"
+        mail_on_nearby_project: "Mailbenachrichtigung bei neuen Projekten"
         terms: "Nutzungsbedingungen"
 
       message:
@@ -227,6 +228,7 @@ de:
           Buchstaben und Sonderzeichen enthalten.
         password_confirmation: "Das selbe Passwort nochmal, um Tippfehler auszuschliessen."
         newsletter: "Wollen Sie sich für den Newsletter anmelden? Diese Einstellung kann jederzeit geändert werden."
+        mail_on_nearby_project: "Möchten Sie über neue Projekte in Ihrer Nähe informiert werden?"
         terms: "Hiermit bestätigen Sie, die %{url} gelesen zu haben und zu akzeptieren."
 
       project:

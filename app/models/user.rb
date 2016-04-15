@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     return false if self.participation_in(project)
     return false unless project.participation_wanted
     return false unless project.accessible_by?(self, nil)
-    return false unless self.newsletter
+    return false unless self.mail_on_nearby_project
     true
   end
 

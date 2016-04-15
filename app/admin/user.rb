@@ -65,6 +65,8 @@ ActiveAdmin.register User do
   sidebar "Flags", only: :show do
     attributes_table do
       row :newsletter
+      row :mail_on_nearby_project
+      row :is_admin
     end
   end
 
@@ -100,8 +102,9 @@ ActiveAdmin.register User do
     end
 
     f.inputs "Flags" do
-      f.input :is_admin
       f.input :newsletter
+      f.input :mail_on_nearby_project
+      f.input :is_admin
     end
 
     f.inputs "Location" do
