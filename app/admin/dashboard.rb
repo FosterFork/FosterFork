@@ -51,6 +51,7 @@ ActiveAdmin.register_page "Dashboard" do
             column :email
             column :phone
             column :newsletter
+            column :mail_on_nearby_project
           end
         end
       end
