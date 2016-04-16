@@ -93,7 +93,7 @@ namespace :FosterFork do
     end
   end
 
-  desc 'add fake abuse_reports for testing'
+  desc 'add fake participations for testing'
   task add_fake_participations: :environment do |_t, _args|
     ActiveRecord::Base.transaction do
       before_count = Participation.count
