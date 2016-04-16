@@ -5,11 +5,11 @@ class TextBlocksController < ApplicationController
 
   # ruby ftw - render textblock with passed name
   def action_missing(action)
-    render_textblock action
+    render_textblock(action)
   end
 
   def show
-    render_textblock params[:id]
+    render_textblock(params[:id])
   end
 
   private
