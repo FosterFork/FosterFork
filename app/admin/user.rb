@@ -112,6 +112,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "User Details" do
+      f.input :email
       f.input :name
       f.input :phone
       f.input :zip
@@ -131,8 +132,6 @@ ActiveAdmin.register User do
     end
 
     f.inputs "Password and OAuth" do
-      f.input :password
-      f.input :password_confirmation
       f.input :uid
       f.input :provider
     end
