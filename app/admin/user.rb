@@ -49,7 +49,23 @@ ActiveAdmin.register User do
         column :id do |message|
           link_to message.id, [:admin, message]
         end
+        column :content
         column :project
+        column :created_at
+      end
+    end
+
+    panel "Comments" do
+      table_for user.comments do
+        column :id do |comment|
+          link_to comment.id, [:admin, comment]
+        end
+        column :content
+        column :message
+        column :project do |comment|
+          link_to comment.message.title, comment.message.project
+        end
+
         column :created_at
       end
     end
