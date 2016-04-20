@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :name, :phone, :zip, :country, :locale,
+                :newsletter, :mail_on_nearby_project, :is_admin,
+                :latitude, :longitude, :uid, :provider
 
   index do
     selectable_column

@@ -1,5 +1,6 @@
 ActiveAdmin.register Message do
   menu :if => proc { false }
+  permit_params :title, :content, :comments_allowed
 
   show title: :title do
     attributes_table do

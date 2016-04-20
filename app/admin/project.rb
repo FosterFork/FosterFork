@@ -1,5 +1,7 @@
 ActiveAdmin.register Project do
 
+  permit_params :owner, :date, :recurrence, :public, :approved, :active, :participation_wanted, :address, :city, :zip, :country
+
   member_action :approve_project, method: :post do
     project = Project.friendly.find(params[:id])
     project.approved = true
