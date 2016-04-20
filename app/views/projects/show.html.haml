@@ -4,7 +4,11 @@
     .col-md-12
       .panel.panel-default
         .panel-body
-          %h2= @project.title
+          %h2
+            .pull-right
+              %span.label{ style: "background-color: #{@project.category&.color}" }
+                =@project.category&.translated_name
+            =@project.title
 
           .row
             .col-md-4
