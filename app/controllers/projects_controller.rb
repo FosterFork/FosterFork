@@ -66,7 +66,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(permitted_params)
+    if @project.update(permitted_params.except(:title, :category_id))
       redirect_to @project
     else
       render :edit

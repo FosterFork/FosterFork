@@ -1,5 +1,7 @@
-=f.input :title
-=f.input :category_id, as: :select, collection: selectable_categories, include_blank: false
+-if f.object.new_record?
+  =f.input :title
+  =f.input :category_id, as: :select, collection: selectable_categories, include_blank: false
+
 =f.input :abstract
 =f.input :description, input_html: { rows: 20 }, hint: t('simple_form.hints.project.description', markdown: link_to_markdown_overview_url).html_safe
 .row
