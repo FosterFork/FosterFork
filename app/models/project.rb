@@ -45,7 +45,7 @@ class Project < ActiveRecord::Base
   default_scope { includes(:owner, :participations) }
 
   scope :with_associations, -> do
-    includes(:owner, :participations, :images, messages: [ :user, { comments: :user }])
+    includes(:owner, :category, :participations, :images, messages: [ :user, { comments: :user }])
   end
 
   scope :publicly_visible, -> do
