@@ -54,7 +54,7 @@ class Project < ActiveRecord::Base
   end
 
   scope :approved, -> do
-    where(approved: false)
+    where(approved: true)
   end
 
   scope :unapproved, -> do
