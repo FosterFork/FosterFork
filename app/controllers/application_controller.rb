@@ -20,7 +20,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     allowed_for_user = [ :email, :password, :password_confirmation, :current_password,
-                         :name, :phone, :newsletter, :zip, :country, :terms, :locale ]
+                         :name, :phone, :newsletter, :mail_on_nearby_project,
+                         :zip, :country, :terms, :locale ]
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(allowed_for_user) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(allowed_for_user) }
   end
