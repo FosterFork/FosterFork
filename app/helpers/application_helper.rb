@@ -24,6 +24,16 @@ module ApplicationHelper
     link_to("Markdown", "https://guides.github.com/features/mastering-markdown/", target: '_new')
   end
 
+  def code_revision
+    revision = File.read(Rails.root.join("REVISION")) rescue nil
+    return revision if revision
+
+    revision = `git rev-parse --short HEAD`
+    return revision if revision
+
+    "unknown"
+  end
+
   def selectable_countries
     Settings.countries&.map do |c|
       [ I18n.t(c.upcase.to_sym, scope: :countries), c ]
@@ -36,18 +46,14 @@ module ApplicationHelper
     end
   end
 
-  def code_revision
-    revision = File.read(Rails.root.join("REVISION")) rescue nil
-    return revision if revision
-
-    revision = `git rev-parse --short HEAD`
-    return revision if revision
-
-    "unknown"
-  end
-
   def selectable_locales
     Settings.locales.to_hash.invert
+  end
+
+  def selectable_categories
+    Category.all&.map do |c|
+      [ c.name, c.id ]
+    end
   end
 
 end

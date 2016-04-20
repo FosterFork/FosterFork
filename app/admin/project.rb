@@ -18,6 +18,7 @@ ActiveAdmin.register Project do
     id_column
 
     column :owner, sortable: :owner_id
+    column :category, sortable: :category_id
     column :title, sortable: :title
     column :date, sortable: :date
     column :recurrence, sortable: :recurrence
@@ -42,6 +43,7 @@ ActiveAdmin.register Project do
       row :id
 
       row :owner
+      row :category
       row :title
       row :slug
 
@@ -101,6 +103,7 @@ ActiveAdmin.register Project do
   form do |f|
     f.inputs "Details" do
       f.input :owner
+      f.input :category
       f.input :date
       f.input :recurrence
     end

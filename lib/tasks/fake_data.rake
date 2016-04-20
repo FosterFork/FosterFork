@@ -45,6 +45,19 @@ namespace :FosterFork do
     end
   end
 
+  desc 'add fake categories for testing'
+  task add_fake_categories: :environment do |_t, _args|
+    ActiveRecord::Base.transaction do
+      names = 10.times.collect { Faker::Hacker.adjective }.sort.uniq
+
+      names.each do |name|
+        c = Category.create!(name: name,
+                             color: "#" + Faker::Color.hex_color[1..6])
+        puts "Created category: #{name}"
+      end
+    end
+  end
+
   desc 'add fake projects for testing'
   task add_fake_projects: :environment do |_t, _args|
 
@@ -53,6 +66,7 @@ namespace :FosterFork do
         FakeGeo::set_stub
 
         p = Project.create!(owner: User.all.shuffle.first,
+                            category: Category.all.shuffle.first,
                             recurrence: Project::RECURRENCE_TYPES.shuffle.first,
                             title: Faker::Lorem.sentence.chomp('.').truncate(80),
                             abstract: Faker::Hipster.paragraph(3),
@@ -143,6 +157,7 @@ namespace :FosterFork do
 
   desc 'add fake data for testing'
   task add_fake_data: [ :add_fake_users,
+                        :add_fake_categories,
                         :add_fake_projects,
                         :add_fake_abuse_reports,
                         :add_fake_participations,

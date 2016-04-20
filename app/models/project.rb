@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: :User
+  belongs_to :category
+
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   has_many :abuse_reports, dependent: :destroy
@@ -17,6 +19,7 @@ class Project < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   validates_presence_of :owner
+  validates_presence_of :category
   validates_presence_of :country
 
   validates_inclusion_of :recurrence, in: RECURRENCE_TYPES.map(&:to_s)

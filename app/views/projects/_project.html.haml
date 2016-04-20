@@ -1,5 +1,9 @@
 .panel.panel-default
   .panel-heading
+    .pull-right
+      %span.label{ style: "background-color: \##{project.category&.color}" }
+        =project.category&.name
+
     %h3.panel-title= project.title
 
   .panel-body
@@ -38,7 +42,9 @@
             =t('project.messages')
 
         .project-detail
-          =link_to t('show_on_map'), map_path({ select: project.id }), { class: "btn btn-info btn-xs", role: 'button' }
+          =link_to t('show_on_map'), map_path({ select: project.id }),
+            { class: "btn btn-xs btn-link-to-map", role: 'button',
+              style: "background-color: #{project.category&.color}" }
 
       .col-md-8
         %p
