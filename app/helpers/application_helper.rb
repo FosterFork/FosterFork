@@ -52,7 +52,7 @@ module ApplicationHelper
 
   def selectable_categories
     Category.all&.map do |c|
-      [ c.name, c.id ]
+      [ c.translated_name, c.id ]
     end
   end
 

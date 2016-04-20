@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420172104) do
+ActiveRecord::Schema.define(version: 20160420184323) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -131,6 +131,17 @@ ActiveRecord::Schema.define(version: 20160420172104) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "translations", force: :cascade do |t|
+    t.string   "title"
+    t.string   "locale"
+    t.integer  "translatable_id"
+    t.string   "translatable_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "translations", ["translatable_id"], name: "index_translations_on_translatable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
