@@ -7,8 +7,7 @@
   .col-md-1
   .col-md-10
     .project-detail
-      %span.label{ style: "background-color: #{@project.category&.color}" }
-        =@project.category&.translated_name
+      =category_label(@project.category)
 
 .row
   .col-md-1

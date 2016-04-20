@@ -1,8 +1,7 @@
 .panel.panel-default
   .panel-heading
     .pull-right
-      %span.label{ style: "background-color: #{project.category&.color}" }
-        =project.category&.translated_name
+      =category_label(project.category)
 
     %h3.panel-title= project.title
 

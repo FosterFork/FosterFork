@@ -20,4 +20,11 @@ require 'kramdown'
     content.html_safe
   end
 
+  def category_label(category)
+    color = category&.color || "black"
+    name = category&.name || ""
+
+    "<span class='label' style='background-color: #{color}'>#{name}</span>".html_safe
+  end
+
 end

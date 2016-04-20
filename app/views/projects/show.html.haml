@@ -6,8 +6,7 @@
         .panel-body
           %h2
             .pull-right
-              %span.label{ style: "background-color: #{@project.category&.color}" }
-                =@project.category&.translated_name
+              =category_label(@project.category)
             =@project.title
 
           .row
