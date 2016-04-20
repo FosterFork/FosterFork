@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
     if (@q)
       projects = Project.publicly_visible
-                              .includes(:participations, :owner, :messages)
+                              .includes(:participations, :owner, :category, :messages, category: [ :translations ])
                               .ransack(title_cont: @q,
                                        description_cont: @q,
                                        public: true,
@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
                               .result(distinct: true)
     else
       projects = Project.publicly_visible
-                              .includes(:participations, :owner, :messages)
+                              .includes(:participations, :owner, :messages, category: [ :translations ])
                               .order(:date)
     end
 
