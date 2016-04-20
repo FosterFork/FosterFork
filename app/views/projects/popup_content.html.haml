@@ -2,6 +2,14 @@
   .col-md-12
     %h4
       =@project.title
+
+.row
+  .col-md-1
+  .col-md-10
+    .project-detail
+      %span.label{ style: "background-color: #{@project.category&.color}" }
+        =@project.category&.translated_name
+
 .row
   .col-md-1
     .project-detail
