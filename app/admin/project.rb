@@ -1,4 +1,8 @@
 ActiveAdmin.register Project do
+  scope :all
+  scope :approved
+  scope :unapproved
+  scope :publicly_visible
 
   permit_params :owner, :date, :recurrence, :public, :approved, :active, :participation_wanted, :address, :city, :zip, :country
 

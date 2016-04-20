@@ -50,6 +50,14 @@ class Project < ActiveRecord::Base
     where("recurrence != 'none' OR date > ?", Time.now - 5.hours)
   end
 
+  scope :approved, -> do
+    where(approved: false)
+  end
+
+  scope :unapproved, -> do
+    where(approved: false)
+  end
+
   def full_street_address
     "#{self.address} #{self.zip} #{self.city} #{self.country}"
   end

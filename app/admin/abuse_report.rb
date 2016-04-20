@@ -1,5 +1,9 @@
 ActiveAdmin.register AbuseReport do |c|
 
+  scope :all
+  scope :resolved
+  scope :unresolved
+
   member_action :resolve_abuse_report, method: :post do
     abuse_report = AbuseReport.find(params[:id])
     abuse_report.resolver = current_user
