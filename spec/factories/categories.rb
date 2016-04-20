@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :category do
-    color "MyString"
+    name "MyName"
+    color "MyColor"
     priority 1
   end
 end

@@ -5,6 +5,7 @@ FactoryGirl.define do
 
   factory :project do
     association :owner, factory: :user
+    category
     title
     date Time.now
     abstract Faker::Hipster.paragraph(3)
