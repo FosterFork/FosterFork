@@ -17,5 +17,6 @@
 //= require bootstrap-datetimepicker.min
 //= require leaflet
 //= require leaflet.markercluster
+//= require Leaflet.vector-markers
 //= require L.Control.Locate.min
 //= require map

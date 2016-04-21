@@ -136,7 +136,12 @@
   var mapview = L.map('map').setView([#{CGI.escape @project.latitude.to_s}, #{CGI.escape @project.longitude.to_s}], 15);
   createMapLayer('#{Settings.mapview.mapbox.project_id}', '#{Settings.mapview.mapbox.key}').addTo(mapview);
 
-  L.marker([ "#{CGI.escape @project.latitude.to_s}", "#{CGI.escape @project.longitude.to_s}" ]).addTo(mapview);
+  icon = L.VectorMarkers.icon({
+    markerColor: "#{@project.category.color}",
+    icon: "dot-circle-o",
+  });
+
+  L.marker([ "#{CGI.escape @project.latitude.to_s}", "#{CGI.escape @project.longitude.to_s}" ], { icon: icon }).addTo(mapview);
 
   $('.new-comment-button').click(function(event) {
     event.preventDefault();

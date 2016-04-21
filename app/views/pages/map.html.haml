@@ -1,5 +1,5 @@
 #map-container
-  #map{ "data-projects": @map_data.to_json }
+  #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
 
 :javascript
   customMarker = L.Marker.extend({
@@ -8,10 +8,19 @@
 
   markers = L.markerClusterGroup();
   var openMarker = null;
+  var icons = []
+
+  data = $('#map').data('categories')
+  data.forEach(function(d) {
+    icons[d.id] = L.VectorMarkers.icon({
+      markerColor: d.color,
+      icon: "dot-circle-o",
+    });
+  });
 
   data = $('#map').data('projects')
   data.forEach(function(d) {
-    m = new customMarker([ d.x, d.y ], { content_url: d.url });
+    m = new customMarker([ d.x, d.y ], { icon: icons[d.cat_id], content_url: d.url });
     m.bindPopup("<div class='popup-dummy'><p>Loading ... </p><i class='fa fa-spinner fa-spin fa-3x'></i></div>");
     markers.addLayer(m);
 
