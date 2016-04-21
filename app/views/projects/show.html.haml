@@ -105,7 +105,7 @@
                   %i.fa.fa-sign-in
                   =t('devise.sessions.new.sign_in')
 
-        -if user_signed_in? and @project.owner != current_user
+        -if @project.inquiries_allowed and user_signed_in? and @project.owner != current_user
           .panel.panel-default
             .panel-body
               %p= t('inquiry.send_text')
