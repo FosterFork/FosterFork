@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
     @page_title = t('project.add')
     @project = Project.new
     @project.date = Time.now
+    @project.inquiries_allowed = true
   end
 
   def create
