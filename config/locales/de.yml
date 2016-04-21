@@ -318,5 +318,5 @@ de:
       abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"
 
     inquiry:
-      intro: "Du hast eine neue Anfrage von %{author} zu Deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem Du auf diese Email antwortest."
-      subject: "Neue Anfrage von %{author} zu Deinem Projekt '%{project_title}'"
+      intro: "Du hast eine neue Anfrage von %{author} zu deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem Du auf diese Email antwortest."
+      subject: "Neue Anfrage von %{author} zu deinem Projekt '%{project_title}'"
