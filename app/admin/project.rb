@@ -4,7 +4,9 @@ ActiveAdmin.register Project do
   scope :unapproved
   scope :publicly_visible
 
-  permit_params :owner, :date, :recurrence, :public, :approved, :active, :participation_wanted, :address, :city, :zip, :country
+  permit_params :owner, :category_id, :date, :recurrence,
+                :address, :city, :zip, :country,
+                :public, :approved, :active, :participation_wanted, :inquiries_allowed
 
   member_action :approve_project, method: :post do
     project = Project.friendly.find(params[:id])
