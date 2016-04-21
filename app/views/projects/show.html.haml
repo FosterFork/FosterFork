@@ -88,7 +88,7 @@
         -if @project.participation_wanted and @project.owner != current_user
           .panel.panel-default
             .panel-body
-              -if current_user
+              -if user_signed_in?
                 -if @current_user_participation
                   %p= t('participation.leave_text')
                   =button_to [@project, @current_user_participation], method: :delete, class: "btn btn-default" do
@@ -112,6 +112,14 @@
               =link_to new_project_abuse_report_path(@project), { class: "btn btn-warning", role: 'button' } do
                 %i.fa.fa-exclamation-circle
                 =t('abuse_report.report')
+
+        -if user_signed_in? and @project.owner != current_user
+          .panel.panel-default
+            .panel-body
+              %p= t('inquiry.send_text')
+              =link_to new_project_inquiry_path(@project), { class: "btn btn-info", role: 'button' } do
+                %i.fa.fa-commenting-o
+                =t('inquiry.send')
 
         -else
           .panel.panel-default

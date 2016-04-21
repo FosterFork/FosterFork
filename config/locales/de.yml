@@ -77,6 +77,12 @@ de:
       gib uns bitte Bescheid. Die Administratoren der Plattform werden sich darum kümmern.
     thank_you: "Vielen Dank, wir werden uns um deinen gemeldeten Mißbrauch kümmern!"
 
+  inquiry:
+    send: "Anfrage stellen"
+    send_text: >
+      Möchtest Du die Initiator:innen dieses Projektes direkt kontaktieren? Dann klicke bitte hier.
+    thank_you: "Vielen Dank, deine Nachricht wird verschickt."
+
   project:
     not_found: "Das Projekt, das du sehen wolltest, existiert nicht in unserer Datenbank."
     add: "Neues Projekt anlegen"
@@ -213,6 +219,12 @@ de:
         alt: "Beschreibung"
         image: "Bilddatei"
 
+      abuse_report:
+        reason: "Anlass"
+
+      inquiry:
+        content: "Inhalt"
+
     hints:
       user:
         name: "Dein Name, so wie er auf der Webseite erscheinen soll, wenn du eine eigene Projekte einstellst oder an solchen teilnimmst."
@@ -247,6 +259,11 @@ de:
 
       abuse_report:
         reason: "Gibt es etwas Spezielles, auf das du uns hinweisen möchtest? (Optionale Angabe)"
+
+      inquiry:
+        content: >
+          Deine Nachricht an die Initiator:in dieses Projektes. Bitte beachte, dass wir dem Empfänger der Nachricht deine Emailadresse
+          mitteilen, damit er/sie dir antworten kann.
 
       message:
         comments_allowed: "Willst du Kommentare auf diese Nachricht zulassen?"
@@ -292,3 +309,7 @@ de:
       subject: "Neues Projekt in deiner Nähe: %{project_title}"
       intro: "Wir wollten dich darüber informieren, dass ein neues Projekt in deiner Nähe gestartet wurde!"
       abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"
+
+    inquiry:
+      intro: "Du hast eine neue Anfrage von %{author} zu Deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem Du auf diese Email antwortest."
+      subject: "Neue Anfrage von %{author} zu Deinem Projekt '%{project_title}'"

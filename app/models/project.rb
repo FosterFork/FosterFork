@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   has_many :abuse_reports, dependent: :destroy
+  has_many :inquiries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :images, dependent: :destroy
 

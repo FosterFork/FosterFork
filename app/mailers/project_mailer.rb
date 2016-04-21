@@ -39,4 +39,13 @@ class ProjectMailer < ApplicationMailer
     mail(to: @user.email, subject: subject, locale: @user.locale)
   end
 
+  def inquiry_mail(inquiry)
+    @inquiry = inquiry
+    @user = inquiry.user
+    @project = inquiry.project
+
+    subject = I18n.t('mailer.inquiry.subject', author: @user.name, project_title: @project.title)
+    mail(to: @project.owner.email, reply_to: @user.email, subject: subject, locale: @user.locale)
+  end
+
 end

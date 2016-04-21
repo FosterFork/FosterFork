@@ -71,6 +71,17 @@ ActiveAdmin.register Project do
       end
     end
 
+    panel "Inquiries" do
+      table_for project.inquiries do
+        column :id do |inquiry|
+          link_to inquiry.id, [:admin, inquiry]
+        end
+        column :content
+        column :user
+        column :created_at
+      end
+    end
+
     panel "Messages" do
       table_for project.messages do
         column :id do |message|

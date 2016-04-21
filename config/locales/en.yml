@@ -76,6 +76,12 @@ en:
       The administrators of this platform will have a look soon.
     thank_you: "Thank you for submitting your abuse report. We'll have a look."
 
+  inquiry:
+    send: "Send inquiry"
+    send_text: >
+      You want to contact the initiators of this project? Click here!
+    thank_you: "Thank you, your inquiry will be sent."
+
   project:
     not_found: "The project you were looking for does not exist."
     add: "Add new project"
@@ -233,6 +239,11 @@ en:
       abuse_report:
         reason: "Is there anything specific you wanna point us to? (Optional information)"
 
+      inquiry:
+        content: >
+          Your inquery for the initiator of this project. Please note that we will hand out your email address to the recipient
+          of this message, so they can get back to you.
+
       message:
         comments_allowed: "Would you like to allow comments to this message?"
 
@@ -278,3 +289,7 @@ en:
       subject: "New project near you: %{project_title}"
       intro: "We want to inform you about a new project that has been started just now!"
       abstract: "The initiator %{owner} of this project describes the project as follows:"
+
+    inquiry:
+      intro: "You got a new inquiry from %{author} about your project '%{project_title}'. Get back to them by replying to this email."
+      subject: "New inquiry from %{author} about your project '%{project_title}'"

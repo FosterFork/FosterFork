@@ -44,6 +44,17 @@ ActiveAdmin.register User do
       end
     end
 
+    panel "Sent inquiries" do
+      table_for user.inquiries do
+        column :id do |inquiry|
+          link_to inquiry.id, [:admin, inquiry]
+        end
+        column :content
+        column :project
+        column :created_at
+      end
+    end
+
     panel "Messages" do
       table_for user.messages do
         column :id do |message|

@@ -1,0 +1,10 @@
+<%= I18n.t('mailer.message.hello') %> <%= @user.name %>,
+
+<%= I18n.t('mailer.inquiry.intro', author: @user.name, project_title: @project.title, platform: Settings.platform_name) %>
+
+
+<%= I18n.t('mailer.message.author_writes', author: @user.name) %>
+
+---
+<%= @inquiry.content %>
+---

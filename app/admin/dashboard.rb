@@ -151,6 +151,29 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
+
+      column do
+        panel "Latest Inqueries" do
+          table_for Inquiry.limit(10) do
+            column :id do |inquiry|
+              link_to inquiry.id, [:admin, inquiry]
+            end
+
+            column :project
+
+            column :user do |inquiry|
+              link_to inquiry.user.name, [:admin, inquiry.user]
+            end
+
+            column :content do |inquiry|
+              inquiry.content.truncate(200)
+            end
+
+            column :created_at
+          end
+        end
+      end
+
     end
 
   end
