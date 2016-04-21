@@ -1,5 +1,9 @@
 module MailerHelpers
 
+  def email(n)
+    ActionMailer::Base.deliveries[n]
+  end
+
   def last_email
     ActionMailer::Base.deliveries.last
   end

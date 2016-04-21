@@ -35,4 +35,19 @@ RSpec.describe Comment, type: :model do
     expect(c.can_be_deleted_by?(FactoryGirl.create(:user))).to be false
   end
 
+  it "sends an email after creation" do
+    participation = FactoryGirl.create(:participation)
+    project = participation.project
+
+    project.messages << FactoryGirl.create(:message)
+    @attrs[:message] = project.messages.first
+
+    reset_email
+    comment = Comment.create(@attrs)
+
+    expect(email(0).to).to eq([project.owner.email])
+    expect(email(0).subject).to include(comment.message.title)
+    expect(email(1).to).to eq([participation.user.email])
+  end
+
 end
