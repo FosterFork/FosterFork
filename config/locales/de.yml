@@ -187,6 +187,7 @@ de:
     labels:
       project:
         title: "Titel"
+        category_id: "Kategorie"
         abstract: "Kurzbeschreibung"
         description: "Beschreibung"
         date: "Datum"
