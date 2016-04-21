@@ -6,6 +6,7 @@ RSpec.describe Message, type: :model do
     @attrs = {
       project: FactoryGirl.build(:project),
       user: FactoryGirl.build(:user),
+      title: "Message Title",
     }
   end
 
@@ -32,6 +33,15 @@ RSpec.describe Message, type: :model do
     expect(m.can_be_deleted_by?(m.project.owner)).to be true
     expect(m.can_be_deleted_by?(admin)).to be true
     expect(m.can_be_deleted_by?(FactoryGirl.create(:user))).to be false
+  end
+
+  it "sends an email after creation" do
+    participation = FactoryGirl.create(:participation)
+    @attrs[:project] = participation.project
+    message = Message.create(@attrs)
+
+    expect(last_email.to).to eq([participation.user.email])
+    expect(last_email.subject).to include(message.title)
   end
 
 end

@@ -36,7 +36,7 @@ RSpec.describe ProjectMailer, type: :mailer do
         message.comments << FactoryGirl.create(:comment)
         comment = message.comments.first
 
-        mail = ProjectMailer.comment_mail(comment, participation)
+        mail = ProjectMailer.comment_mail(comment, project, participation.user, participation)
 
         expect(mail.to).to eq([participation.user.email])
         expect(mail.subject).to include(participation.project.title)

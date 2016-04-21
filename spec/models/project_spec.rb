@@ -159,4 +159,15 @@ RSpec.describe Project, type: :model do
     expect(p.secret).not_to be_equal(secret)
   end
 
+  it "sends an email after creation" do
+    @attrs[:approved] = false
+    project = Project.create(@attrs)
+
+    project.approved = true
+    project.save
+
+    expect(last_email.to).to eq([project.owner.email])
+    expect(last_email.subject).to include(project.title)
+  end
+
 end
