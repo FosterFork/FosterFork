@@ -4,7 +4,7 @@ class InquiriesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @page_title = t('inquiry.report')
+    @page_title = t('inquiry.send')
     @inquiry = Inquiry.new(project: @project)
   end
 
