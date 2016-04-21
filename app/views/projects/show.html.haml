@@ -105,14 +105,6 @@
                   %i.fa.fa-sign-in
                   =t('devise.sessions.new.sign_in')
 
-        -if @project.owner != current_user
-          .panel.panel-default
-            .panel-body
-              %p= t('abuse_report.report_text')
-              =link_to new_project_abuse_report_path(@project), { class: "btn btn-warning", role: 'button' } do
-                %i.fa.fa-exclamation-circle
-                =t('abuse_report.report')
-
         -if user_signed_in? and @project.owner != current_user
           .panel.panel-default
             .panel-body
@@ -121,6 +113,13 @@
                 %i.fa.fa-commenting-o
                 =t('inquiry.send')
 
+        -if @project.owner != current_user
+          .panel.panel-default
+            .panel-body
+              %p= t('abuse_report.report_text')
+              =link_to new_project_abuse_report_path(@project), { class: "btn btn-warning", role: 'button' } do
+                %i.fa.fa-exclamation-circle
+                =t('abuse_report.report')
         -else
           .panel.panel-default
             .panel-heading
