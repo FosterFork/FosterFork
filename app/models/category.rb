@@ -5,6 +5,7 @@ class Category < ActiveRecord::Base
   has_many :translations, as: :translatable, dependent: :destroy
 
   validates_presence_of :name
+  validates_presence_of :color
 
   default_scope { order("priority DESC").includes(:translations) }
 

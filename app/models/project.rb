@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   validates_presence_of :owner
-  validates_presence_of :category_id
+  validates_presence_of :category
   validates_presence_of :country
 
   validates_inclusion_of :recurrence, in: RECURRENCE_TYPES.map(&:to_s)

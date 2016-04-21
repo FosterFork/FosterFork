@@ -5,7 +5,7 @@ RSpec.describe Project, type: :model do
   before(:each) do
     @attrs = {
       owner: FactoryGirl.build(:user),
-      category_id: FactoryGirl.build(:category).id,
+      category: FactoryGirl.build(:category),
       address: "test address 20",
       city: "test city",
       zip: "12345",
