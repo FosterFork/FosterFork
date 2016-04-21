@@ -16,6 +16,7 @@
       %br
       =link_to I18n.t('mailer.message.visit_project'), project_url(@project)
 
+  -if @participation
     %p
       =I18n.t('mailer.message.leave_project_text')
       %br

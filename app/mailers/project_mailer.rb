@@ -19,11 +19,11 @@ class ProjectMailer < ApplicationMailer
     mail(to: @user.email, subject: subject, locale: @user.locale)
   end
 
-  def comment_mail(comment, participation)
-    @participation = participation
-    @project = participation.project
-    @user = participation.user
+  def comment_mail(comment, project, user, participation)
     @comment = comment
+    @project = project
+    @user = user
+    @participation = participation
 
     subject = I18n.t('mailer.comment.subject',
                      project_title: @project.title,
