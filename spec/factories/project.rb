@@ -20,5 +20,6 @@ FactoryGirl.define do
     approved true
     active true
     participation_wanted true
+    inquiries_allowed true
   end
 end

@@ -44,4 +44,32 @@ RSpec.describe ProjectMailer, type: :mailer do
     end
   end
 
+  describe "new_project_near_you_mail" do
+    it "delivers to the right recipient" do
+      for_each_locale do
+        project = FactoryGirl.create(:project)
+        user = FactoryGirl.create(:user)
+
+        mail = ProjectMailer.new_project_near_you_mail(project, user)
+
+        expect(mail.to).to eq([user.email])
+        expect(mail.subject).to include(project.title)
+      end
+    end
+  end
+
+  describe "inquiry_mail" do
+    it "delivers to the right recipient" do
+      for_each_locale do
+        inquiry = FactoryGirl.create(:inquiry)
+
+        mail = ProjectMailer.inquiry_mail(inquiry)
+
+        expect(mail.to).to eq([inquiry.project.owner.email])
+        expect(mail.reply_to).to eq([inquiry.user.email])
+        expect(mail.subject).to include(inquiry.project.title)
+      end
+    end
+  end
+
 end

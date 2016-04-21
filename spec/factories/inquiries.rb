@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :inquiry do
-    sender nil
-    recipient nil
-    project nil
+    user
+    project
     content "MyText"
   end
 end
