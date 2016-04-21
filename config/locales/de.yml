@@ -105,6 +105,8 @@ de:
 
     participation_wanted: "Mitmachfunktion aktiviert"
     participation_not_wanted: "Mitmachfunktion deaktiviert"
+    inquiries_allowed: "Anfragen sind erlaubt"
+    inquiries_not_allowed: "Anfragen sind nicht erlaubt"
     public: "Projekt ist öffentlich"
     secret: "Projekt ist geheim"
     new_secret_text: >
@@ -198,6 +200,7 @@ de:
         country: "Land"
         public: "Öffentlich"
         participation_wanted: "Mitmachfunktion aktivieren"
+        inquiries_allowed: "Anfragen zulassen"
 
       user:
         phone: "Telefonnummer"
@@ -257,6 +260,9 @@ de:
         address: "Die Adresse, an der das Projekt stattfinden soll und mit deren Hilfe wir die Koordinaten auf der Karte ermitteln werden."
         public: "Durch das Setzen dieses Häckchens wird das Projekt für alle Besucher der Seite öffentlich angezeigt."
         participation_wanted: "Soll die Mitmachfunktion für dieses Projekt aktiviert werden?"
+        inquiries_allowed: >
+          Möchtest Du zulassen, dass angemeldete Benutzer dieser Webseite dich direkt kontaktieren können?
+          Deine Emailadresse wird dabei nicht preisgegeben.
 
       abuse_report:
         reason: "Gibt es etwas Spezielles, auf das du uns hinweisen möchtest? (Optionale Angabe)"

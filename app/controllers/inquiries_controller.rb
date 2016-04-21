@@ -1,5 +1,6 @@
 class InquiriesController < ApplicationController
   before_action :find_project_friendly
+  before_action :check_inquiries_allowed
   before_action :authenticate_user!
 
   def new
@@ -24,6 +25,10 @@ class InquiriesController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to projects_path, flash: { error: t('project.not_found') }
     end
+  end
+
+  def check_inquiries_allowed
+    redirect_to @project unless @project.inquiries_allowed
   end
 
   def permitted_params

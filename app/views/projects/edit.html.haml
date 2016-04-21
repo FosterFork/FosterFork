@@ -51,7 +51,7 @@
         .tab-pane.active{ role: "tabpanel", id: "overview" }
           .panel.panel-default
             .panel-heading
-              %h3.panel-title= t('project.edit')
+              %h3.panel-title= t('project.overview')
 
             .panel-body
               %p
@@ -69,6 +69,16 @@
                 -else
                   %i.fa.fa-minus.fa-fw
                   =t('project.participation_not_wanted')
+
+              %p
+                -if @project.inquiries_allowed
+                  %i.fa.fa-check.fa-fw
+                  =t('project.inquiries_allowed')
+                -else
+                  %i.fa.fa-minus.fa-fw
+                  =t('project.inquiries_not_allowed')
+
+              %hr
 
               -if not @project.public
                 %p= t('project.link_to_secret')

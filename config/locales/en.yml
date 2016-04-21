@@ -104,6 +104,8 @@ en:
 
     participation_wanted: "Participation function is enabled"
     participation_not_wanted: "Participation function is disabled"
+    inquiries_allowed: "Inquiries are allowed"
+    inquiries_not_allowed: "Inquiries are not allowed"
     public: "This project is public"
     secret: "This project is secret"
     new_secret_text: >
@@ -191,6 +193,7 @@ en:
         participation_wanted: "Activate participation function"
         abstract: "Abstract"
         description: "Description"
+        inquiries_allowed: "Allow inquiries"
 
       message:
         title: "Title"
@@ -235,6 +238,9 @@ en:
           It will also be shown on the project page."
         public: "Check this box in order to make this project publicly exposed."
         participation_wanted: "Do you want to enable the participation feature for this project?"
+        inquiries_allowed: >
+          Do you want to allow registered users of this platform to contact you directly?
+          Your email address is not disclosed by this.
 
       abuse_report:
         reason: "Is there anything specific you wanna point us to? (Optional information)"
@@ -257,7 +263,7 @@ en:
         password: "Enter your password"
 
   mailer:
-    approve:
+    approved:
       subject: "Your project '%{project_title}' has been approved!"
       visit_project_text: "The project is available under the following address: "
       visit_project: "Visit project page"

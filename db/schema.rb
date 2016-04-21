@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421085957) do
+ActiveRecord::Schema.define(version: 20160421172443) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160421085957) do
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
     t.integer  "category_id"
+    t.boolean  "inquiries_allowed",                              default: false, null: false
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"

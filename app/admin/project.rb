@@ -124,6 +124,7 @@ ActiveAdmin.register Project do
       f.input :approved
       f.input :active
       f.input :participation_wanted
+      f.input :inquiries_allowed
     end
 
     f.inputs "Address" do
@@ -139,6 +140,7 @@ ActiveAdmin.register Project do
       row :approved
       row :public
       row :participation_wanted
+      row :inquiries_allowed
       row :active
     end
   end
