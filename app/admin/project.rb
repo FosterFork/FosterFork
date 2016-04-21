@@ -133,6 +133,8 @@ ActiveAdmin.register Project do
       f.input :zip
       f.input :country, as: :select, collection: selectable_countries
     end
+
+    f.actions
   end
 
   sidebar :flags, only: :show do
