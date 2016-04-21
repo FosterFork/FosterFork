@@ -7,7 +7,6 @@ class ApplicationMailer < ActionMailer::Base
       headers[:subject] = Settings.mail.subject_prefix + headers[:subject]
     end
 
-    locale = headers.delete(:locale) || I18n.default_locale
-    I18n.with_locale(locale) { super }
+    super
   end
 end
