@@ -14,7 +14,7 @@ mail:
 #  subject_prefix: ''
   from: 'me@localhost'
 
-# delivery_method = :smtp
+#  delivery_method = :smtp
 #  smtp_settings:
 #    address: "localhost"
 #    port: 25
