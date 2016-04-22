@@ -80,6 +80,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   if Settings.exception_notification
-    Rails.application.config.middleware.use ExceptionNotification::Rack, Settings.exception_notification
+    Rails.application.config.middleware.use ExceptionNotification::Rack, Settings.exception_notification.to_hash
   end
 end
