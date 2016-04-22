@@ -21,9 +21,8 @@ require 'kramdown'
   end
 
   def category_label(category)
-    color = category&.color || "black"
-    name = category&.name || ""
-
+    color = html_escape(category&.color || "black")
+    name =  html_escape(category&.name || "")
     "<span class='label' style='background-color: #{color}'>#{name}</span>".html_safe
   end
 

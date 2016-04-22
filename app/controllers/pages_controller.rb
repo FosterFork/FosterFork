@@ -12,9 +12,9 @@ class PagesController < ApplicationController
 
     @projects_data = projects.map do |project|
       {
-        x: CGI.escape(project.latitude.to_s),
-        y: CGI.escape(project.longitude.to_s),
-        cat_id: project.category.id,
+        x:      ERB::Util.html_escape(project.latitude.to_s),
+        y:      ERB::Util.html_escape(project.longitude.to_s),
+        cat_id: ERB::Util.html_escape(project.category.id),
         url: project_popup_content_url(project),
         open: selected == project.id
       }

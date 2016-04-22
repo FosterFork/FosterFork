@@ -137,7 +137,7 @@
   createMapLayer('#{Settings.mapview.mapbox.project_id}', '#{Settings.mapview.mapbox.key}').addTo(mapview);
 
   icon = L.VectorMarkers.icon({
-    markerColor: "#{@project.category.color}",
+    markerColor: "#{h(@project.category.color)}",
     icon: "dot-circle-o",
   });
 
