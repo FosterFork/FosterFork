@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   validates_length_of :description, minimum: 20, maximum: 10000
 
   validates_presence_of :address
-  validates_length_of :address,     minimum: 10, maximum: 100
+  validates_length_of :address,     minimum: 5, maximum: 100
 
   validates_presence_of :city
   validates_length_of :city,        minimum: 2,  maximum: 30
