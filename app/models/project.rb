@@ -70,8 +70,10 @@ class Project < ActiveRecord::Base
     if self.approved? and self.approved_changed?
       ProjectMailer.approved_mail(self).deliver_now!
 
-      job = SendProjectNearYouJob.new
-      job.async.perform(self)
+      if self.public?
+        job = SendProjectNearYouJob.new
+        job.async.perform(self)
+      end
     end
   end
 
