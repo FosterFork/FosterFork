@@ -1,6 +1,6 @@
 %footer.footer
   .container
-    .row
+    .row.menu
       .col-md-4
         %h6= t('footer.information')
         %ul
@@ -34,10 +34,11 @@
                 %i{ class: "fa fa-fw #{sm[:fa_icon]} social-media-icon" }
                 %span= sm[:text]
 
-    .row.fosterfork
-      .col-md-12
-        .center
-          %p.small
-            =link_to "https://github.com/FosterFork/FosterFork", target: :new do
-              %i.fa.fa-tree
-              %i.fa.fa-code-fork
+    -unless Settings.ui.nil? || Settings.ui.hide_fosterfork_link
+      .row.fosterfork
+        .col-md-12
+          .center
+            %p.small
+              =link_to "https://github.com/FosterFork/FosterFork", target: :new do
+                %i.fa.fa-tree
+                %i.fa.fa-code-fork

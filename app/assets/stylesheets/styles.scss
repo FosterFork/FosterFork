@@ -24,13 +24,12 @@ body {
   position: absolute;
   width: 100%;
 
-  .container {
+  .row.menu {
     margin-top: 60px;
+    margin-bottom: 20px;
   }
 
   .row.fosterfork {
-    margin-top: 30px;
-
     a, a:hover {
       text-decoration: none;
     }
