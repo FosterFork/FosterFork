@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421172443) do
+ActiveRecord::Schema.define(version: 20160424175013) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 20160421172443) do
     t.decimal  "latitude",               precision: 15, scale: 10
     t.decimal  "longitude",              precision: 15, scale: 10
     t.boolean  "mail_on_nearby_project",                           default: false, null: false
+    t.decimal  "project_proximity"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

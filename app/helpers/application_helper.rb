@@ -56,4 +56,13 @@ module ApplicationHelper
     end
   end
 
+  def selectable_proximities
+    a = []
+    a << [ I18n.t("disabled"), 0 ]
+    [ 2, 5, 10, 20, 100, 200, 500 ].each do |i|
+      a << [ "#{i} km", i.to_f ]
+    end
+    a
+  end
+
 end

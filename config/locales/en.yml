@@ -17,6 +17,7 @@ en:
   show_all: "Show all"
   are_you_sure: "Are you sure?"
   administration: "Administration"
+  disabled: "disabled"
 
   nav:
     search: "Search"
@@ -188,6 +189,7 @@ en:
     labels:
       user:
         locale: "Language"
+        project_proximity: "Projects near you"
 
       project:
         participation_wanted: "Activate participation function"
@@ -222,6 +224,8 @@ en:
           it should contain letters, digits and special characters.
         password_confirmation: "The same password again, just in case of typos."
         newsletter: "Do you want to subscribe to the newsletter?"
+        project_proximity: >
+          Do you want to be notified on new projects that are emerging near you via email? Please select the maximum distance.
         mail_on_nearby_project: "Do you want to be notified on new projects that are emerging near you?"
         terms: "Check this box to state you have read and accepted the %{url}."
 

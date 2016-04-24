@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   permit_params :email, :name, :phone, :zip, :country, :locale,
-                :newsletter, :mail_on_nearby_project, :is_admin,
+                :newsletter, :project_proximity, :mail_on_nearby_project, :is_admin,
                 :latitude, :longitude, :uid, :provider
 
   index do
@@ -22,6 +22,7 @@ ActiveAdmin.register User do
       row :locale
       row :zip
       row :country
+      row :project_proximity
     end
 
     panel "Owned projects" do
@@ -129,6 +130,7 @@ ActiveAdmin.register User do
       f.input :zip
       f.input :country, as: :select, collection: selectable_countries
       f.input :locale
+      f.input :project_proximity
     end
 
     f.inputs "Flags" do

@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /\A.+@.+\z/
 
   geocoded_by :zip_and_country
-  after_validation :geocode, unless: ->(user) { user.zip_and_country.nil? }
+  after_validation :after_validation_trigger
 
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -77,6 +77,11 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def after_validation_trigger
+    self.geocode unless self.zip.blank? or self.country.blank?
+    self.project_proximity = nil if self.project_proximity == 0
+  end
 
   def set_locale
     self.locale = I18n.locale

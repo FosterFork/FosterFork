@@ -25,6 +25,10 @@
                     =f.input :password, placeholder: ''
                   .col-md-6
                     =f.input :password_confirmation
+
+            .form-group
+              =f.input :project_proximity, as: :select, collection: selectable_proximities, include_blank: false
+
             .form-group
               =f.input :newsletter, as: :boolean, wrapper: :checkbox
               =f.input :mail_on_nearby_project, as: :boolean, wrapper: :checkbox
