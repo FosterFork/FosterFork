@@ -50,7 +50,8 @@
                   =f.input :locale, as: :select, collection: selectable_locales, include_blank: false
 
                 .form-group
-                  =f.input :project_proximity, as: :select, collection: selectable_proximities, include_blank: false
+                  =f.input :project_proximity, as: :select, collection: selectable_proximities,
+                                               selected: f.object.project_proximity.to_i, include_blank: false
 
                 .form-group
                   =f.input :newsletter, as: :boolean, :wrapper => :checkbox
