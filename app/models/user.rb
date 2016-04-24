@@ -42,9 +42,9 @@ class User < ActiveRecord::Base
   def should_get_new_mail_about?(project)
     return false if self == project.owner
     return false if self.participation_in(project)
+    return false if self.project_proximity.nil?
     return false unless project.participation_wanted
     return false unless project.accessible_by?(self, nil)
-    return false unless self.mail_on_nearby_project
     true
   end
 

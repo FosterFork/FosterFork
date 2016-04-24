@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   permit_params :email, :name, :phone, :zip, :country, :locale,
-                :newsletter, :project_proximity, :mail_on_nearby_project, :is_admin,
+                :newsletter, :project_proximity, :is_admin,
                 :latitude, :longitude, :uid, :provider
 
   index do
@@ -95,7 +95,6 @@ ActiveAdmin.register User do
   sidebar "Flags", only: :show do
     attributes_table do
       row :newsletter
-      row :mail_on_nearby_project
       row :is_admin
     end
   end
@@ -135,7 +134,6 @@ ActiveAdmin.register User do
 
     f.inputs "Flags" do
       f.input :newsletter
-      f.input :mail_on_nearby_project
       f.input :is_admin
     end
 

@@ -210,7 +210,6 @@ de:
         country: "Land"
         locale: "Sprache"
         project_proximity: "Projekte in deiner Nähe"
-        mail_on_nearby_project: "Mailbenachrichtigung bei neuen Projekten"
         terms: "Nutzungsbedingungen"
 
       message:
@@ -247,7 +246,6 @@ de:
         password_confirmation: "Das selbe Passwort nochmal, um Tippfehler auszuschliessen."
         newsletter: "Willst du dich für den Newsletter anmelden? Diese Einstellung kann jederzeit geändert werden."
         project_proximity: "Möchtest du über neue Projekte in deiner Nähe per Email informiert werden? Wähle die maximale Distanz aus."
-        mail_on_nearby_project: "Möchtest du über neue Projekte in deiner Nähe informiert werden?"
         terms: "Hiermit bestätigst du, die %{url} gelesen zu haben und zu akzeptieren."
 
       project:

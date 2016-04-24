@@ -226,7 +226,6 @@ en:
         newsletter: "Do you want to subscribe to the newsletter?"
         project_proximity: >
           Do you want to be notified on new projects that are emerging near you via email? Please select the maximum distance.
-        mail_on_nearby_project: "Do you want to be notified on new projects that are emerging near you?"
         terms: "Check this box to state you have read and accepted the %{url}."
 
       project:

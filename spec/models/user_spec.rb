@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
 
     expect(u.should_get_new_mail_about?(p)).to be(false)
 
-    u.update_attribute(:mail_on_nearby_project, true)
+    u.update_attribute(:project_proximity, 10.0)
     expect(u.should_get_new_mail_about?(p)).to be(true)
 
     p.update_attribute(:participation_wanted, false)
