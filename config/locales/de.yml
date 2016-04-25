@@ -292,7 +292,7 @@ de:
       visit_project: "Projektseite besuchen"
 
       edit_project_text: "Um das Projekt zu bearbeiten, klicke bitte hier: "
-      visit_project: "Projekt bearbeiten"
+      edit_project: "Projekt bearbeiten"
 
     message:
       subject: "Neue Nachricht zu '%{project_title}': %{message_title}"
