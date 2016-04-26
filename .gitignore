@@ -27,3 +27,4 @@ app/assets/stylesheets/themes/*
 public/system
 
 *.tags*
+*.swp
