@@ -12,10 +12,13 @@
             .form-group
               =f.input :email, hint: ''
               =f.input :password, hint: ''
-              =f.input :remember_me, :as => :boolean, wrapper: :checkbox
+
+            %hr
 
             .form-group
-              = link_to t('devise.passwords.new.forgot_your_password'), new_password_path(:user), class: "btn btn-default", role: 'button'
+              =link_to t('devise.passwords.new.forgot_your_password'), new_password_path(:user), class: "btn btn-default btn-sm", role: 'button'
+            .form-group
+              =link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_user_confirmation_path(:user), class: "btn btn-default btn-sm", role: 'button'
 
             .form-group
               %hr
