@@ -226,6 +226,7 @@ en:
         newsletter: "Do you want to subscribe to the newsletter?"
         project_proximity: >
           Do you want to be notified on new projects that are emerging near you via email? Please select the maximum distance.
+          For this to work, we need the zip and country you are living in.
         terms: "Check this box to state you have read and accepted the %{url}."
 
       project:
@@ -238,7 +239,7 @@ en:
         recurrence: "Is this a recurring event?"
         address: >
           An address where the project is about to take place. We'll use that to determine the location of the map marker.
-          It will also be shown on the project page."
+          It will also be shown on the project page.
         public: "Check this box in order to make this project publicly exposed."
         participation_wanted: "Do you want to enable the participation feature for this project?"
         inquiries_allowed: >
