@@ -48,12 +48,12 @@ de:
 
   participation:
     join: "Mitmachen!"
-    joined: "Die AnmelDung zu diesem Projekt ist erfolgt!"
+    joined: "Die Anmeldung zu diesem Projekt ist erfolgt!"
     leave: "Aus diesem Projekt austreten"
-    left: "Die AbmelDung ist erfolgt, Du nimmst nicht mehr an diesem Projekt teil."
+    left: "Die Abmeldung ist erfolgt, Du nimmst nicht mehr an diesem Projekt teil."
     join_text: >
       Dieses Projekt sucht noch Menschen, die mitmachen. Mit einem Klick auf den grünen Knopf meldest Du Dich an. Du wirst dann
-      ab sofort über Neuigkeiten, die dieses Projekt betreffen, per Email informiert. Eine AbmelDung ist selbstverständlich
+      ab sofort über Neuigkeiten, die dieses Projekt betreffen, per Email informiert. Eine Abmeldung ist selbstverständlich
       jederzeit möglich.
     leave_text: >
       Du bist derzeit Teilnehmer in diesem Projekt. Solltest Du das ändern wollen, klicke bitte hier.
