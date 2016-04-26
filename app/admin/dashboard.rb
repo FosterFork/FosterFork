@@ -50,7 +50,9 @@ ActiveAdmin.register_page "Dashboard" do
 
             column :email
             column :phone
-            column :newsletter
+            column :confirmed do |user|
+              status_tag(user.confirmed?)
+            end
           end
         end
       end
