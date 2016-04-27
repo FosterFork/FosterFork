@@ -28,18 +28,21 @@ namespace :FosterFork do
   desc 'add fake users for testing'
   task add_fake_users: :environment do |_t, _args|
     ActiveRecord::Base.transaction do
+      ApplicationMailer.delivery_method = :test
+
       100.times do
         FakeGeo::set_stub
         password = Faker::Internet.password
 
-        u = User.create!(name: Faker::Name.name,
-                         email: Faker::Internet.email,
-                         newsletter: Faker::Boolean.boolean,
-                         phone: Faker::PhoneNumber.phone_number,
-                         zip: Faker::Address.zip_code,
-                         country: Settings.countries.shuffle.first,
-                         password: password,
-                         terms: "1")
+        u = User.create(name: Faker::Name.name,
+                        email: Faker::Internet.email,
+                        newsletter: Faker::Boolean.boolean,
+                        phone: Faker::PhoneNumber.phone_number,
+                        zip: Faker::Address.zip_code,
+                        country: Settings.countries.shuffle.first,
+                        password: password,
+                        confirmed_at: Time.now,
+                        terms: "1")
         puts "Created user: #{u.name} <#{u.email}>, password: #{password}"
       end
     end
