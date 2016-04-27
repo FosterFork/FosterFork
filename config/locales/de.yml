@@ -9,13 +9,13 @@ de:
   map: "Karte"
   terms_of_service: "Nutzungsbedingungen"
   new_user_account_text: >
-    Falls du noch keinen Account hast, kannst du hier einen erstellen.
+    Falls Du noch keinen Account hast, kannst Du hier einen erstellen.
   authenticate_with_oauth: >
-    Du kannst dich alternativ auch mit einer der folgenden Plattformen einloggen, sofern du dort ein Konto hast.
-    Klicke einfach auf das entsprechende Logo, du wirst dann weitergeleitet.
+    Du kannst Dich alternativ auch mit einer der folgenden Plattformen einloggen, sofern Du dort ein Konto hast.
+    Klicke einfach auf das entsprechende Logo, Du wirst dann weitergeleitet.
   results_found: "Es wurden %{count} Projekte zur Suchanfrage '%{q}' gefunden."
   show_all: "Alle anzeigen"
-  are_you_sure: "Bist du sicher?"
+  are_you_sure: "Bist Du sicher?"
   administration: "Administration"
   disabled: "deaktiviert"
 
@@ -40,23 +40,23 @@ de:
     password: "Passwort"
     participations: "Teilnahmen"
     delete_account_text: >
-      Hier kannst du dein Konto löschen. Dies entfernt alle deine Daten aus der Datenbank, inklusive von dir
+      Hier kannst Du Dein Konto löschen. Dies entfernt alle Deine Daten aus der Datenbank, inklusive von dir
       angelegte Projekte und Nachrichten. Diese Aktion kann nicht rückgängig gemacht werden.
-    oauth_text: "Dieses Konto ist durch %{provider} authentifiziert."
+    oauth_text: "Dieses Konto ist Durch %{provider} authentifiziert."
     own_projects: "Von dir gestartete Projekte"
-    participating_projects: "Projekte, an denen du teilnimmst"
+    participating_projects: "Projekte, an denen Du teilnimmst"
 
   participation:
     join: "Mitmachen!"
     joined: "Die Anmeldung zu diesem Projekt ist erfolgt!"
     leave: "Aus diesem Projekt austreten"
-    left: "Die Abmeldung ist erfolgt, du nimmst nicht mehr an diesem Projekt teil."
+    left: "Die Abmeldung ist erfolgt, Du nimmst nicht mehr an diesem Projekt teil."
     join_text: >
-      Dieses Projekt sucht noch Menschen, die mitmachen. Mit einem Klick auf den grünen Knopf meldest du dich an. Du wirst dann
+      Dieses Projekt sucht noch Menschen, die mitmachen. Mit einem Klick auf den grünen Knopf meldest Du Dich an. Du wirst dann
       ab sofort über Neuigkeiten, die dieses Projekt betreffen, per Email informiert. Eine Abmeldung ist selbstverständlich
       jederzeit möglich.
     leave_text: >
-      Du bist derzeit Teilnehmer in diesem Projekt. Solltest du das ändern wollen, klicke bitte hier.
+      Du bist derzeit Teilnehmer in diesem Projekt. Solltest Du das ändern wollen, klicke bitte hier.
 
   share:
     title: "Teilen"
@@ -74,23 +74,23 @@ de:
   abuse_report:
     report: "Mißbrauch melden"
     report_text: >
-      Falls du Bedenken bezüglich dieses Projektes hast oder einen Mißbrauch vermutest,
+      Falls Du Bedenken bezüglich dieses Projektes hast oder einen Mißbrauch vermutest,
       gib uns bitte Bescheid. Die Administratoren der Plattform werden sich darum kümmern.
-    thank_you: "Vielen Dank, wir werden uns um deinen gemeldeten Mißbrauch kümmern!"
+    thank_you: "Vielen Dank, wir werden uns um Deinen gemeldeten Mißbrauch kümmern!"
 
   inquiry:
     send: "Anfrage stellen"
     send_text: >
       Möchtest Du die Initiator:innen dieses Projektes direkt kontaktieren? Dann klicke bitte hier.
-    thank_you: "Vielen Dank, deine Nachricht wird verschickt."
+    thank_you: "Vielen Dank, Deine Nachricht wird verschickt."
 
   project:
-    not_found: "Das Projekt, das du sehen wolltest, existiert nicht in unserer Datenbank."
+    not_found: "Das Projekt, das Du sehen wolltest, existiert nicht in unserer Datenbank."
     add: "Neues Projekt anlegen"
     name: "Projektname"
     edit: "Projekt bearbeiten"
     admin_text: >
-      Sie sind der/die Initiator:in dieses Projektes. Auf der Adminseite kannst du Änderungen vornehmen
+      Sie sind der/die Initiator:in dieses Projektes. Auf der Adminseite kannst Du Änderungen vornehmen
       und Mitmacher:innen per Email erreichen.
 
     overview: "Übersicht"
@@ -111,18 +111,18 @@ de:
     public: "Projekt ist öffentlich"
     secret: "Projekt ist geheim"
     new_secret_text: >
-      Hier hast du die Möglichkeit, den geheimen Zugangsschlüssel, mit dem du Menschen zu diesem Projekt einladen kannst,
+      Hier hast Du die Möglichkeit, den geheimen Zugangsschlüssel, mit dem Du Menschen zu diesem Projekt einladen kannst,
       zu ändern. Bitte beachte, dass der bisherige Link damit ungültig wird.
     new_secret: "Neuen Schlüssel erstellen"
     new_secret_generated: "Es wurde ein neuer Schlüssel für dieses Projekt erstellt."
 
     delete: "Projekt löschen"
     delete_text: >
-      Wenn du dein Projekt löschen willst, kannst du dies hier tun. Diese Aktion kann nicht rückgängig gemacht
+      Wenn Du Dein Projekt löschen willst, kannst Du dies hier tun. Diese Aktion kann nicht rückgängig gemacht
       werden und löscht sämtliche damit verbundenen Daten aus der Datenbank.
     deleted: "Projekt wurde gelöscht."
 
-    link_to_secret: "Den Link, mit dem du Menschen persönlich zu diesem geheimen Projekt einladen können, findest du hier:"
+    link_to_secret: "Den Link, mit dem Du Menschen persönlich zu diesem geheimen Projekt einladen können, findest Du hier:"
     back_to_project: "Zurück zum Projekt"
 
   message:
@@ -209,7 +209,7 @@ de:
         city: "Stadt"
         country: "Land"
         locale: "Sprache"
-        project_proximity: "Projekte in deiner Nähe"
+        project_proximity: "Projekte in Deiner Nähe"
         terms: "Nutzungsbedingungen"
 
       message:
@@ -232,21 +232,23 @@ de:
 
     hints:
       user:
-        name: "Dein Name, so wie er auf der Webseite erscheinen soll, wenn du eine eigene Projekte einstellst oder an solchen teilnimmst."
+        name: "Dein Name, so wie er auf der Webseite erscheinen soll, wenn Du eine eigene Projekte einstellst oder an solchen teilnimmst."
         email: >
           Die E-Mailadresse ist für den Login und für Kontaktaufnahmen notwending und muss angegeben werden.
           Diese wird anderen Benutzern der Plattform niemals preisgegeben.
         phone: "Wenn De eine Telefonnummer angibst, können wir Dich bei Rückfragen anrufen."
-        zip: "Deine Postleitzahl. Mithilfe dieser Angabe sind wir in der Lage, Dich auf Projekte in deiner Umgebung aufmerksam zu machen."
-        country: "Das Land, in dem du lebst"
+        zip: "Deine Postleitzahl. Mithilfe dieser Angabe sind wir in der Lage, Dich auf Projekte in Deiner Umgebung aufmerksam zu machen."
+        country: "Das Land, in dem Du lebst"
         current_password: "Dein aktuelles Passwort"
         password: >
           Das Passwort muss mindestens 8 Zeichen lang sein und sollte aus Sicherheitsgründen Ziffern,
           Buchstaben und Sonderzeichen enthalten.
         password_confirmation: "Das selbe Passwort nochmal, um Tippfehler auszuschliessen."
-        newsletter: "Willst du dich für den Newsletter anmelden? Diese Einstellung kann jederzeit geändert werden."
-        project_proximity: "Möchtest du über neue Projekte in deiner Nähe per Email informiert werden? Wähle die maximale Distanz aus."
-        terms: "Hiermit bestätigst du, die %{url} gelesen zu haben und zu akzeptieren."
+        newsletter: "Willst Du Dich für den Newsletter anmelden? Diese Einstellung kann jederzeit geändert werden."
+        project_proximity: >
+          Möchtest Du über neue Projekte in Deiner Nähe per Email informiert werden? Wähle die maximale Distanz aus.
+          Um diese Funktion nutzen zu können, benötigen wir die PLZ und das Land, in dem Du lebst.
+        terms: "Hiermit bestätigst Du, die %{url} gelesen zu haben und zu akzeptieren."
 
       project:
         title: "Ein Titel für dieses Projekt. Sollte kurz und prägnant sein."
@@ -262,23 +264,23 @@ de:
         public: "Durch das Setzen dieses Häckchens wird das Projekt für alle Besucher der Seite öffentlich angezeigt."
         participation_wanted: "Soll die Mitmachfunktion für dieses Projekt aktiviert werden?"
         inquiries_allowed: >
-          Möchtest Du zulassen, dass angemeldete Benutzer dieser Webseite dich direkt kontaktieren können?
+          Möchtest Du zulassen, dass angemeldete Benutzer dieser Webseite Dich direkt kontaktieren können?
           Deine Emailadresse wird dabei nicht preisgegeben.
 
       abuse_report:
-        reason: "Gibt es etwas Spezielles, auf das du uns hinweisen möchtest? (Optionale Angabe)"
+        reason: "Gibt es etwas Spezielles, auf das Du uns hinweisen möchtest? (Optionale Angabe)"
 
       inquiry:
         content: >
-          Deine Nachricht an die Initiator:in dieses Projektes. Bitte beachte, dass wir dem Empfänger der Nachricht deine Emailadresse
+          Deine Nachricht an die Initiator:in dieses Projektes. Bitte beachte, dass wir dem Empfänger der Nachricht Deine Emailadresse
           mitteilen, damit er/sie dir antworten kann.
 
       message:
-        comments_allowed: "Willst du Kommentare auf diese Nachricht zulassen?"
+        comments_allowed: "Willst Du Kommentare auf diese Nachricht zulassen?"
 
       image:
         alt: "Bitte gib eine Beschreibung ein, die zu diesem Bild angezeigt werden soll."
-        image: "Wähle ein Bild von deinem Computer aus. Wir empfehlen ein eines im Querformat mit einer Auflösung von mindestens 800x600 Pixeln."
+        image: "Wähle ein Bild von Deinem Computer aus. Wir empfehlen ein eines im Querformat mit einer Auflösung von mindestens 800x600 Pixeln."
 
     placeholders:
       user:
@@ -298,11 +300,11 @@ de:
       subject: "Neue Nachricht zu '%{project_title}': %{message_title}"
       hello: "Hallo"
       intro: >
-        Es gibt eine neue Nachricht zum Projekt %{project}, bei dem du auf %{platform} teilnimmst.
+        Es gibt eine neue Nachricht zum Projekt %{project}, bei dem Du auf %{platform} teilnimmst.
 
       author_writes: "%{author} schreibt:"
 
-      visit_project_text: "Wenn du mehr über den aktuellen Stand dieses Projektes erfahren willst, klicke bitte hier."
+      visit_project_text: "Wenn Du mehr über den aktuellen Stand dieses Projektes erfahren willst, klicke bitte hier."
       visit_project: "Projektseite besuchen"
 
       leave_project_text: "Du willst nicht mehr an diesem Projekt teilnehmen? Dann klicke bitte hier."
@@ -311,13 +313,13 @@ de:
     comment:
       subject: "Neuer Kommentar von %{author} zu '%{project_title}': %{message_title}"
       intro: >
-        Es gibt einen neuen Kommentar zur Nachricht %{message_title} im Projekt %{project}, bei dem du auf %{platform} teilnimmst.
+        Es gibt einen neuen Kommentar zur Nachricht %{message_title} im Projekt %{project}, bei dem Du auf %{platform} teilnimmst.
 
     new_project_near_you:
-      subject: "Neues Projekt in deiner Nähe: %{project_title}"
-      intro: "Wir wollten dich darüber informieren, dass ein neues Projekt in deiner Nähe gestartet wurde!"
+      subject: "Neues Projekt in Deiner Nähe: %{project_title}"
+      intro: "Wir wollten Dich darüber informieren, dass ein neues Projekt in Deiner Nähe gestartet wurde!"
       abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"
 
     inquiry:
-      intro: "Du hast eine neue Anfrage von %{author} zu deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem Du auf diese Email antwortest."
-      subject: "Neue Anfrage von %{author} zu deinem Projekt '%{project_title}'"
+      intro: "Du hast eine neue Anfrage von %{author} zu Deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem Du auf diese Email antwortest."
+      subject: "Neue Anfrage von %{author} zu Deinem Projekt '%{project_title}'"

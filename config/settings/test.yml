@@ -8,7 +8,7 @@ mail:
   from: 'me@localhost'
 
   default_url_options:
-    host: "test.host"
+    host: "www.example.com"
     port: 80
     protocol: "http"
 

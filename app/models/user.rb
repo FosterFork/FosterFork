@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   after_validation :after_validation_trigger
 
   devise :database_authenticatable, :omniauthable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   def zip_and_country
     return nil if self.zip.blank? or self.country.blank?
@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
     return false if self == project.owner
     return false if self.participation_in(project)
     return false if self.project_proximity.nil?
+    return false unless self.confirmed?
     return false unless project.participation_wanted
     return false unless project.accessible_by?(self, nil)
     true

@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-3
+    .col-md-6
+      = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title= t('devise.confirmations.new.resend_confirmation_instructions')
+
+          .panel-body
+            .form-group
+              = f.input :email, required: true, autofocus: true
+
+          .panel-footer
+            .form-actions.clearfix
+              =f.submit t('devise.confirmations.new.resend_confirmation_instructions'), class: "btn btn-primary"

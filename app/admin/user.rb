@@ -111,6 +111,7 @@ ActiveAdmin.register User do
       row :confirmation_token
       row :confirmed_at
       row :confirmation_sent_at
+      row :unconfirmed_email
     end
   end
 
