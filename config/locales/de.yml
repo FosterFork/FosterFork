@@ -54,24 +54,6 @@ de:
     create: "anlegen"
     new_projects_post: ""
 
-%h3= t('profile.projects')
-
-          .panel-body
-            %h4= t('profile.no_projects')
-
-            %p
-              #{t('profile.all_projects_pre')}
-              %a(href='/')=t('profile.show')
-              #{t('profile.all_projects_post')}
-
-            %p
-              #{t('profile.new-project_pre')}
-              %a(href='/projects/new')=t('profile.create')
-              #{t('profile.new-project_post')}
-
-
-
-
   participation:
     join: "Mitmachen!"
     joined: "Die Anmeldung zu diesem Projekt ist erfolgt!"
