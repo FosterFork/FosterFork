@@ -45,6 +45,14 @@ en:
     oauth_text: "This account is authenticated through %{provider}."
     own_projects: "Projects you started"
     participating_projects: "Projects you are participating in"
+    projects: "Your projects"
+    no_projects: "There are no projects you participate in or organize."
+    all_projects_pre: ""
+    show: "show"
+    all_projects_post: "all projects"
+    new_projects_pre: ""
+    create: "create"
+    new_projects_post: "a new project"
 
   participation:
     join: "Participate!"
