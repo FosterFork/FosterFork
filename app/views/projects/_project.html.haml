@@ -1,7 +1,10 @@
 .panel.panel-default
   .panel-heading
     .pull-right
-      =link_to category_label(project.category), project.category, class: 'category-label'
+      =link_to category_label(project.category), project.category,
+                                                   class: 'category-label',
+                                                   'data-toggle': 'tooltip', 'data-placement': 'bottom',
+                                                   title: t('filter_by_category')
 
     %h3.panel-title= project.title
 

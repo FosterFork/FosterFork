@@ -15,6 +15,7 @@ en:
     Simply click on the individual logo, we'll redirect you.
   results_found: "Found %{count} projects matching your query of '%{q}'."
   category_filter: "Only projects of category %{label} are shown."
+  filter_by_category: "Only show projects of this category"
   show_all: "Show all"
   are_you_sure: "Are you sure?"
   administration: "Administration"

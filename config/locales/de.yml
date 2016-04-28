@@ -15,6 +15,7 @@ de:
     Klicke einfach auf das entsprechende Logo, du wirst dann weitergeleitet.
   results_found: "Es wurden %{count} Projekte zur Suchanfrage '%{q}' gefunden."
   category_filter: "Es werden nur Projekte der Kategorie %{label} angezeigt."
+  filter_by_category: "Nur Projekte dieser Kategorie anzeigen"
   show_all: "Alle anzeigen"
   are_you_sure: "Bist Du sicher?"
   administration: "Administration"

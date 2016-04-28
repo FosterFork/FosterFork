@@ -6,7 +6,6 @@
         %br
         =link_to t('show_all'), projects_path, class: "btn btn-default", role: 'button'
 
-
       .center
         =will_paginate @projects, renderer: BootstrapPagination::Rails
 
@@ -14,3 +13,8 @@
 
       .center
         =will_paginate @projects, renderer: BootstrapPagination::Rails
+
+:javascript
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
