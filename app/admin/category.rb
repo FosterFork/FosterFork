@@ -13,6 +13,7 @@ ActiveAdmin.register Category do
     attributes_table do
       row :id
       row :name
+      row :slug
       row :color
       row :priority
     end
