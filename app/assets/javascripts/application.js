@@ -20,3 +20,4 @@
 //= require Leaflet.vector-markers
 //= require L.Control.Locate.min
 //= require map
+//= require tooltip
