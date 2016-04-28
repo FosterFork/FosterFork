@@ -1,4 +1,4 @@
-password = SecureRandom.hex(10)
+password = Devise.friendly_token(25)
 User.create!(name: "Admin",
              email: 'admin@example.org',
              password: password,
