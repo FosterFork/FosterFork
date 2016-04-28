@@ -14,6 +14,7 @@ de:
     Du kannst dich alternativ auch mit einer der folgenden Plattformen einloggen, sofern du dort ein Konto hast.
     Klicke einfach auf das entsprechende Logo, du wirst dann weitergeleitet.
   results_found: "Es wurden %{count} Projekte zur Suchanfrage '%{q}' gefunden."
+  category_filter: "Es werden nur Projekte der Kategorie %{label} angezeigt."
   show_all: "Alle anzeigen"
   are_you_sure: "Bist Du sicher?"
   administration: "Administration"

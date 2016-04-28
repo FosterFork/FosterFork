@@ -14,6 +14,7 @@ en:
     You may as well sign in using one of the following services in case you have an account there.
     Simply click on the individual logo, we'll redirect you.
   results_found: "Found %{count} projects matching your query of '%{q}'."
+  category_filter: "Only projects of category %{label} are shown."
   show_all: "Show all"
   are_you_sure: "Are you sure?"
   administration: "Administration"

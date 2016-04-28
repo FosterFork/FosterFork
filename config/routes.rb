@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   get 'profile/projects', to: 'profile#projects'
 
-  resources :users, only: [ :show ]
+  resources :users,      only: [ :show ]
+  resources :categories, only: [ :show ]
 
   resources :projects do
     resources :abuse_reports,  only: [ :create, :new ]

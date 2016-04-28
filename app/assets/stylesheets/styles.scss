@@ -18,6 +18,10 @@ body {
   color: white;
 }
 
+a.category-label, a.category-label:hover {
+  text-decoration: none;
+}
+
 .footer {
   bottom: 0;
   height: 100px;

@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     .pull-right
-      =category_label(project.category)
+      =link_to category_label(project.category), project.category, class: 'category-label'
 
     %h3.panel-title= project.title
 

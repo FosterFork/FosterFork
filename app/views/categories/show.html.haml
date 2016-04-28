@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-12
+      .well
+        %h2= t('category_filter', label: category_label(@category)).html_safe
+        %br
+        =link_to t('show_all'), projects_path, class: "btn btn-default", role: 'button'
+
+
+      .center
+        =will_paginate @projects, renderer: BootstrapPagination::Rails
+
+      =render @projects
+
+      .center
+        =will_paginate @projects, renderer: BootstrapPagination::Rails
