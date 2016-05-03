@@ -47,6 +47,14 @@ de:
     oauth_text: "Dieses Konto ist durch %{provider} authentifiziert."
     own_projects: "Von dir gestartete Projekte"
     participating_projects: "Projekte, an denen du teilnimmst"
+    projects: "Deine Projekte"
+    no_projects: "Es gibt keine Projekte, an denen du bereits teilnimmst, oder die du veranstaltest."
+    all_projects_pre: "Alle vorhandenen Projekte"
+    show: "anzeigen"
+    all_projects_post: ""
+    new_projects_pre: "Ein neues Projekt"
+    create: "anlegen"
+    new_projects_post: ""
 
   participation:
     join: "Mitmachen!"
@@ -54,7 +62,7 @@ de:
     leave: "Aus diesem Projekt austreten"
     left: "Die Abmeldung ist erfolgt, du nimmst nicht mehr an diesem Projekt teil."
     join_text: >
-      Dieses Projekt sucht noch Menschen, die mitmachen. Mit einem Klick auf den grünen Knopf meldest du dich an. Du wirst dann
+      Dieses Projekt sucht noch Menschen, die mitmachen. Mit einem Klick auf den grünen Knopf meldest du dich an. du wirst dann
       ab sofort über Neuigkeiten, die dieses Projekt betreffen, per Email informiert. Eine Abmeldung ist selbstverständlich
       jederzeit möglich.
     leave_text: >

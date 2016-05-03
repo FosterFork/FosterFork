@@ -17,3 +17,23 @@
     .row
       .col-md-12
         =render current_user.participating_projects
+
+  -if current_user.projects.empty? and current_user.participating_projects.empty?
+    .row
+      .col-md-2
+      .col-md-8
+        .panel.panel-default
+          .panel-heading
+            %h3= t('profile.projects')
+
+          .panel-body
+            %h4= t('profile.no_projects')
+
+            %p
+              #{t('profile.all_projects_pre')}
+              %a(href='/?locale=#{I18n.locale}')=t('profile.show')
+              #{t('profile.all_projects_post')}
+            %p
+              #{t('profile.new_projects_pre')}
+              %a(href='/projects/new?locale=#{I18n.locale}')=t('profile.create')
+              #{t('profile.new_projects_post')}
