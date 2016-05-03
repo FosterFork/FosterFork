@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :abuse_report do
     project
-    user
+    association :reporter, factory: :user
     reason "Blah"
   end
 end
