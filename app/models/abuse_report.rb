@@ -5,12 +5,22 @@ class AbuseReport < ActiveRecord::Base
 
   validates_presence_of :project
 
+  after_create :send_email
+
   scope :unresolved, -> do
     AbuseReport.where(resolver: nil)
   end
 
   scope :resolved, ->do
     AbuseReport.where.not(resolver: nil)
+  end
+
+  private
+
+  def send_email
+    if Settings.notification_emails&.new_abuse_report
+      AdminMailer.new_abuse_report_mail(self, Settings.notification_emails.new_abuse_report).deliver_now
+    end
   end
 
 end

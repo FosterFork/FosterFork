@@ -28,6 +28,10 @@ mail:
 #    port: 443
 #    protocol: "https"
 
+#notification_emails:
+#  new_abuse_report: "someone@example.com"
+#  new_unapproved_project: "someone@example.com"
+
 mapview:
   default_latitude:
   default_longitude:

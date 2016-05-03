@@ -28,4 +28,10 @@ RSpec.describe AbuseReport, type: :model do
     expect(ar.resolver).to be(nil)
   end
 
+  it "sends an admin notification email after creation" do
+    ar = AbuseReport.create(@attrs)
+    expect(last_email.to).to eq([Settings.notification_emails.new_abuse_report])
+    expect(last_email.subject).to include(ar.project.title)
+  end
+
 end

@@ -23,3 +23,7 @@ mapview:
   mapbox:
     project_id: 0
     key: 0
+
+notification_emails:
+  new_unapproved_project: "new.unapproved.project@example.com"
+  new_abuse_report: "new.abuse.report@example.com"

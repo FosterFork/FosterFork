@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
   after_validation :geocode
   after_validation :after_validation_trigger
   before_create :generate_secret!
+  after_create :after_create_trigger
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -74,6 +75,12 @@ class Project < ActiveRecord::Base
         job = SendProjectNearYouJob.new
         job.async.perform(self)
       end
+    end
+  end
+
+  def after_create_trigger
+    if !self.approved and Settings.notification_emails&.new_unapproved_project
+      AdminMailer.new_unapproved_project_mail(self, Settings.notification_emails.new_unapproved_project).deliver_now
     end
   end
 
