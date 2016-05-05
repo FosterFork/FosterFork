@@ -45,6 +45,9 @@ en:
       Here you may delete your account. This will wipe all information from our database, including all projects
       and messages you created. This operation cannot be undone.
     oauth_text: "This account is authenticated through %{provider}."
+    no_projects_title: There is nothing to show here yet
+    no_projects: >
+      You are not currently participating in any project, and you haven't started your own ones yet.
     own_projects: "Projects you started"
     participating_projects: "Projects you are participating in"
 

@@ -16,7 +16,7 @@ de:
   results_found: "Es wurden %{count} Projekte zur Suchanfrage '%{q}' gefunden."
   category_filter: "Es werden nur Projekte der Kategorie %{label} angezeigt."
   filter_by_category: "Nur Projekte dieser Kategorie anzeigen"
-  show_all: "Alle anzeigen"
+  show_all: "Alle Projekte anzeigen"
   are_you_sure: "Bist Du sicher?"
   administration: "Administration"
   disabled: "deaktiviert"
@@ -45,6 +45,9 @@ de:
       Hier kannst du dein Konto löschen. Dies entfernt alle deine Daten aus der Datenbank, inklusive von dir
       angelegte Projekte und Nachrichten. Diese Aktion kann nicht rückgängig gemacht werden.
     oauth_text: "Dieses Konto ist durch %{provider} authentifiziert."
+    no_projects_title: Hier gibt es leider noch nichts zu sehen
+    no_projects: >
+      Du nimmst derzeit an keinen Projekten teil und hast keine eigenen Projekte gestartet.
     own_projects: "Von dir gestartete Projekte"
     participating_projects: "Projekte, an denen du teilnimmst"
 

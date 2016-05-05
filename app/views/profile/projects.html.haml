@@ -1,19 +1,39 @@
 .container
 
-  -if current_user.projects.any?
-    .row
-      .col-md-12
-        %h2= t('profile.own_projects')
+  -if current_user.projects.empty? and current_user.participating_projects.empty?
+    .well
+      %h2= t('profile.no_projects_title')
+      %p= t('profile.no_projects')
 
-    .row
-      .col-md-12
-        =render current_user.projects
+      %hr
 
-  -if current_user.participating_projects.any?
-    .row
-      .col-md-12
-        %h2= t('profile.participating_projects')
+      =link_to projects_path, { class: "btn btn-default", role: 'button' } do
+        %i.fa.fa-fw.fa-list
+        =t('show_all')
 
-    .row
-      .col-md-12
-        =render current_user.participating_projects
+      =link_to new_project_path, { class: "btn btn-default", role: 'button' } do
+        %i.fa.fa-fw.fa-map-o
+        =t('go_to_map')
+
+      =link_to new_project_path, { class: "btn btn-default", role: 'button' } do
+        %i.fa.fa-fw.fa-plus
+        =t('project.add')
+
+  -else
+    -if current_user.projects.any?
+      .row
+        .col-md-12
+          %h2= t('profile.own_projects')
+
+      .row
+        .col-md-12
+          =render current_user.projects
+
+    -if current_user.participating_projects.any?
+      .row
+        .col-md-12
+          %h2= t('profile.participating_projects')
+
+      .row
+        .col-md-12
+          =render current_user.participating_projects
