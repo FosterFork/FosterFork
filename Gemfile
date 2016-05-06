@@ -60,7 +60,6 @@ end
 
 group :development do
   gem 'brakeman', require: false
-  gem 'capistrano-rails'
   gem 'letter_opener'
   gem 'puma'
   gem 'spring'
