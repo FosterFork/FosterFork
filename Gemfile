@@ -62,6 +62,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'letter_opener'
   gem 'puma'
+  gem 'simplecov', require: false
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end

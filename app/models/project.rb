@@ -134,6 +134,7 @@ class Project < ActiveRecord::Base
   end
 
   def to_ics
+    return nil unless self.date
     project = self
 
     cal = RiCal.Calendar do

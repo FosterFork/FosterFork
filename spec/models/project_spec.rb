@@ -13,7 +13,8 @@ RSpec.describe Project, type: :model do
       abstract: Faker::Hipster.paragraph(3),
       description: Faker::Hipster.paragraph(100),
       country: "en",
-      recurrence: "none"
+      recurrence: "none",
+      date: Time.now - 2.days,
     }
   end
 
@@ -82,6 +83,11 @@ RSpec.describe Project, type: :model do
 
     p.recurrence = "monthly"
     expect(p.next_date.to_i).to be_equal((now + 1.month - 1.day + 19.hours).to_i)
+  end
+
+  it "can create an ICS file output" do
+    p = Project.new(@attrs.merge(recurrence: "daily"))
+    expect(p.to_ics).not_to be_empty
   end
 
   it "is only visible by appropriate users" do

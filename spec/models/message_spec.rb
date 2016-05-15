@@ -44,4 +44,12 @@ RSpec.describe Message, type: :model do
     expect(last_email.subject).to include(message.title)
   end
 
+  it "can be commented on by appropriate people" do
+    participation = FactoryGirl.create(:participation)
+    @attrs[:project] = participation.project
+    message = Message.create(@attrs)
+    expect(message.can_be_commented_on_by?(participation.user)).to be true
+    expect(message.can_be_commented_on_by?(FactoryGirl.create(:user))).to be false
+  end
+
 end
