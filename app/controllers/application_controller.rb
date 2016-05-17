@@ -7,11 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
-    if self.kind_of? ActiveAdmin::BaseController
-      I18n.locale = :en
-    else
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
+    I18n.locale = locale_for_request
   end
 
   def default_url_options(options = {})
@@ -38,6 +34,18 @@ class ApplicationController < ActionController::Base
 
       options
     end
+  end
+
+  private
+
+  def locale_for_request
+    return :en if self.kind_of? ActiveAdmin::BaseController
+    return params[:locale] if params[:locale].present?
+
+    http_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue nil
+    return http_locale if I18n.available_locales.include? http_locale&.to_sym
+
+    I18n.default_locale
   end
 
 end
