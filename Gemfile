@@ -55,6 +55,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'railroady'
+  gem 'simplecov', require: false
   gem 'rspec-rails'
 end
 
@@ -62,7 +63,6 @@ group :development do
   gem 'brakeman', require: false
   gem 'letter_opener'
   gem 'puma'
-  gem 'simplecov', require: false
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
