@@ -2,7 +2,7 @@ language: ruby
 gemfile:
 - Gemfile
 rvm:
-- 2.3.0
+- 2.3.1
 before_script:
 - cp config/database.yml.example config/database.yml
 script:
