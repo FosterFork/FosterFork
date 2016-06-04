@@ -322,7 +322,7 @@ de:
 
     new_project_near_you:
       subject: "Neues Projekt in deiner Nähe: %{project_title}"
-      intro: "Wir wollten dich darüber informieren, dass ein neues Projekt in deiner Nähe gestartet wurde!"
+      intro: "Wir wollen dich darüber informieren, dass ein neues Projekt in deiner Nähe gestartet wurde!"
       abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"
 
     inquiry:

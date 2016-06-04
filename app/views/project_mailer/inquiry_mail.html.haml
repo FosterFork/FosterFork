@@ -1,4 +1,4 @@
-%h1= "#{I18n.t('mailer.message.hello')} #{@recipient.name},"
+%h3= "#{I18n.t('mailer.message.hello')} #{@recipient.name},"
 
 .body
   %p= I18n.t('mailer.inquiry.intro', author: @sender.name, project_title: @project.title, platform: Settings.platform_name)
