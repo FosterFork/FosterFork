@@ -78,6 +78,7 @@
 
 }
 
-.leaflet-control-locate a {
+.leaflet-control-locate a,
+.leaflet-control-locate.requesting a {
   padding: 3px 0 0 0;
 }
