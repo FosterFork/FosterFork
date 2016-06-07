@@ -22,6 +22,11 @@ a.category-label, a.category-label:hover {
   text-decoration: none;
 }
 
+.label {
+  display: inline-block;
+  padding-top: 0.4em;
+}
+
 .footer {
   bottom: 0;
   height: 100px;
