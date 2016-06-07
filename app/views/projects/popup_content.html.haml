@@ -16,13 +16,12 @@
   .col-md-10
     =@project.owner.name
 
--if @project.date
-  .row
-    .col-md-1
-      .project-detail
-        %i.fa.fa-fw.fa-calendar
-    .col-md-10
-      =l @project.next_date, format: :short
+.row
+  .col-md-1
+    .project-detail
+      %i.fa.fa-fw.fa-calendar
+  .col-md-10
+    =l @project.next_date, format: :short
 
 -if @project.recurrence and @project.recurrence.to_sym != :none
   .row

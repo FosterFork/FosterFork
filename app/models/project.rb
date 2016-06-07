@@ -23,6 +23,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :owner
   validates_presence_of :category
   validates_presence_of :country
+  validates_presence_of :date
 
   validates_inclusion_of :recurrence, in: RECURRENCE_TYPES.map(&:to_s)
 

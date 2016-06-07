@@ -15,10 +15,9 @@
           %i.fa.fa-user.fa-fw
           =project.owner.name
 
-        -if project.date
-          .project-detail
-            %i.fa.fa-calendar.fa-fw
-            =l project.next_date, format: :short
+        .project-detail
+          %i.fa.fa-calendar.fa-fw
+          =l project.next_date, format: :short
 
         -if project.recurrence&.to_sym != :none
           .project-detail
