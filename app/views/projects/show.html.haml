@@ -24,9 +24,6 @@
                 %p
                   %i.fa.fa-user.fa-fw
                   =@project.owner.name
-                %p
-                  %i.fa.fa-pencil.fa-fw
-                  =l @project.last_update, format: :long
 
             .col-md-4
               .project-detail
@@ -34,18 +31,13 @@
                   %i.fa.fa-calendar.fa-fw
                   =l @project.next_date, format: :long
 
+            .col-md-4
+              .project-detail
                 -if @project.recurrence&.to_sym != :none
                   %p
                     %i.fa.fa-refresh.fa-fw
                     =t(@project.recurrence, scope: 'recurrence_types')
 
-            -if @project.participations.any?
-              .col-md-4
-                .project-detail
-                  %p
-                    %i.fa.fa-heart.fa-fw
-                    =@project.participations.length
-                    =t('project.participants')
   .row
     .col-md-9
       .panel.panel-default

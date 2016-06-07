@@ -31,12 +31,6 @@
           =project.zip
           =project.city
 
-        -if project.participation_wanted
-          .project-detail
-            %i.fa.fa-heart.fa-fw
-            =project.participations.length
-            =t('project.participants')
-
         -if project.messages.any?
           .project-detail
             %i.fa.fa-envelope-o.fa-fw

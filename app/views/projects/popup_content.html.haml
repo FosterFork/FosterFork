@@ -21,7 +21,7 @@
     .project-detail
       %i.fa.fa-fw.fa-calendar
   .col-md-10
-    =l @project.next_date, format: :short
+    =l @project.next_date, format: :long
 
 -if @project.recurrence and @project.recurrence.to_sym != :none
   .row
@@ -30,15 +30,6 @@
         %i.fa.fa-refresh.fa-fw
     .col-md-10
       =t(@project.recurrence, scope: 'recurrence_types')
-
--if @project.participation_wanted
-  .row
-    .col-md-1
-      .project-detail
-        %i.fa.fa-fw.fa-heart
-    .col-md-10
-      =@project.participations.count
-      =t('participants')
 
 .row
   .col-md-1
