@@ -37,6 +37,8 @@ ActiveAdmin.register TextBlock do
         layout_render_textblock(text_block)
       end
     end
+
+    active_admin_comments
   end
 end
 

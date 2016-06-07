@@ -90,6 +90,7 @@ ActiveAdmin.register User do
       end
     end
 
+    active_admin_comments
   end
 
   sidebar "Flags", only: :show do

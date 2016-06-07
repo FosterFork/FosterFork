@@ -111,6 +111,8 @@ ActiveAdmin.register Project do
         column :alt
       end
     end
+
+    active_admin_comments
   end
 
   form do |f|

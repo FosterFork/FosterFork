@@ -9,6 +9,8 @@ ActiveAdmin.register Image do
     panel :image do
       image_tag image.image.url(:normal)
     end
+
+    active_admin_comments
   end
 
   sidebar :dates, only: :show do
