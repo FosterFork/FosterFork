@@ -30,9 +30,10 @@
 
             .col-md-4
               .project-detail
-                %p
-                  %i.fa.fa-calendar.fa-fw
-                  =l @project.next_date, format: :long
+                -if @project.date
+                  %p
+                    %i.fa.fa-calendar.fa-fw
+                    =l @project.next_date, format: :long
 
                 -if @project.recurrence&.to_sym != :none
                   %p
