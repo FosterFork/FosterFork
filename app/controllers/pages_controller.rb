@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def map
-    projects = Project.publicly_visible
+    projects = Project.publicly_visible.where.not(latitude: nil)
     selected = params[:select].to_i rescue nil
     @categories_data = Category.all.map do |category|
       {
