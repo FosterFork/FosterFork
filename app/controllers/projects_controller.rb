@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
                               .order(:date)
     end
 
-    @projects = projects.paginate(page: params[:page])
+    @projects = projects.paginate(page: params[:page], per_page: 20)
   end
 
   def new
