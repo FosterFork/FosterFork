@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 
   get '/map',     to: 'pages#map'
 
-  get '/about',   to: 'text_blocks#about'
-  get '/contact', to: 'text_blocks#contact'
-  get '/imprint', to: 'text_blocks#imprint'
-  get '/terms',   to: 'text_blocks#terms'
+  get '/about',         to: 'text_blocks#about'
+  get '/instructions',  to: 'text_blocks#instructions'
+  get '/contact',       to: 'text_blocks#contact'
+  get '/imprint',       to: 'text_blocks#imprint'
+  get '/terms',         to: 'text_blocks#terms'
 
   get 'profile/projects', to: 'profile#projects'
 

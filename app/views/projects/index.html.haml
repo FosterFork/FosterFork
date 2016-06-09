@@ -9,6 +9,10 @@
             %i.fa.fa-map-o
             =t('go_to_map')
 
+          =link_to instructions_path, { class: "btn btn-default btn-lg", role: 'button' } do
+            %i.fa.fa-lightbulb-o
+            =t('footer.instructions')
+
       -if @q
         .panel.panel-default
           .panel-body

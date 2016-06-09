@@ -9,6 +9,10 @@
               %i.fa.fa-fw.fa-info.fa-1x
               %span= t('footer.about')
           %li
+            =link_to instructions_path do
+              %i.fa.fa-fw.fa-lightbulb-o.fa-1x
+              %span= t('footer.instructions')
+          %li
             =link_to contact_path do
               %i.fa.fa-fw.fa-envelope-o
               %span= t('footer.contact')
