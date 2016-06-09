@@ -71,7 +71,7 @@
     .col-md-3
       #rightColumn
 
-        -if Settings.sharing&.any?
+        -if @project.approved and @project.public and Settings.sharing&.any?
           .panel.panel-default
             .panel-heading
               %h3.panel-title
