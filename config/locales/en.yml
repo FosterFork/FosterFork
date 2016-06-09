@@ -90,6 +90,13 @@ en:
 
   project:
     not_found: "The project you were looking for does not exist."
+    awaiting_approval: >
+      Thank you very much for adding your project! Before it will be displayed on the map, it has to be approved by one of
+      the administrators of this platform. Right now, only you can see it.
+      This is a measure we take to prevent false or abusive content to be displayed.
+      In case of any problem with your project, we will get back to you. Usually, we review new projects quickly, but sometimes,
+      especially at night, it might take a little longer. Please refrain from sharing a link to your project until the approval
+      has happend. You'll be notified when that happens.
     add: "Add new project"
     name: "Project name"
     edit: "Edit project"

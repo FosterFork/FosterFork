@@ -53,12 +53,16 @@ class ProjectsController < ApplicationController
     @sharing_options = Settings.sharing[I18n.locale] || [] rescue []
 
     respond_to do |format|
-      format.html
-      format.atom
+      format.html do
+        flash.now[:error] = t('project.awaiting_approval') unless @project.approved
+      end
+
       format.ics do
         filename = "#{@project.id}-#{@project.slug}.ics"
         send_data(@project.to_ics, filename: filename, disposition: "inline; filename=#{filename}", type: "text/calendar")
       end
+
+      format.atom
     end
   end
 

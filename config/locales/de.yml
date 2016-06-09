@@ -91,6 +91,13 @@ de:
 
   project:
     not_found: "Das Projekt, das du sehen wolltest, existiert nicht in unserer Datenbank."
+    awaiting_approval: >
+      Vielen Dank für die Erstellung des Projektes! Bevor es auf der Karte angezeigt wird, muss es von den Administratoren
+      bestätigt werden, im Moment kannst nur du darauf zugreifen.
+      Damit wollen wir fehlerhaften und missbräuchlichen Projekteinträgen vorbeugen.
+      Sollte es Probleme mit deinem Projekt geben, melden wir uns bei dir. In der Regel bearbeiten wir neu eingehende
+      Projekte schnell, aber insbesondere nachts und in Ausnahmefällen kann sich die Bestätigung verzögern.
+      Bitte teile den Link zu diesem Projekt erst wenn die Bestätigung erfolgt ist.
     add: "Neues Projekt anlegen"
     name: "Projektname"
     edit: "Projekt bearbeiten"
