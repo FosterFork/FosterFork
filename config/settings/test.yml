@@ -19,6 +19,7 @@ tracking:
 mapview:
   default_latitude: 0
   default_longitude: 0
+  default_zoom: 10
 
   mapbox:
     project_id: 0
