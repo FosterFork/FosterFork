@@ -27,6 +27,8 @@ class ProjectsController < ApplicationController
     end
 
     @projects = projects.paginate(page: params[:page], per_page: 20)
+    @categories_data = categories_for_map
+    @projects_data = projects_for_map
   end
 
   def new

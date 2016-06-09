@@ -34,6 +34,27 @@ module ApplicationHelper
     "unknown"
   end
 
+  def projects_for_map(selected = nil)
+    Project.publicly_visible.where.not(latitude: nil).map do |project|
+      {
+        x:      ERB::Util.html_escape(project.latitude.to_s),
+        y:      ERB::Util.html_escape(project.longitude.to_s),
+        cat_id: ERB::Util.html_escape(project.category.id),
+        url: project_popup_content_url(project),
+        open: selected == project.id
+      }
+    end
+  end
+
+  def categories_for_map
+    Category.all.map do |category|
+      {
+        id: category.id,
+        color: category.color,
+      }
+    end
+  end
+
   def selectable_countries
     Settings.countries&.map do |c|
       [ I18n.t(c.upcase.to_sym, scope: :countries), c ]
