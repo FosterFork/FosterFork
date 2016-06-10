@@ -168,4 +168,9 @@ class Project < ActiveRecord::Base
     job.async.perform(self, comment)
   end
 
+  def self.json_for_plot
+    acc = 0
+    approved.map { |p| acc += 1; [ p.created_at, acc ] }.to_json
+  end
+
 end

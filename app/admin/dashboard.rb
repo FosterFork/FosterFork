@@ -177,5 +177,13 @@ ActiveAdmin.register_page "Dashboard" do
 
     end
 
+    columns do
+      column do
+        panel "Time plot" do
+          div id: "plot", style: "height: 300px; width: 100%;", "data-projects": Project.json_for_plot do
+          end
+        end
+      end
+    end
   end
 end
