@@ -6,7 +6,8 @@
           %h1.welcome= @welcome_textblock.title
           =layout_render_textblock(@welcome_textblock)
 
-          #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
+          =link_to map_path do
+            #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
           =link_to map_path, { class: "btn btn-info btn-lg", role: 'button' } do
             %i.fa.fa-map-o
             =t('go_to_map')
@@ -40,8 +41,6 @@
                  .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
   createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
                            accessToken: '#{Settings.mapview.mapbox.key}',
-                           minZoom: '#{Settings.mapview.default_zoom - 2}',
-                           maxZoom: '#{Settings.mapview.default_zoom - 2}',
                            attribution: null,
                            transparent: true,
                          }).addTo(mapview);
