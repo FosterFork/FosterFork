@@ -15,11 +15,17 @@ class Statistic < ActiveRecord::Base
     })
   end
 
-  def self.json_for_plot
+  def self.json_for_plot(key = nil)
     data = all.map do |s|
-      {
-        date: s.created_at.to_i * 1000,
-      }.merge s.data
+      d = { date: s.created_at.to_i * 1000 }
+
+      if key
+        d[key] = s.data[key]
+      else
+        d.merge! s.data
+      end
+
+      d
     end
 
     data.to_json
