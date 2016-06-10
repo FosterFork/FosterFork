@@ -37,11 +37,11 @@
   projects = $('#map').data('projects');
 
   var mapview = L.map('map', { zoomControl:false })
-                 .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 3});
+                 .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
   createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
                            accessToken: '#{Settings.mapview.mapbox.key}',
-                           minZoom: '#{Settings.mapview.default_zoom - 3}',
-                           maxZoom: '#{Settings.mapview.default_zoom - 3}',
+                           minZoom: '#{Settings.mapview.default_zoom - 2}',
+                           maxZoom: '#{Settings.mapview.default_zoom - 2}',
                            attribution: null,
                            transparent: true,
                          }).addTo(mapview);
