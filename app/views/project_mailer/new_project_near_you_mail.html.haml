@@ -1,17 +1,38 @@
 %h3= "#{I18n.t('mailer.message.hello')} #{@user.name},"
 
 .body
-  %p= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform: Settings.platform_name)
+  %p= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform_name: Settings.platform_name)
 
   .message-author
-    =I18n.t('mailer.new_project_near_you.abstract', owner: @project.owner.name)
+    =I18n.t('mailer.new_project_near_you.abstract',
+            project_category: @project.category.translated_name,
+            project_owner: @project.owner.name,
+            project_title: @project.title)
 
-  .message-content
-    %span= @project.abstract
+  %table{ class: "details", cellspacing: 5, cellpadding: 10, border: 0 }
+    %tr
+      %td
+        =I18n.t('project.location')
+      %td
+        ="#{@project.address}, #{@project.zip} #{@project.city}"
+
+    %tr
+      %td
+        =I18n.t('project.date')
+      %td
+        =l @project.next_date, format: :long
+
+    %tr
+      %td{ valign: "top" }
+        =I18n.t('project.description')
+      %td
+        =@project.abstract
+
+  %p= I18n.t('mailer.new_project_near_you.outro', platform_name: Settings.platform_name)
 
 .footer
   %span.small
     %p
-      =I18n.t('mailer.message.visit_project_text')
+      =I18n.t('mailer.message.visit_project_text', platform_name: Settings.platform_name)
       %br
       =link_to I18n.t('mailer.message.visit_project'), project_url(@project)

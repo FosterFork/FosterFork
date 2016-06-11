@@ -106,6 +106,10 @@ de:
       Sie sind der/die Initiator:in dieses Projektes. Auf der Adminseite kannst du Änderungen vornehmen
       und Mitmacher:innen per Email erreichen.
 
+    location: "Ort"
+    date: "Datum"
+    description: "Beschreibung"
+
     overview: "Übersicht"
     settings_and_texts: "Einstellungen und Texte"
     participants: "Teilnehmer:innen"
@@ -316,8 +320,10 @@ de:
         Es gibt eine neue Nachricht zum Projekt %{project}, bei dem du auf %{platform} teilnimmst.
 
       author_writes: "%{author} schreibt:"
+      visit_project_text: >
+        Mehr Informationen zu diesem Projekt findest du auf der Projektseite bei %{platform_name}.
+        Dort kannst du auch mit der/dem InitiatorIn Kontakt aufnehmen, das Projekt kommentieren und es auf Facebook oder Twitter teilen.
 
-      visit_project_text: "Wenn du mehr über den aktuellen Stand dieses Projektes erfahren willst, klicke bitte hier."
       visit_project: "Projektseite besuchen"
 
       leave_project_text: "Du willst nicht mehr an diesem Projekt teilnehmen? Dann klicke bitte hier."
@@ -330,8 +336,9 @@ de:
 
     new_project_near_you:
       subject: "Neues Projekt in deiner Nähe: %{project_title}"
-      intro: "Wir wollen dich darüber informieren, dass ein neues Projekt in deiner Nähe gestartet wurde!"
-      abstract: "Der/die Initiator:in %{owner} beschreibt das Projekt wie folgt:"
+      intro: "In deiner Nähe wurde ein neues Projekt auf %{platform_name} gestartet!"
+      abstract: "Das Projekt '%{project_title}' in der Kategorie '%{project_category}' wurde von %{project_owner} gestartet."
+      outro: "Du kannst auch jederzeit eigene Projekte bei %{platform_name} starten!"
 
     inquiry:
       intro: "Du hast eine neue Anfrage von %{author} zu deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem du auf diese Email antwortest."

@@ -1,13 +1,20 @@
 <%= I18n.t('mailer.message.hello') %> <%= @user.name %>,
 
-<%= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform: Settings.platform_name) %>
+<%= I18n.t('mailer.new_project_near_you.intro', project: @project.title, platform_name: Settings.platform_name) %>
 
-
-<%= I18n.t('mailer.new_project_near_you.abstract', owner: @project.owner.name) %>
+<%= I18n.t('mailer.new_project_near_you.abstract',
+           project_category: @project.category.translated_name,
+           project_owner: @project.owner.name,
+           project_title: @project.title) %>
 
 ---
+<%= I18n.t('project.location') %>: <%= "#{@project.address}, #{@project.zip} #{@project.city}" %>
+<%= I18n.t('project.date') %>: <%=l @project.next_date, format: :long %>
+<%= I18n.t('project.description') %>:
 <%= @project.abstract %>
 ---
 
-<%= I18n.t('mailer.message.visit_project_text') %>
+<%= I18n.t('mailer.new_project_near_you.outro', platform_name: Settings.platform_name) %>
+
+<%= I18n.t('mailer.message.visit_project_text', platform_name: Settings.platform_name) %>
 <%= project_url(@project) %>

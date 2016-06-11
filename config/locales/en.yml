@@ -105,6 +105,10 @@ en:
       You are the initiator of this project. On the admin page, you can change details of your project
       and reach out to its participants via email.
 
+    location: "Location"
+    date: "Date"
+    description: "Description"
+
     overview: "Overview"
     settings_and_texts: "Settings and texts"
     participants: "Participants"
@@ -295,6 +299,9 @@ en:
         There is a new message about the project %{project} which you are participating in on %{platform}.
 
       author_writes: "%{author} writes:"
+      visit_project_text: >
+        More information on this project can be found on the project page on %{platform_name}.
+        On this page, you may as well get into contact with the owners of this project, add a comment or share a link on Facebook or Twitter.
 
       visit_project_text: "If you want to know more about the current state of this project, please click here."
       visit_project: "Visit project page"
@@ -310,8 +317,9 @@ en:
 
     new_project_near_you:
       subject: "New project near you: %{project_title}"
-      intro: "We want to inform you about a new project that has been started just now!"
-      abstract: "The initiator %{owner} of this project describes the project as follows:"
+      intro: "A new project has been started near you on %{platform_name}!"
+      abstract: "The project '%{project_title}' in the catgegory '%{project_category}' was started by %{project_owner}."
+      outro: "You can as well add your own projects to %{platform_name}!"
 
     inquiry:
       intro: "You got a new inquiry from %{author} about your project '%{project_title}'. Get back to them by replying to this email."
