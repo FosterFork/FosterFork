@@ -81,8 +81,7 @@ namespace :FosterFork do
                             date: Faker::Time.forward(100),
                             public: Faker::Boolean.boolean(0.8),
                             approved: Faker::Boolean.boolean(0.8),
-                            active: Faker::Boolean.boolean(0.9),
-                            participation_wanted: Faker::Boolean.boolean(0.8))
+                            active: Faker::Boolean.boolean(0.9))
         puts "Created project: #{p.title} owned by <#{p.owner.email}>"
       end
     end
@@ -116,7 +115,7 @@ namespace :FosterFork do
       before_count = Participation.count
 
       500.times do
-        Participation.where(project: Project.where(participation_wanted: true).shuffle.first,
+        Participation.where(project: Project.all.shuffle.first,
                             user: User.all.shuffle.first).first_or_create
       end
 

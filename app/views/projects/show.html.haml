@@ -86,7 +86,7 @@
                         %i{ class: "fa fa-3x #{sharing_icon_for(k.to_sym)}" }
                         %span= t('link_text', scope: "sharing.#{k}")
 
-        -if @project.participation_wanted and @project.owner != current_user
+        -if @project.owner != current_user
           .panel.panel-default
             .panel-body
               -if user_signed_in?

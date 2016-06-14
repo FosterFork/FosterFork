@@ -63,14 +63,6 @@
                   =t('project.secret')
 
               %p
-                -if @project.participation_wanted
-                  %i.fa.fa-check.fa-fw
-                  =t('project.participation_wanted')
-                -else
-                  %i.fa.fa-minus.fa-fw
-                  =t('project.participation_not_wanted')
-
-              %p
                 -if @project.inquiries_allowed
                   %i.fa.fa-check.fa-fw
                   =t('project.inquiries_allowed')

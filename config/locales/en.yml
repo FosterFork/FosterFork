@@ -120,8 +120,6 @@ en:
     actions: "Actions"
     remove_participation: "remove"
 
-    participation_wanted: "Participation function is enabled"
-    participation_not_wanted: "Participation function is disabled"
     inquiries_allowed: "Inquiries are allowed"
     inquiries_not_allowed: "Inquiries are not allowed"
     public: "This project is public"
@@ -209,7 +207,6 @@ en:
         project_proximity: "Projects near you"
 
       project:
-        participation_wanted: "Activate participation function"
         abstract: "Abstract"
         description: "Description"
         inquiries_allowed: "Allow inquiries"
@@ -258,7 +255,6 @@ en:
           An address where the project is about to take place. We'll use that to determine the location of the map marker.
           It will also be shown on the project page.
         public: "Check this box in order to make this project publicly exposed."
-        participation_wanted: "Do you want to enable the participation feature for this project?"
         inquiries_allowed: >
           Do you want to allow registered users of this platform to contact you directly?
           Your email address is not disclosed by this.

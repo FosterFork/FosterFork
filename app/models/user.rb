@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
     return false if self.participation_in(project)
     return false if self.project_proximity.nil?
     return false unless self.confirmed?
-    return false unless project.participation_wanted
     return false unless project.accessible_by?(self, nil)
     true
   end

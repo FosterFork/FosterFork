@@ -6,7 +6,7 @@ ActiveAdmin.register Project do
 
   permit_params :owner, :category_id, :date, :recurrence,
                 :address, :city, :zip, :country,
-                :public, :approved, :active, :participation_wanted, :inquiries_allowed
+                :public, :approved, :active, :inquiries_allowed
 
   member_action :approve_project, method: :post do
     project = Project.friendly.find(params[:id])
@@ -34,7 +34,6 @@ ActiveAdmin.register Project do
     end
 
     column :public
-    column :participation_wanted
     column :approved
 
     actions
@@ -127,7 +126,6 @@ ActiveAdmin.register Project do
       f.input :public
       f.input :approved
       f.input :active
-      f.input :participation_wanted
       f.input :inquiries_allowed
     end
 
@@ -145,7 +143,6 @@ ActiveAdmin.register Project do
     attributes_table do
       row :approved
       row :public
-      row :participation_wanted
       row :inquiries_allowed
       row :active
     end
