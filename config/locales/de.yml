@@ -78,11 +78,11 @@ de:
     next_label: "nächste »"
 
   abuse_report:
-    report: "Mißbrauch melden"
+    report: "Missbrauch melden"
     report_text: >
-      Falls du Bedenken bezüglich dieses Projektes hast oder einen Mißbrauch vermutest,
+      Falls du Bedenken bezüglich dieses Projektes hast oder einen Missbrauch vermutest,
       gib uns bitte Bescheid. Die Administratoren der Plattform werden sich darum kümmern.
-    thank_you: "Vielen Dank, wir werden uns um deinen gemeldeten Mißbrauch kümmern!"
+    thank_you: "Vielen Dank, wir werden uns um deinen gemeldeten Missbrauch kümmern!"
 
   inquiry:
     send: "Anfrage stellen"
@@ -275,7 +275,7 @@ de:
           Falls es kein spezifisches Datum gibt, lasse dieses Feld einfach leer.
         recurrence: "Ist dies eine regelmäßig stattfindende Veranstaltung?"
         address: "Die Adresse, an der das Projekt stattfinden soll und mit deren Hilfe wir die Koordinaten auf der Karte ermitteln werden."
-        public: "Durch das Setzen dieses Häckchens wird das Projekt für alle Besucher der Seite öffentlich angezeigt."
+        public: "Durch das Setzen dieses Häkchens wird das Projekt für alle Besucher der Seite öffentlich angezeigt."
         inquiries_allowed: >
           Möchtest du zulassen, dass angemeldete Benutzer dieser Webseite dich direkt kontaktieren können?
           Deine Emailadresse wird dabei nicht preisgegeben.
