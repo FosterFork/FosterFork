@@ -196,6 +196,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.4.4)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -399,6 +400,7 @@ DEPENDENCIES
   leaflet-markercluster-rails
   leaflet-rails
   letter_opener
+  mysql2
   omniauth
   omniauth-facebook
   omniauth-github

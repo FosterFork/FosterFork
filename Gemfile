@@ -48,6 +48,7 @@ group :production do
   gem 'exception_notification'
   gem 'pg'
   gem 'unicorn'
+  gem 'mysql2'
 end
 
 group :development, :test do
