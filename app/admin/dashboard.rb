@@ -21,6 +21,9 @@ ActiveAdmin.register_page "Dashboard" do
               User.where(newsletter: true).count
             end
 
+            row("# of (future) projects shown on map") do
+              Project.publicly_visible.count
+            end
             row("# of public projects") do
               Project.where(public: true).count
             end
@@ -42,7 +45,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Newest Users" do
+        panel "Latest Users" do
           table_for User.order('id DESC').limit(10) do
             column :name do |user|
               link_to user.name, [:admin, user]
@@ -61,26 +64,29 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Newest Projects" do
-          table_for Project.order('id DESC').limit(10) do
+        panel "Latest Approved Projects" do
+          table_for Project.where(approved: true).order('id DESC').limit(10) do
             column :title do |project|
               link_to project.title, [:admin, project]
             end
 
             column :owner
+            column :date
             column :public
           end
         end
       end
 
       column do
-        panel "Unapproved Projects" do
+        panel "Latest Unapproved Projects" do
           table_for Project.where(approved: false).order('id DESC').limit(10) do
             column :title do |project|
               link_to project.title, [:admin, project]
             end
 
             column :owner
+            column :date
+            column :public
           end
         end
       end
