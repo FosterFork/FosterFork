@@ -1,5 +1,12 @@
 #map-container
   #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
+    .overlay
+      -@categories.each do |c|
+        %p
+          %span.label{ style: "background-color: #{c.color}" }
+            =check_box_tag c.id
+            =label_tag c.id do
+              =c.translated_name
 
 :javascript
   categories = $('#map').data('categories');
