@@ -5,6 +5,7 @@ ActiveAdmin.register Project do
   scope :publicly_visible
 
   permit_params :owner, :category_id, :date, :recurrence,
+                :title, :abstract, :description,
                 :address, :city, :zip, :country,
                 :public, :approved, :active, :inquiries_allowed
 
