@@ -122,6 +122,12 @@ ActiveAdmin.register Project do
       f.input :recurrence
     end
 
+    f.inputs "Texts" do
+      f.input :title
+      f.input :abstract
+      f.input :description, as: :pagedown_text
+    end
+
     f.inputs "Flags" do
       f.input :public
       f.input :approved
