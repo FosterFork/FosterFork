@@ -1,22 +1,6 @@
 .container
   .row
     .col-md-12
-      -if @welcome_textblock
-        .jumbotron
-          %h1.welcome= @welcome_textblock.title
-          =layout_render_textblock(@welcome_textblock)
-
-          =link_to map_path do
-            #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
-
-          =link_to map_path, { class: "btn btn-info btn-lg", role: 'button' } do
-            %i.fa.fa-map-o
-            =t('go_to_map')
-
-          =link_to instructions_path, { class: "btn btn-default btn-lg", role: 'button' } do
-            %i.fa.fa-lightbulb-o
-            =t('footer.instructions')
-
       -if @q
         .panel.panel-default
           .panel-body
@@ -25,22 +9,10 @@
 
             =link_to t('show_all'), projects_path, { class: "btn btn-default btn-lg", role: 'button' }
 
-      -if not @welcome_textblock
-        .center
-          =will_paginate @projects, renderer: BootstrapPagination::Rails
+      .center
+        =will_paginate @projects, renderer: BootstrapPagination::Rails
 
       =render @projects
 
       .center
         =will_paginate @projects, renderer: BootstrapPagination::Rails
-
-:javascript
-  categories = $('#map').data('categories');
-  projects = $('#map').data('projects');
-
-  var mapview = L.map('map', { zoomControl:false })
-                 .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
-  createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
-                   accessToken: '#{Settings.mapview.mapbox.key}',
-                 }).addTo(mapview);
-  createMapMarkerLayer(categories, projects).addTo(mapview);

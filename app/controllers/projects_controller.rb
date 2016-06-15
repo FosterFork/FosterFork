@@ -7,10 +7,6 @@ class ProjectsController < ApplicationController
     @page_title = t('nav.projects')
     @q = params[:q] unless params[:q].nil? or params[:q].empty?
 
-    unless @q or (params[:page] and params[:page].to_i > 1)
-      @welcome_textblock = TextBlock.block_for("welcome")
-    end
-
     if (@q)
       projects = Project.publicly_visible
                               .includes(:participations, :owner, :category, :messages, category: [ :translations ])
@@ -27,8 +23,6 @@ class ProjectsController < ApplicationController
     end
 
     @projects = projects.paginate(page: params[:page], per_page: 20)
-    @categories_data = categories_for_map
-    @projects_data = projects_for_map
   end
 
   def new
