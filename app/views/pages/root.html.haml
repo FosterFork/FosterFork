@@ -5,8 +5,12 @@
         %h1.welcome= @welcome_textblock.title
         =layout_render_textblock(@welcome_textblock)
 
-        =link_to map_path do
-          #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
+        -if @images.any?
+          #carousel
+            =render 'shared/carousel', images: @images
+        -else
+          =link_to map_path do
+            #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
 
         =link_to map_path, { class: "btn btn-default btn-lg", role: 'button' } do
           %i.fa.fa-map-o
@@ -21,12 +25,14 @@
           =t('footer.instructions')
 
 :javascript
-  categories = $('#map').data('categories');
-  projects = $('#map').data('projects');
+  if ($('#map')) {
+    categories = $('#map').data('categories');
+    projects = $('#map').data('projects');
 
-  var mapview = L.map('map', { zoomControl:false })
-                 .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
-  createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
-                   accessToken: '#{Settings.mapview.mapbox.key}',
-                 }).addTo(mapview);
-  createMapMarkerLayer(categories, projects).addTo(mapview);
+    var mapview = L.map('map', { zoomControl:false })
+                   .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
+    createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
+                     accessToken: '#{Settings.mapview.mapbox.key}',
+                   }).addTo(mapview);
+    createMapMarkerLayer(categories, projects).addTo(mapview);
+  }

@@ -57,7 +57,14 @@
             =@project.abstract
 
       -if @project.images.any?
-        =render 'carousel', project: @project
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title
+              %i.fa.fa-picture-o
+              =t('project.images')
+
+          .panel-body
+            =render 'shared/carousel', images: @project.images
 
       .panel.panel-default
         .panel-heading
