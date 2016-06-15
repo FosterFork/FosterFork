@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428113745) do
+ActiveRecord::Schema.define(version: 20160615163023) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -83,6 +83,18 @@ ActiveRecord::Schema.define(version: 20160428113745) do
   add_index "inquiries", ["project_id"], name: "index_inquiries_on_project_id"
   add_index "inquiries", ["user_id"], name: "index_inquiries_on_user_id"
 
+  create_table "layout_images", force: :cascade do |t|
+    t.string   "page"
+    t.string   "alt"
+    t.string   "locale"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -136,6 +148,12 @@ ActiveRecord::Schema.define(version: 20160428113745) do
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
+
+  create_table "statistics", force: :cascade do |t|
+    t.text     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "text_blocks", force: :cascade do |t|
     t.string   "name"
