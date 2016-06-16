@@ -30,6 +30,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  scope :confirmed, -> do
+   where.not(confirmed_at: nil)
+  end
+
+  scope :unconfirmed, -> do
+   where(confirmed_at: nil)
+  end
+
+  scope :admin, -> do
+   where(is_admin: true)
+  end
+
   def zip_and_country
     return nil if self.zip.blank? or self.country.blank?
     "#{self.zip} #{self.country}"

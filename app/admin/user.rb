@@ -1,4 +1,9 @@
 ActiveAdmin.register User do
+  scope :all
+  scope :confirmed
+  scope :unconfirmed
+  scope :admin
+
   permit_params :email, :name, :phone, :zip, :country, :locale,
                 :newsletter, :project_proximity, :is_admin,
                 :latitude, :longitude, :uid, :provider
