@@ -1,5 +1,6 @@
 ActiveAdmin.register Message do
-  menu :if => proc { false }
+  menu parent: "User Content"
+
   permit_params :title, :content, :comments_allowed
 
   show title: :title do

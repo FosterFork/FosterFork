@@ -1,7 +1,7 @@
 include ApplicationHelper
 
 ActiveAdmin.register_page "Statistic plots" do
-  menu label: "Statistic plots"
+  menu label: "Statistic plots", priority: 2
 
   content title: "Statistic plots" do
     Statistic.data_for_plot.each do |p|

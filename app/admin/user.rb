@@ -4,6 +4,8 @@ ActiveAdmin.register User do
   scope :unconfirmed
   scope :admin
 
+  menu parent: "User Content"
+
   permit_params :email, :name, :phone, :zip, :country, :locale,
                 :newsletter, :project_proximity, :is_admin,
                 :latitude, :longitude, :uid, :provider

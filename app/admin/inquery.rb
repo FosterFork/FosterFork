@@ -1,6 +1,8 @@
 ActiveAdmin.register Inquiry do
   permit_params :content
 
+  menu parent: "User Content"
+
   show title: :id do
     attributes_table do
       row :id

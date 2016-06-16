@@ -3,6 +3,8 @@ include LayoutHelper
 ActiveAdmin.register TextBlock do
   permit_params :name, :title, :body, :locale, :public
 
+  menu parent: "Admin Content"
+
   form do |f|
     inputs do
       input :name

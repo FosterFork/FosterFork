@@ -4,6 +4,8 @@ ActiveAdmin.register Project do
   scope :unapproved
   scope :publicly_visible
 
+  menu parent: "User Content"
+
   permit_params :owner, :category_id, :date, :recurrence,
                 :title, :abstract, :description,
                 :address, :city, :zip, :country,

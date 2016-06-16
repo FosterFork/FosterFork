@@ -1,6 +1,8 @@
 ActiveAdmin.register Category do
   permit_params :name, :color, :priority, translations_attributes: [ :id, :locale, :title ]
 
+  menu parent: "Admin Content"
+
   index do
     id_column
     column :name

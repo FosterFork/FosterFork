@@ -1,4 +1,6 @@
 ActiveAdmin.register Image do
+  menu parent: "User Content"
+
   show title: :id do
     attributes_table do
       row :id
