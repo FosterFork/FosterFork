@@ -22,6 +22,11 @@ feature 'Admin pages', type: :feature do
     expect(current_path).to eq(admin_dashboard_path)
   end
 
+  scenario "statistics" do
+    visit admin_statistic_plots_path
+    expect(current_path).to eq(admin_statistic_plots_path)
+  end
+
   scenario "abuse reports" do
     ar = FactoryGirl.create(:abuse_report)
 
