@@ -2,42 +2,73 @@ class Statistic < ActiveRecord::Base
   validates_presence_of :data
   serialize :data
 
+  SOURCES = [
+    {
+      proc:  -> { User.count },
+      key:   :users,
+      label: "Users",
+    },
+    {
+      proc:  -> { User.where.not(confirmed_at: nil).count },
+      key:   :confirmed_users,
+      label: "Confirmed users",
+    },
+    {
+      proc:  -> { Project.count },
+      key:   :projects,
+      label: "Projects",
+    },
+    {
+      proc:  -> { Project.publicly_visible.count },
+      key:   :publicly_visible_projects,
+      label: "Publicly visible projects",
+    },
+    {
+      proc:  -> { AbuseReport.where(resolver: nil).count },
+      key:   :unresolved_abuse_reports,
+      label: "Unresolved Abuse Reports",
+    },
+    {
+      proc:  -> { AbuseReport.where.not(resolver: nil).count },
+      key:   :resolved_abuse_reports,
+      label: "Resolved Abuse Reports",
+    },
+    {
+      proc:  -> { Message.count },
+      key:   :messages,
+      label: "Messages",
+    },
+    {
+      proc:  -> { Comment.count },
+      key:   :comments,
+      label: "Comments",
+    },
+  ]
+
   class << self
     def snapshot
-      create!(data: {
-        users: User.count,
-        confirmed_users: User.where.not(confirmed_at: nil).count,
-        projects: Project.count,
-        publicly_visible_projects: Project.publicly_visible.count,
-        unresolved_abuse_reports: AbuseReport.where(resolver: nil).count,
-        resolved_abuse_reports: AbuseReport.where.not(resolver: nil).count,
-        messages: Message.count,
-        comments: Comment.count,
-      })
-    end
+      data = {}
 
-    def json_for_plot(key = nil)
-      data = all.map do |s|
-        d = { date: s.created_at.to_i * 1000 }
-
-        if key
-          d[key] = s.data[key]
-        else
-          d.merge! s.data
-        end
-
-        d
+      SOURCES.each do |s|
+        data[s[:key]] = s[:proc].call
       end
 
-      data.to_json
+      create!(data: data)
     end
 
     def data_for_plot
-      [
-        { data: json_for_plot(:confirmed_users),           label: "Confirmed users" },
-        { data: json_for_plot(:projects),                  label: "Projects" },
-        { data: json_for_plot(:publicly_visible_projects), label: "Publicy visible projects" },
-      ]
+      SOURCES.map do |source|
+        key = source[:key]
+
+        data = all.map do |stat|
+          d = {}
+          d[:date] = stat.created_at.to_i * 1000
+          d[key] = stat.data[key]
+          d
+        end
+
+        { data: data.to_json, label: source[:label] }
+      end
     end
   end
 
