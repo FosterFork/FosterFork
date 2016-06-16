@@ -22,8 +22,23 @@ jQuery ->
 
               loop_data[k]['data'].push([d['date'], v])
 
-    console.log loop_data
-
     $.plot(div, Object.values(loop_data), {
-  			xaxis: { mode: "time" }
-  		})
+            series: {
+              lines: { show: true },
+              points: { show: true }
+            },
+            xaxis: { mode: "time" },
+            yaxis: {
+              ticks: 10,
+              tickDecimals: 0
+            },
+            grid: {
+              backgroundColor: { colors: [ "#fff", "#eee" ] },
+              borderWidth: {
+                top: 1,
+                right: 1,
+                bottom: 2,
+                left: 2
+              }
+            }
+          })
