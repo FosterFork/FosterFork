@@ -49,4 +49,6 @@
 .row
   .col-md-12
     .right
-      =link_to t('learn_more'), @project, { class: "btn btn-default", role: 'button' }
+      =link_to @project, { class: "btn btn-default", role: 'button' } do
+        %i.fa.fa-hand-o-right
+        =t('go_to_project')
