@@ -140,6 +140,7 @@ SimpleForm.setup do |config|
   # Check the Bootstrap docs (http://getbootstrap.com)
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
+  config.browser_validations = false
   config.default_wrapper = :vertical_form
   config.wrapper_mappings = {
     check_boxes: :vertical_radio_and_checkboxes,
