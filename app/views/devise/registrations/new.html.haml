@@ -1,3 +1,5 @@
+=render 'shared/textblock_modal', text_block: TextBlock.block_for('terms')
+
 .container
   .row
     .col-md-3
@@ -32,7 +34,9 @@
             .form-group
               =f.input :newsletter, as: :boolean, wrapper: :checkbox
               =f.input :terms, as: :boolean, wrapper: :checkbox,
-                       hint: t('simple_form.hints.user.terms', url: link_to(t('terms_of_service'), terms_path)).html_safe
+                       hint: t('simple_form.hints.user.terms',
+                               url: link_to(t('terms_of_service'), '#',
+                               data: { toggle: "modal", target: "#textBlockModal-terms" })).html_safe
 
             -if Settings.recaptcha
               .form-group

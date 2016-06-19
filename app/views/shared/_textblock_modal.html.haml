@@ -1,0 +1,11 @@
+.modal.fade{ id: "textBlockModal-#{text_block.name}", "aria-labelledby": "textBlockModalLabel-#{text_block.name}", role: "dialog", tabindex: "-1" }
+  .modal-dialog{ role: "document" }
+    .modal-content
+      .modal-header
+        %button.close{ "aria-label": t('cancel'), "data-dismiss": "modal", type: "button" }
+          %span{ "aria-hidden": "true" } ×
+        %h4{ id: "textBlockModalLabel-#{text_block.name}.modal-title" }
+          =text_block.title
+
+      .modal-body
+        =layout_render_textblock(text_block)
