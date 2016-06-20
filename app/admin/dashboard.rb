@@ -21,7 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
               User.where(newsletter: true).count
             end
 
-            row("# of (future) projects shown on map") do
+            row("# of publicy visible projects") do
               Project.publicly_visible.count
             end
             row("# of public projects") do
