@@ -2,73 +2,79 @@ class Statistic < ActiveRecord::Base
   validates_presence_of :data
   serialize :data
 
-  SOURCES = [
-    {
+  SOURCES = {
+    users: {
       proc:  -> { User.count },
-      key:   :users,
       label: "Users",
     },
-    {
+    confirmed_users: {
       proc:  -> { User.where.not(confirmed_at: nil).count },
-      key:   :confirmed_users,
       label: "Confirmed users",
     },
-    {
+    projects: {
       proc:  -> { Project.count },
-      key:   :projects,
       label: "Projects",
     },
-    {
+    publicly_visible_projects: {
       proc:  -> { Project.publicly_visible.count },
-      key:   :publicly_visible_projects,
       label: "Publicly visible projects",
     },
-    {
+    unresolved_abuse_reports: {
       proc:  -> { AbuseReport.where(resolver: nil).count },
-      key:   :unresolved_abuse_reports,
       label: "Unresolved Abuse Reports",
     },
-    {
+    resolved_abuse_reports: {
       proc:  -> { AbuseReport.where.not(resolver: nil).count },
-      key:   :resolved_abuse_reports,
       label: "Resolved Abuse Reports",
     },
-    {
+    messages: {
       proc:  -> { Message.count },
-      key:   :messages,
       label: "Messages",
     },
-    {
+    comments: {
       proc:  -> { Comment.count },
-      key:   :comments,
       label: "Comments",
     },
-  ]
+  }
 
   class << self
-    def snapshot
+    def current
       data = {}
 
-      SOURCES.each do |s|
-        data[s[:key]] = s[:proc].call
+      SOURCES.each_pair do |k, v|
+        data[k] = v[:proc].call
       end
 
-      create!(data: data)
+      data
+    end
+
+    def snapshot
+      create!(data: current)
     end
 
     def data_for_plot
-      SOURCES.map do |source|
-        key = source[:key]
+      data = []
+      return data unless all.any?
 
-        data = all.map do |stat|
+      c = current
+
+      SOURCES.each_pair do |k, v|
+        source_data = all.map do |stat|
           d = {}
           d[:date] = stat.created_at.to_i * 1000
-          d[key] = stat.data[key]
+          d[k] = stat.data[k]
           d
         end
 
-        { data: data.to_json, label: source[:label] }
+        d = {}
+        d[:date] = Time.now.to_i * 1000
+        d[k] = c[k]
+        source_data << d
+
+        data << { data: source_data.to_json, label: v[:label] }
       end
+
+      data
     end
   end
 
