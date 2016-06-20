@@ -246,18 +246,18 @@ de:
 
     hints:
       user:
-        name: "Dein Name, so wie er auf der Webseite erscheinen soll, wenn du eine eigene Projekte einstellst oder an solchen teilnimmst."
+        name: "Dein Name, so wie er auf der Webseite erscheinen soll, wenn du eigene Projekte einstellst oder an solchen teilnimmst."
         email: >
-          Die E-Mailadresse ist für den Login und für Kontaktaufnahmen notwending und muss angegeben werden.
+          Die E-Mailadresse ist für den Login und für Kontaktaufnahme notwending und muss angegeben werden.
           Diese wird anderen Benutzern der Plattform niemals preisgegeben.
-        phone: "Wenn De eine Telefonnummer angibst, können wir dich bei Rückfragen anrufen."
+        phone: "Wenn du eine Telefonnummer angibst, können wir dich bei Rückfragen anrufen."
         zip: "Deine Postleitzahl. Mithilfe dieser Angabe sind wir in der Lage, dich auf Projekte in deiner Umgebung aufmerksam zu machen."
         country: "Das Land, in dem du lebst"
         current_password: "Dein aktuelles Passwort"
         password: >
           Das Passwort muss mindestens 8 Zeichen lang sein und sollte aus Sicherheitsgründen Ziffern,
           Buchstaben und Sonderzeichen enthalten.
-        password_confirmation: "Das selbe Passwort nochmal, um Tippfehler auszuschliessen."
+        password_confirmation: "Dasselbe Passwort nochmal, um Tippfehler auszuschließen."
         newsletter: "Willst du dich für den Newsletter anmelden? Diese Einstellung kann jederzeit geändert werden."
         project_proximity: >
           Möchtest du über neue Projekte in deiner Nähe per Email informiert werden? Wähle die maximale Distanz aus.
