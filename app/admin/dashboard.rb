@@ -52,7 +52,8 @@ ActiveAdmin.register_page "Dashboard" do
             end
 
             column :email
-            column :phone
+            column :zip
+            column :project_proximity
             column :confirmed do |user|
               status_tag(user.confirmed?)
             end
