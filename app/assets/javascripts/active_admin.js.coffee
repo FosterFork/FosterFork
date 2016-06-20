@@ -29,7 +29,7 @@ jQuery ->
     $.plot(div, data, {
             series: {
               lines: { show: true },
-              points: { show: true }
+              points: { show: false }
             },
             xaxis: { mode: "time" },
             yaxis: {
