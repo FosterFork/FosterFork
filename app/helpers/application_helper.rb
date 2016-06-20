@@ -47,7 +47,11 @@ module ApplicationHelper
   end
 
   def categories_for_map
-    Category.all.map do |category|
+    cs = Category.all.select do |c|
+      c.projects.any?
+    end
+
+    cs.map do |category|
       {
         id: category.id,
         color: category.color,
