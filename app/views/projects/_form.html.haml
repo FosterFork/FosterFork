@@ -6,7 +6,7 @@
 =f.input :description, input_html: { rows: 20 }, hint: t('simple_form.hints.project.description', markdown: link_to_markdown_overview_url).html_safe
 .row
   .col-md-6
-    =f.input :date, as: :string, input_html: { value: @project.date.strftime(I18n.t("datetime.formats.ruby")) }
+    =f.input :date, as: :string, input_html: { value: @project.date&.strftime(I18n.t("datetime.formats.ruby")) }
   .col-md-6
     =f.input :recurrence, as: :select, collection: selectable_recurrence_types, include_blank: false
 
