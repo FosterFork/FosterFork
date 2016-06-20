@@ -24,10 +24,10 @@
 
     =render 'shared/header'
 
-    -unless user_signed_in?
-      =render 'shared/signin_modal'
-
     #main
       =yield
+
+    -unless user_signed_in?
+      =render 'shared/signin_modal'
 
   =render 'shared/footer'
