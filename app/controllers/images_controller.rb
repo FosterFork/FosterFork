@@ -6,8 +6,11 @@ class ImagesController < ApplicationController
   def create
     image = Image.new(permitted_params)
     image.project = @project
-    image.save!
-    redirect_to @project, flash: { success: t('image.created') }
+    if image.save
+      redirect_to @project, flash: { success: t('image.created') }
+    else
+      redirect_to @project
+    end
   end
 
   def destroy
