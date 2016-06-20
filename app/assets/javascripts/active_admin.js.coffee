@@ -22,7 +22,11 @@ jQuery ->
 
               loop_data[k]['data'].push([d['date'], v])
 
-    $.plot(div, Object.values(loop_data), {
+    data = []
+    for k, v of loop_data
+      data.push(v)
+
+    $.plot(div, data, {
             series: {
               lines: { show: true },
               points: { show: true }
