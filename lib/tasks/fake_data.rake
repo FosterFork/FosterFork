@@ -54,8 +54,8 @@ namespace :FosterFork do
       names = 10.times.collect { Faker::Hacker.adjective }.sort.uniq
 
       names.each do |name|
-        c = Category.create!(name: name,
-                             color: "#" + Faker::Color.hex_color[1..6])
+        Category.create!(name: name,
+                         color: "#" + Faker::Color.hex_color[1..6])
         puts "Created category: #{name}"
       end
     end
