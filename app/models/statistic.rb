@@ -35,6 +35,10 @@ class Statistic < ActiveRecord::Base
       proc:  -> { Comment.count },
       label: "Comments",
     },
+    unapproved_projects: {
+      proc:  -> { Project.where(approved: false).count },
+      label: "Unapproved projects",
+    },
   }
 
   class << self
