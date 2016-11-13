@@ -10,7 +10,7 @@
 :javascript
   categories = $('#map').data('categories');
   projects = $('#map').data('projects');
-  markers = createMapMarkerLayer(categories, projects, true, true);
+  markers = createMapMarkerLayer(categories, projects, true, false);
 
   if (window.openMarker) {
     latlng = window.openMarker.getLatLng();
