@@ -13,7 +13,7 @@ var createMapMarkerLayer = function(categories, projects, enablePopups, enableCl
   });
 
   markers = L.markerClusterGroup({
-    disableClusteringAtZoom: enableClustering ? 9 : 1,
+    disableClusteringAtZoom: enableClustering ? 8 : 1,
   });
   window.openMarker = null;
   var icons = []
