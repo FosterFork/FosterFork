@@ -1,8 +1,15 @@
 %nav.navbar.navbar-default.navbar-fixed-top
-  .container
+  .container-fluid
     .navbar-header
+      %button.navbar-toggle.collapsed{ type: "button", "data-toggle": "collapse", "data-target": "#navbar-top", "aria-expanded": "false" }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
       =link_to Settings.platform_name, root_path, { class: "navbar-brand" }
-    #navbar.navbar-collapse.collapse
+
+    #navbar-top.navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li
           =link_to map_path do

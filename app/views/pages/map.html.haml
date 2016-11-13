@@ -1,6 +1,6 @@
 #map-container
   #map{ "data-categories": @categories_data.to_json, "data-projects": @projects_data.to_json }
-    .overlay
+    .overlay.hidden-xs
       -@categories.each do |c|
         %p
           %span.label{ style: "background-color: #{c.color}" }
