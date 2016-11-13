@@ -12,7 +12,9 @@ var createMapMarkerLayer = function(categories, projects, enablePopups) {
      options: { content_url: "" }
   });
 
-  markers = L.markerClusterGroup();
+  markers = L.markerClusterGroup({
+    disableClusteringAtZoom: 9,
+  });
   window.openMarker = null;
   var icons = []
 
