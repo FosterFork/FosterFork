@@ -27,6 +27,7 @@ de:
     profile: "Profil und Einstellungen"
     sign_out: "Ausloggen"
     go: "Los!"
+    language: "Sprache auswählen"
 
   footer:
     information: "Informationen"

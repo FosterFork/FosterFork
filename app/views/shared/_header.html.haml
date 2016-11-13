@@ -13,13 +13,15 @@
       %ul.nav.navbar-nav
         %li
           =link_to map_path do
-            %i.fa.fa-map-o
+            %i.fa.fa-fw.fa-map-o
+            %span.visible-xs-inline= t('go_to_map')
 
           -if I18n.available_locales.length > 1
             %li.dropdown
               %a.dropdown-toggle{ "aria-expanded": "false", "aria-haspopup": "true", "role": "button", "data-toggle": "dropdown", href: "#" }
-                %i.fa.fa-language{ "aria-hidden": "true" }
+                %i.fa.fa-fw.fa-language{ "aria-hidden": "true" }
                 %span.caret
+                %span.visible-xs-inline= t('nav.language')
               %ul.dropdown-menu
                 -Settings.locales.each_pair do |l, text|
                   %li
@@ -30,22 +32,23 @@
                         %i.fa.fa-fw.fa-square-o
                       =text
 
-        = form_tag(projects_path, method: :get, role: "search", class: "navbar-form navbar-left") do
-          .form-group
-            %input.form-control{ name: 'q', type: "text", placeholder: t('nav.search') + ' …' }
-            %button.btn.btn-default{ type: "submit" }
-              =t('nav.go')
+        %li
+          = form_tag(projects_path, method: :get, role: "search", class: "navbar-form navbar-left") do
+            .form-group
+              %input.form-control{ name: 'q', type: "text", placeholder: t('nav.search') + ' …' }
+              %button.btn.btn-default{ type: "submit" }
+                =t('nav.go')
 
       %ul.nav.navbar-nav.navbar-right
 
         -if user_signed_in?
           %li
             %button.btn.btn-success.navbar-btn{ onclick: "window.location='#{new_project_path}'", type: "button" }
-              %i.fa.fa-plus
+              %i.fa.fa-fw.fa-plus
 
           %li.dropdown
             %a.dropdown-toggle{ "aria-expanded": "false", "aria-haspopup": "true", "role": "button", "data-toggle": "dropdown", href: "#" }
-              %i.fa.fa-user{ "aria-hidden": "true" }
+              %i.fa.fa-fw.fa-user{ "aria-hidden": "true" }
               =current_user.name
               %span.caret
             %ul.dropdown-menu
@@ -75,11 +78,11 @@
                   =t('nav.sign_out')
         -else
           %li
-            %button.btn.btn-success.navbar-btn{ "data-toggle": "modal", "data-target": "#signInModal", type: "button" }
-              %i.fa.fa-plus
+            =link_to new_project_path do
+              %i.fa.fa-fw.fa-plus
               =t('project.add')
 
           %li
             =link_to "#", { "data-toggle": "modal", "data-target": "#signInModal" } do
-              %i.fa.fa-sign-in{ "aria-hidden": "true" }
+              %i.fa.fa-fw.fa-sign-in{ "aria-hidden": "true" }
               =t('devise.sessions.new.sign_in')

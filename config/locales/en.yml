@@ -27,6 +27,7 @@ en:
     profile: "Profile and Settings"
     sign_out: "Sign out"
     go: "Go!"
+    language: "Choose language"
 
   footer:
     information: "Information"
