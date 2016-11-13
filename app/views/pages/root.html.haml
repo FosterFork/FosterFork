@@ -29,4 +29,4 @@
   createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
                    accessToken: '#{Settings.mapview.mapbox.key}',
                  }).addTo(mapview);
-  createMapMarkerLayer(categories, projects).addTo(mapview);
+  createMapMarkerLayer(categories, projects, false, false).addTo(mapview);

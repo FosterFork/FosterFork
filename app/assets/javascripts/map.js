@@ -7,13 +7,13 @@ var createMapLayer = function(options) {
   )
 };
 
-var createMapMarkerLayer = function(categories, projects, enablePopups) {
+var createMapMarkerLayer = function(categories, projects, enablePopups, enableClustering) {
   customMarker = L.Marker.extend({
      options: { content_url: "" }
   });
 
   markers = L.markerClusterGroup({
-    disableClusteringAtZoom: 9,
+    disableClusteringAtZoom: enableClustering ? 9 : 1,
   });
   window.openMarker = null;
   var icons = []
