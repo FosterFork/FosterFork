@@ -1,6 +1,6 @@
 if Settings.recaptcha
   Recaptcha.configure do |config|
-    config.public_key  = Settings.recaptcha.site_key
-    config.private_key = Settings.recaptcha.secret_key
+    config.site_key  = Settings.recaptcha.site_key
+    config.secret_key = Settings.recaptcha.secret_key
   end
 end
