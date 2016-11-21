@@ -1,54 +1,33 @@
-.row
-  .col-md-12
-    %h4
-      =@project.title
+%h4
+  =@project.title
 
-.row
-  .col-md-1
-  .col-md-10
-    .project-detail
-      =category_label(@project.category)
+.project-detail
+  =category_label(@project.category)
 
-.row
-  .col-md-1
-    .project-detail
-      %i.fa.fa-fw.fa-user
-  .col-md-10
-    =@project.owner.name
+%p
+  %i.fa.fa-fw.fa-user
+  =@project.owner.name
 
-.row
-  .col-md-1
-    .project-detail
-      %i.fa.fa-fw.fa-calendar
-  .col-md-10
-    =l @project.next_date, format: :long
+%p
+  %i.fa.fa-fw.fa-calendar
+  =l @project.next_date, format: :long
 
 -if @project.recurrence and @project.recurrence.to_sym != :none
-  .row
-    .col-md-1
-      .project-detail
-        %i.fa.fa-refresh.fa-fw
-    .col-md-10
-      =t(@project.recurrence, scope: 'recurrence_types')
+  %p
+    %i.fa.fa-refresh.fa-fw
+    =t(@project.recurrence, scope: 'recurrence_types')
 
-.row
-  .col-md-1
-    .project-detail
-      %i.fa.fa-fw.fa-map-marker
-  .col-md-10
-    =@project.address
-    %br
-    =@project.zip
-    =@project.city
+%p
+  %i.fa.fa-fw.fa-map-marker
+  =@project.address
+  |
+  =@project.zip
+  =@project.city
 
-.row
-  .col-md-12
-    %p
-      =@project.abstract
+%p.hidden-xs
+  =@project.abstract
 
-.row
-  .col-md-12
-    .right
-      =link_to @project, { class: "btn btn-default", role: 'button' } do
-        %i.fa.fa-hand-o-right
-        =t('go_to_project')
+%p.right
+  =link_to @project, { class: "btn btn-default", role: 'button' } do
+    %i.fa.fa-hand-o-right
+    =t('go_to_project')
