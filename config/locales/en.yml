@@ -321,3 +321,13 @@ en:
     inquiry:
       intro: "You got a new inquiry from %{author} about your project '%{project_title}'. Get back to them by replying to this email."
       subject: "New inquiry from %{author} about your project '%{project_title}'"
+
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            longitude:
+              blank: >
+                We were unable to look up the coordinates of the adress you entered. The location is mandatory in order to show the
+                project on the map. Please check the address field again.

@@ -36,9 +36,13 @@ class ProjectsController < ApplicationController
     @project = Project.new(permitted_params)
     @project.owner = current_user
     @project.active = true
+
     if @project.save
       redirect_to @project
     else
+      if @project.errors.messages.has_key? :longitude
+        flash[:error] = @project.errors.messages[:longitude].first.chomp
+      end
       render :new
     end
   end
@@ -70,6 +74,9 @@ class ProjectsController < ApplicationController
     if @project.update(permitted_params.except(:title, :category_id))
       redirect_to @project
     else
+      if @project.errors.messages.has_key? :longitude
+        flash[:error] = @project.errors.messages[:longitude].first.chomp
+      end
       render :edit
     end
   end

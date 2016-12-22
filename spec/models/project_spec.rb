@@ -15,6 +15,7 @@ RSpec.describe Project, type: :model do
       country: "en",
       recurrence: "none",
       date: Time.now - 2.days,
+      longitude: 12.34567,
     }
   end
 

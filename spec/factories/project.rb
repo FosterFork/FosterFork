@@ -20,5 +20,6 @@ FactoryGirl.define do
     approved true
     active true
     inquiries_allowed true
+    longitude 12.34567
   end
 end

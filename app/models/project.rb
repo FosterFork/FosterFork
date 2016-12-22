@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   RECURRENCE_TYPES = [ :none, :daily, :weekly, :biweekly, :monthly ]
 
   geocoded_by :full_street_address
-  after_validation :geocode
+  before_validation :geocode
   after_validation :after_validation_trigger
   before_create :generate_secret!
   after_create :after_create_trigger
@@ -44,6 +44,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :zip
   validates_length_of :zip,         minimum: 4,  maximum: 10
+
+  validates_presence_of :longitude
 
   default_scope { includes(:owner, :participations) }
 

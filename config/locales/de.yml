@@ -340,3 +340,13 @@ de:
     inquiry:
       intro: "Du hast eine neue Anfrage von %{author} zu deinem Projekt '%{project_title}' erhalten. Nimm einfach Kontakt auf, indem du auf diese Email antwortest."
       subject: "Neue Anfrage von %{author} zu deinem Projekt '%{project_title}'"
+
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            longitude:
+              blank: >
+                Zu der angegebenen Adresse konnten wir keine Koordination ermitteln. Diese sind wichtig, um das Projekt auf der
+                Karte anzeigen zu können. Bitte überprüfe nochmals die Angaben.
