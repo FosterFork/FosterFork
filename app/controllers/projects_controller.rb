@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
                               .includes(:participations, :owner, :category, :messages, category: [ :translations ])
                               .ransack(title_cont: @q,
                                        description_cont: @q,
+                                       city_cont: @q,
                                        public: true,
                                        m: 'or',
                                        sort: 'date')
