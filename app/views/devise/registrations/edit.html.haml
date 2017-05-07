@@ -110,11 +110,10 @@
                 .form-actions
                   =f.submit t('devise.registrations.edit.cancel_my_account'), class: "btn btn-primary btn-danger"
 
-      -if resource.provider
+      -unless resource.provider.blank?
         .well
           .row
             .col-md-1
               %i{class: "fa fa-4x fa-#{get_omniauth_setting_for(resource.provider, :fa_icon)}"}
             .col-md-11
               %p= t('profile.oauth_text', provider: get_omniauth_setting_for(resource.provider, :pretty_name))
-
