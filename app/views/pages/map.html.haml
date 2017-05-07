@@ -21,7 +21,7 @@
   }
 
   var mapview = L.map('map').setView(latlng, zoom);
-  createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}', accessToken: '#{Settings.mapview.mapbox.key}' }).addTo(mapview);
+  createMapLayer('#{Settings.mapview.type}', {}).addTo(mapview);
 
   mapview.on('popupopen', function(e) {
     $.ajax({

@@ -26,7 +26,5 @@
 
   var mapview = L.map('map', { zoomControl:false })
                  .setView([#{Settings.mapview.default_latitude}, #{Settings.mapview.default_longitude}], #{Settings.mapview.default_zoom - 2});
-  createMapLayer({ id: '#{Settings.mapview.mapbox.project_id}',
-                   accessToken: '#{Settings.mapview.mapbox.key}',
-                 }).addTo(mapview);
+  createMapLayer('#{Settings.mapview.type}', {}).addTo(mapview);
   createMapMarkerLayer(categories, projects, false, false).addTo(mapview);

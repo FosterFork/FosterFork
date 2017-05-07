@@ -36,9 +36,8 @@ mapview:
   default_latitude:
   default_longitude:
   default_zoom: 11
-  mapbox:
-    project_id:
-    key:
+
+  type: 'osm'
 
 #geocoder:
 

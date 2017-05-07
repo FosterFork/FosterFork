@@ -20,10 +20,7 @@ mapview:
   default_latitude: 0
   default_longitude: 0
   default_zoom: 10
-
-  mapbox:
-    project_id: 0
-    key: 0
+  type: 'osm'
 
 notification_emails:
   new_unapproved_project: "new.unapproved.project@example.com"
