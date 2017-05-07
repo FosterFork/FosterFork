@@ -38,7 +38,7 @@
                 %i{ class: "fa fa-fw #{sm[:fa_icon]} social-media-icon" }
                 %span= sm[:text]
 
-    -unless Settings.ui.nil? || Settings.ui.hide_fosterfork_link
+    -unless Settings.ui && Settings.ui.hide_fosterfork_link
       .row.fosterfork
         .col-md-12
           .center
