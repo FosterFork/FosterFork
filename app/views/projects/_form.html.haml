@@ -2,6 +2,9 @@
   =f.input :title
   =f.input :category_id, as: :select, collection: selectable_categories, include_blank: false
 
+-if Tag.all.any?
+  =f.input :tag_ids, label: "Tags", as: :check_boxes, collection: Tag.all.map { |t| [ tag_label(t), t.id ] }
+
 =f.input :abstract
 =f.input :description, input_html: { rows: 20 }, hint: t('simple_form.hints.project.description', markdown: link_to_markdown_overview_url).html_safe
 .row

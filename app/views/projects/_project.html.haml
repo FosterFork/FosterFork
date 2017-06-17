@@ -5,6 +5,11 @@
                                                    class: 'category-label',
                                                    'data-toggle': 'tooltip', 'data-placement': 'bottom',
                                                    title: t('filter_by_category')
+      -project.tags.each do |tag|
+        =link_to tag_label(tag), tag,
+                                   class: 'tag-label',
+                                   'data-toggle': 'tooltip', 'data-placement': 'bottom',
+                                   title: t('filter_by_tag')
 
     %h3.panel-title= project.title
 

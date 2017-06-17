@@ -23,7 +23,13 @@ require 'kramdown'
   def category_label(category)
     color = html_escape(category&.color || "black")
     name =  html_escape(category&.translated_name || "")
-    "<span class='label' style='background-color: #{color}'>#{name}</span>".html_safe
+    "<span class='label category-label' style='background-color: #{color}'>#{name}</span>".html_safe
+  end
+
+  def tag_label(tag)
+    color = html_escape(tag&.color || "black")
+    name =  html_escape(tag&.translated_name || "")
+    "<span class='label tag-label' style='background-color: #{color}'>##{name}</span>".html_safe
   end
 
 end

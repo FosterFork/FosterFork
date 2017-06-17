@@ -87,6 +87,23 @@ namespace :FosterFork do
     end
   end
 
+  desc 'add fake tags for testing'
+  task add_fake_tags: :environment do |_t, _args|
+    ActiveRecord::Base.transaction do
+      names = 10.times.collect { Faker::Hacker.adjective }.sort.uniq
+
+      names.each do |name|
+        t = Tag.create!(name: name,
+                    color: "#" + Faker::Color.hex_color[1..6])
+        puts "Created tag: #{name}"
+
+        10.times do
+          t.projects << Project.all.shuffle.first
+        end
+      end
+    end
+  end
+
   desc 'add fake abuse_reports for testing'
   task add_fake_abuse_reports: :environment do |_t, _args|
     ActiveRecord::Base.transaction do

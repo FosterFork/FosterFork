@@ -3,7 +3,8 @@
 
 .project-detail
   =category_label(@project.category)
-
+  -@project.tags.each do |tag|
+    =tag_label(tag)
 %p
   %i.fa.fa-fw.fa-user
   =@project.owner.name

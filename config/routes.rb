@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :users,      only: [ :show ]
   resources :categories, only: [ :show ]
+  resources :tags,       only: [ :show ]
 
   resources :projects do
     resources :abuse_reports,  only: [ :create, :new ]

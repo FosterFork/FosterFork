@@ -217,3 +217,14 @@ body.text_blocks {
 .btn {
   margin-right: 5px;
 }
+
+.category-label {
+  text-transform: uppercase;
+}
+
+span.checkbox {
+  input[type="checkbox"] {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+}

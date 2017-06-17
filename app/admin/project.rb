@@ -9,7 +9,8 @@ ActiveAdmin.register Project do
   permit_params :owner, :category_id, :date, :recurrence,
                 :title, :abstract, :description,
                 :address, :city, :zip, :country,
-                :public, :approved, :active, :inquiries_allowed
+                :public, :approved, :active, :inquiries_allowed,
+                :tag_ids => []
 
   member_action :approve_project, method: :post do
     project = Project.friendly.find(params[:id])
@@ -48,6 +49,9 @@ ActiveAdmin.register Project do
 
       row :owner
       row :category
+      row :tags do |project|
+        project.tags.map { |tag| tag.name }.join(", ")
+      end
       row :title
       row :slug
 
@@ -121,6 +125,7 @@ ActiveAdmin.register Project do
     f.inputs "Details" do
       f.input :owner
       f.input :category
+      f.input :tags, as: :check_boxes
       f.input :date
       f.input :recurrence
     end

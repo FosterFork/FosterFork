@@ -117,9 +117,9 @@ class ProjectsController < ApplicationController
   end
 
   def permitted_params
-    params[:project].permit([ :title, :category_id, :abstract, :description, :date, :recurrence,
-                              :address, :zip, :city, :country, :public, :active,
-                              :inquiries_allowed ])
+    params[:project].permit(:title, :category_id, :abstract, :description, :date, :recurrence,
+                            :address, :zip, :city, :country, :public, :active,
+                            :inquiries_allowed, tag_ids: [])
   end
 
 end

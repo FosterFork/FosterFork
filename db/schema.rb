@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615163023) do
+ActiveRecord::Schema.define(version: 20170514163351) do
 
   create_table "abuse_reports", force: :cascade do |t|
     t.integer  "project_id"
@@ -149,11 +149,31 @@ ActiveRecord::Schema.define(version: 20160615163023) do
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
 
+  create_table "projects_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "projects_tags", ["project_id"], name: "index_projects_tags_on_project_id"
+  add_index "projects_tags", ["tag_id"], name: "index_projects_tags_on_tag_id"
+
   create_table "statistics", force: :cascade do |t|
     t.text     "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["slug"], name: "index_tags_on_slug", unique: true
 
   create_table "text_blocks", force: :cascade do |t|
     t.string   "name"
