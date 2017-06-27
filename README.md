@@ -79,7 +79,7 @@ unless explicitly stated differently. Please refer to the `LICENSE` file for mor
 
 # Contribute
 
-To contribute, please clone the project and send [pull requests through GitHub](https://github.com/FosterFork/FosterFork/pulls).
+To contribute, clone the project and send [pull requests through GitHub](https://github.com/FosterFork/FosterFork/pulls).
 
 Please make sure the test suite (run `rspec spec` on the command line) passes after your changes, and please add new tests
 for new features.
