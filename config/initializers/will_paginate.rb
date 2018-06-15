@@ -1,16 +1,11 @@
-if defined?(WillPaginate)
-  module WillPaginate
-    module ActiveRecord
-      module RelationMethods
-        alias_method :per, :per_page
-        alias_method :num_pages, :total_pages
-      end
-    end
-  end
-end
+require 'will_paginate/active_record'
 
-module ActiveRecord
-  class Relation
-    alias_method :total_count, :count
+module WillPaginate
+  module ActiveRecord
+    module RelationMethods
+      alias_method :per, :per_page
+      alias_method :num_pages, :total_pages
+      alias_method :total_count, :count
+    end
   end
 end
