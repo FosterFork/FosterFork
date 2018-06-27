@@ -50,7 +50,7 @@ group :production do
   gem 'exception_notification'
   gem 'pg'
   gem 'unicorn'
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.4.0'
 end
 
 group :development, :test do
