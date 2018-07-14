@@ -17,7 +17,7 @@ describe Users::RegistrationsController, type: :controller do
         get :edit
         expect(response).to redirect_to new_user_session_path
 
-        post :update, user: { name: "test" }
+        post :update, params: { user: { name: "test" }}
         expect(response).to redirect_to new_user_session_path
 
         sign_in FactoryGirl.create(:user)
@@ -35,14 +35,14 @@ describe Users::RegistrationsController, type: :controller do
         user.update(password: password)
 
         sign_in nil
-        put :update, user: { name: "test" }
+        put :update, params: { user: { name: "test" }}
         expect(response).to redirect_to new_user_session_path
         user.reload
         expect(user.name).to_not eq("test")
 
         sign_in user
         # this must work without entering a password
-        put :update, user: { name: "test" }
+        put :update, params: { user: { name: "test" }}
         expect(response).to have_http_status(:found)
         user.reload
         expect(user.name).to eq("test")
@@ -70,7 +70,7 @@ describe Users::RegistrationsController, type: :controller do
         expect(response).to render_template :edit
         expect(User.find(user.id)).to be_valid
 
-        delete :destroy, user: { current_password: password }
+        delete :destroy, params: { user: { current_password: password } }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to root_path
         expect(User.where(id: user.id)).to be_empty

@@ -11,12 +11,12 @@ describe ProfileController, type: :controller do
         user = FactoryGirl.create(:user)
 
         sign_in nil
-        get :projects, profile_id: user.id
+        get :projects, params: { profile_id: user.id }
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to new_user_session_path
 
         sign_in user
-        get :projects, profile_id: user.id
+        get :projects, params: { profile_id: user.id }
         expect(response).to have_http_status(:ok)
       end
     end

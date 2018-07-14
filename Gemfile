@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 5.2.0'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin_pagedown'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 gem 'config'
 gem 'devise'
 gem 'devise-i18n'
@@ -14,8 +14,8 @@ gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'geocoder'
 gem 'haml-rails'
-gem 'i18n-country-translations'
-gem 'jbuilder', '~> 2.0'
+#gem 'i18n-country-translations'
+gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kramdown'
 gem 'rails-assets-leaflet', source: 'https://rails-assets.org'
@@ -28,35 +28,35 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 gem 'paperclip'
 gem 'pry-rails'
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1'
 gem 'ransack'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'ri_cal'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'sqlite3'
 gem 'sucker_punch'
 gem 'therubyracer', require: "v8"
 gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'whenever', require: false
 gem 'will_paginate-bootstrap'
 
 group :doc do
-  gem 'sdoc', '~> 0.4.0'
+  gem 'sdoc'
 end
 
 group :production do
   gem 'exception_notification'
   gem 'pg'
   gem 'unicorn'
-  gem 'mysql2', '~> 0.4.0'
+  gem 'mysql2'
 end
 
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails'
   gem 'railroady'
   gem 'simplecov', require: false
   gem 'rspec-rails'
@@ -71,5 +71,5 @@ group :development do
 end
 
 group :test do
-  gem 'test_after_commit'
+  gem 'rails-controller-testing'
 end

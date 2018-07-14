@@ -13,11 +13,19 @@ describe CommentsController, type: :controller do
     it "accepts #create requests" do
       for_each_locale do
         sign_in nil
-        post :create, project_id: @message.project.id, message_id: @message.id, comment: { content: "bar" }
+        post :create, params: {
+          project_id: @message.project.id,
+          message_id: @message.id,
+          comment: { content: "bar" }
+        }
         expect(response).to redirect_to new_user_session_path
 
         sign_in @message.project.owner
-        post :create, project_id: @message.project.id, message_id: @message.id, comment: { content: "bar" }
+        post :create, params: {
+          project_id: @message.project.id,
+          message_id: @message.id,
+          comment: { content: "bar" }
+        }
         expect(response).to have_http_status(:found)
       end
     end
@@ -31,11 +39,19 @@ describe CommentsController, type: :controller do
         comment.save!
 
         sign_in nil
-        delete :destroy, project_id: @message.project.id, message_id: @message.id, id: comment.id
+        delete :destroy, params: {
+          project_id: @message.project.id,
+          message_id: @message.id,
+          id: comment.id
+        }
         expect(response).to redirect_to new_user_session_path
 
         sign_in @message.project.owner
-        delete :destroy, project_id: @message.project.id, message_id: @message.id, id: comment.id
+        delete :destroy, params: {
+          project_id: @message.project.id,
+          message_id: @message.id,
+          id: comment.id
+        }
         expect(response).to have_http_status(:found)
       end
     end

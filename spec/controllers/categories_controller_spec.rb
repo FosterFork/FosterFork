@@ -11,10 +11,10 @@ describe CategoriesController, type: :controller do
         project = FactoryGirl.create(:project)
         category = project.category
 
-        get :show, id: category.to_param
+        get :show, params: { id: category.to_param }
         expect(response).to render_template :show
 
-        get :show, id: 1234567
+        get :show, params: { id: 1234567 }
         expect(response).to redirect_to projects_path
       end
     end

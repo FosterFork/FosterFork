@@ -35,7 +35,7 @@ module FosterFork
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    #config.active_record.raise_in_transactional_callbacks = true
 
     raise "No secret key set in the settings file. Aborting." if Settings.secret_key.blank?
   end

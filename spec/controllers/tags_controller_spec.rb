@@ -12,10 +12,10 @@ RSpec.describe TagsController, type: :controller do
         tag = FactoryGirl.create(:tag)
         project.tags << tag
 
-        get :show, id: tag.to_param
+        get :show, params: { id: tag.to_param }
         expect(response).to render_template :show
 
-        get :show, id: 1234567
+        get :show, params: { id: 1234567 }
         expect(response).to redirect_to projects_path
       end
     end

@@ -24,18 +24,18 @@ describe ProjectsController, type: :controller do
 
         sign_in nil
 
-        get :show, id: project.id
+        get :show, params: { id: project.id }
         expect(response).to render_template :show
 
-        get :show, id: 1234567
+        get :show, params: { id: 1234567 }
         expect(response).to redirect_to projects_path
 
         project.update(public: false)
-        get :show, id: project.id
+        get :show, params: { id: project.id }
         expect(response).to have_http_status(:forbidden)
 
         sign_in project.owner
-        get :show, id: project.id
+        get :show, params: { id: project.id }
         expect(response).to render_template :show
       end
     end
@@ -62,15 +62,15 @@ describe ProjectsController, type: :controller do
         stranger = FactoryGirl.create(:user)
 
         sign_in nil
-        delete :destroy, id: project.id
+        delete :destroy, params: { id: project.id }
         expect(response).to have_http_status(:forbidden)
 
         sign_in stranger
-        delete :destroy, id: project.id
+        delete :destroy, params: { id: project.id }
         expect(response).to have_http_status(:forbidden)
 
         sign_in project.owner
-        delete :destroy, id: project.id
+        delete :destroy, params: { id: project.id }
         expect(response).to have_http_status(:found)
       end
     end
@@ -83,26 +83,26 @@ describe ProjectsController, type: :controller do
         stranger = FactoryGirl.create(:user)
 
         sign_in nil
-        put :update, id: project.id, project: {}
+        put :update, params: { id: project.id, project: {} }
         expect(response).to have_http_status(:forbidden)
 
         sign_in stranger
-        put :update, id: project.id, project: {}
+        put :update, params: { id: project.id, project: {} }
         expect(response).to have_http_status(:forbidden)
 
         sign_in project.owner
-        put :update, id: project.id, project: {}
+        put :update, params: { id: project.id, project: {} }
         expect(response).to have_http_status(:found)
 
         sign_in project.owner
         project.update(approved: false)
 
-        put :update, id: project.id, project: { approved: true }
+        put :update, params: { id: project.id, project: { approved: true } }
         expect(response).to have_http_status(:found)
         project.reload
         expect(project.approved).to be(false)
 
-        put :update, id: project.id, project: { public: false }
+        put :update, params: { id: project.id, project: { public: false } }
         expect(response).to have_http_status(:found)
         project.reload
         expect(project.approved).to be(false)

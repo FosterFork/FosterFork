@@ -72,6 +72,11 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if params[:project].nil?
+      redirect_to @project
+      return
+    end
+
     if @project.update(permitted_params.except(:title, :category_id))
       redirect_to @project
     else
