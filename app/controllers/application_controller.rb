@@ -40,10 +40,15 @@ class ApplicationController < ActionController::Base
 
   def locale_for_request
     return :en if self.kind_of? ActiveAdmin::BaseController
-    return params[:locale] if params[:locale].present?
+
+    if params[:locale].present? and I18n.available_locales.include? params[:locale].to_sym
+      return params[:locale]
+    end
 
     http_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue nil
-    return http_locale if I18n.available_locales.include? http_locale&.to_sym
+    if I18n.available_locales.include? http_locale&.to_sym
+      return http_locale
+    end
 
     I18n.default_locale
   end
