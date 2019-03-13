@@ -34,7 +34,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'ri_cal'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 gem 'sucker_punch'
 gem 'therubyracer', require: "v8"
 gem 'turbolinks'
