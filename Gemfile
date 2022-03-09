@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.2.0'
 
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~>2.8'
 gem 'activeadmin_pagedown'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'coffee-rails'
